@@ -1,17 +1,19 @@
 const React = require('react');
 import './Blackjack.css';
 
-import Deck from './Deck.js';
 import { FC } from 'react';
-import type { RootState } from '../store';
-import { useSelector, useDispatch } from 'react-redux';
+import Deck from './Deck.js';
+import Discard from './Discard.js'
 
 const Blackjack: FC = () => {
 
     return (
         <div className="blackjack">
             <div className="top">
-                <Deck />
+                <div className="top-container">
+                    <Discard />
+                    <Deck />
+                </div>
             </div>
         </div>
     );

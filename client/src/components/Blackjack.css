@@ -14,8 +14,16 @@ html {
     display: flex;
     justify-content: center;
     background: grey;
-    width: 40%;
+    width: 90%;
     height: 300px;
+    border: 2px solid black;
+}
+.top-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 50%;
+
 }
 
 .bot {

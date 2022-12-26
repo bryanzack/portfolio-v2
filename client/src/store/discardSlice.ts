@@ -2,32 +2,25 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-let fullDeck = (): number[] => {
-    let deck: number[] = [];
-    for (let i = 1; i <= 52; i++)
-        deck.push(i);
-    return deck;
-}
-
-export interface DeckState {
+export interface DiscardState {
     numCards: number,
     isEmpty: boolean,
     isFull: boolean,
     cards: number[],
 }
 
-const initialState: DeckState = {
-    numCards: 52,
-    isEmpty: false,
-    isFull: true,
-    cards: fullDeck(),
+const initialState: DiscardState = {
+    numCards: 0,
+    isEmpty: true,
+    isFull: false,
+    cards: [],
 }
 
-export const deckSlice = createSlice({
-    name: 'deck',
+const discardSlice = createSlice({
+    name: 'discard',
     initialState,
     reducers: {
-        addToDeck: (state, action: PayloadAction<number>) => {
+        addToDiscard: (state, action: PayloadAction<number>) => {
             if (state.numCards < 51) {
                 state.isEmpty = false;
                 state.numCards++;
@@ -38,9 +31,11 @@ export const deckSlice = createSlice({
                 state.cards.push(action.payload);
             } else if (state.numCards === 0) {
                 state.isEmpty = false;
+                state.numCards++;
+                state.cards.push(action.payload);
             }
         },
-        removeFromDeck: (state, action: PayloadAction<number>) => {
+        removeFromDiscard: (state, action: PayloadAction<number>) => {
             if (state.numCards > 1) {
                 state.isFull = false;
                 state.numCards--;
@@ -56,5 +51,5 @@ export const deckSlice = createSlice({
     },
 });
 
-export const { addToDeck, removeFromDeck } = deckSlice.actions;
-export default deckSlice.reducer;
+export const { addToDiscard, removeFromDiscard } = discardSlice.actions;
+export default discardSlice.reducer;

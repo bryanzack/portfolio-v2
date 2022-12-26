@@ -1,26 +1,20 @@
 "use strict";
 var _a;
 exports.__esModule = true;
-exports.removeFromDeck = exports.addToDeck = exports.deckSlice = void 0;
+exports.removeFromDiscard = exports.addToDiscard = void 0;
 /* eslint-disable */
 var toolkit_1 = require("@reduxjs/toolkit");
-var fullDeck = function () {
-    var deck = [];
-    for (var i = 1; i <= 52; i++)
-        deck.push(i);
-    return deck;
-};
 var initialState = {
-    numCards: 52,
-    isEmpty: false,
-    isFull: true,
-    cards: fullDeck()
+    numCards: 0,
+    isEmpty: true,
+    isFull: false,
+    cards: []
 };
-exports.deckSlice = (0, toolkit_1.createSlice)({
-    name: 'deck',
+var discardSlice = (0, toolkit_1.createSlice)({
+    name: 'discard',
     initialState: initialState,
     reducers: {
-        addToDeck: function (state, action) {
+        addToDiscard: function (state, action) {
             if (state.numCards < 51) {
                 state.isEmpty = false;
                 state.numCards++;
@@ -33,9 +27,11 @@ exports.deckSlice = (0, toolkit_1.createSlice)({
             }
             else if (state.numCards === 0) {
                 state.isEmpty = false;
+                state.numCards++;
+                state.cards.push(action.payload);
             }
         },
-        removeFromDeck: function (state, action) {
+        removeFromDiscard: function (state, action) {
             if (state.numCards > 1) {
                 state.isFull = false;
                 state.numCards--;
@@ -52,5 +48,5 @@ exports.deckSlice = (0, toolkit_1.createSlice)({
         }
     }
 });
-exports.addToDeck = (_a = exports.deckSlice.actions, _a.addToDeck), exports.removeFromDeck = _a.removeFromDeck;
-exports["default"] = exports.deckSlice.reducer;
+exports.addToDiscard = (_a = discardSlice.actions, _a.addToDiscard), exports.removeFromDiscard = _a.removeFromDiscard;
+exports["default"] = discardSlice.reducer;
