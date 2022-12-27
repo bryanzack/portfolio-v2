@@ -2,10 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export interface CardState {
     isFaceUp: boolean,
+    isTopCard: boolean,
 }
 
 const initialState: CardState = {
     isFaceUp: false,
+    isTopCard: false,
 }
 
 export const cardSlice = createSlice({

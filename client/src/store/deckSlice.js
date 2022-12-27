@@ -33,6 +33,8 @@ exports.deckSlice = (0, toolkit_1.createSlice)({
             }
             else if (state.numCards === 0) {
                 state.isEmpty = false;
+                state.numCards++;
+                state.cards.push(action.payload);
             }
         },
         removeFromDeck: function (state, action) {

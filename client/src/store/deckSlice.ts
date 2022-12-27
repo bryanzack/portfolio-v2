@@ -38,6 +38,8 @@ export const deckSlice = createSlice({
                 state.cards.push(action.payload);
             } else if (state.numCards === 0) {
                 state.isEmpty = false;
+                state.numCards++;
+                state.cards.push(action.payload);
             }
         },
         removeFromDeck: (state, action: PayloadAction<number>) => {

@@ -1,4 +1,21 @@
-.deck {
+.card {
+    position: absolute;
+    backface-visibility: hidden;
+
+}
+.card-back {
+    position: absolute;
+    backface-visibility: hidden;
+}
+.top-card-deck {
+    position: absolute;
+
+}
+.top-card-discard {
+    position: absolute;
+
+}
+.card-container {
     display: flex;
-    flex-direction: column;
+    position: relative;
 }

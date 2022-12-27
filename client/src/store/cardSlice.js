@@ -3,7 +3,8 @@ exports.__esModule = true;
 exports.flip = exports.cardSlice = void 0;
 var toolkit_1 = require("@reduxjs/toolkit");
 var initialState = {
-    isFaceUp: false
+    isFaceUp: false,
+    isTopCard: false
 };
 exports.cardSlice = (0, toolkit_1.createSlice)({
     name: 'card',

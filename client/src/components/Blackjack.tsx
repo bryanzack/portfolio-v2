@@ -19,15 +19,3 @@ const Blackjack: FC = () => {
     );
 }
 export default Blackjack;
-/*
-<div className="blackjack">
-    <button onClick={() => {
-        setIsVisible(v => !v);
-    }}>{isVisible ? 'un-mount' : 'mount'}</button>
-    <div className="container">
-        {transition((style, item) =>
-            item ? <animated.div style={style} className="item" /> : ''
-        )}
-    </div>
-</div>
- */
