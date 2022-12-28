@@ -19,6 +19,7 @@ html {
     border: 2px solid black;
 }
 .top-container {
+    transform-style: preserve-3d;
     display: flex;
     justify-content: space-between;
     flex-direction: row;

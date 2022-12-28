@@ -41,9 +41,7 @@ const Discard: FC = (props): ReactElement => {
                 </div>
                 <div className="cards">
                     {discardCards.map((index) => (
-                        <div key={index} className={(index === discardCards[discardCards.length-1]) ? 'top-card-discard' : 'card'}>
-                            <Card pile={"discard"} isTopCard={index ===discardCards[discardCards.length-1]} key={index} id={index}/>
-                        </div>
+                        <Card pile={"discard"} isTopCard={index ===discardCards[discardCards.length-1]} key={index} id={index}/>
                     ))}
                 </div>
             </div>

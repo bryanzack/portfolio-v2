@@ -33,7 +33,6 @@ var Deck = function (props) {
                 React.createElement("button", { onClick: function () { return handleClick(); } }, "Discard top of deck card"),
                 React.createElement("span", null, isDeckFull ? "full" : ""),
                 React.createElement("span", null, isDeckEmpty ? "empty" : "")),
-            React.createElement("div", { className: "cards" }, deckCards.map(function (index) { return (React.createElement("div", { key: index, className: (index === deckCards[deckCards.length - 1]) ? 'top-card-deck' : 'card' },
-                React.createElement(Card_js_1["default"], { pile: "deck", isTopCard: index === deckCards[deckCards.length - 1], key: index, id: index }))); })))));
+            React.createElement("div", { className: "cards" }, deckCards.map(function (index) { return (React.createElement(Card_js_1["default"], { pile: "deck", isTopCard: index === deckCards[deckCards.length - 1], key: index, id: index })); })))));
 };
 exports["default"] = Deck;

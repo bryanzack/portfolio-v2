@@ -33,7 +33,6 @@ var Discard = function (props) {
                 React.createElement("button", { onClick: function () { return handleClick(); } }, "Reclaim top of discard"),
                 React.createElement("span", null, isDiscardFull ? "full" : ""),
                 React.createElement("span", null, isDiscardEmpty ? "empty" : "")),
-            React.createElement("div", { className: "cards" }, discardCards.map(function (index) { return (React.createElement("div", { key: index, className: (index === discardCards[discardCards.length - 1]) ? 'top-card-discard' : 'card' },
-                React.createElement(Card_js_1["default"], { pile: "discard", isTopCard: index === discardCards[discardCards.length - 1], key: index, id: index }))); })))));
+            React.createElement("div", { className: "cards" }, discardCards.map(function (index) { return (React.createElement(Card_js_1["default"], { pile: "discard", isTopCard: index === discardCards[discardCards.length - 1], key: index, id: index })); })))));
 };
 exports["default"] = Discard;

@@ -1,21 +1,19 @@
-.card {
-    position: absolute;
+.card-front {
     backface-visibility: hidden;
-
+    position: absolute;
 }
 .card-back {
+    //backface-visibility: hidden;
     position: absolute;
-    backface-visibility: hidden;
 }
-.top-card-deck {
-    position: absolute;
 
-}
-.top-card-discard {
-    position: absolute;
-
-}
 .card-container {
+    transform-style: preserve-3d;
+    height: 100%;
+    width: 100%;
+    position:  absolute;
     display: flex;
-    position: relative;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
 }

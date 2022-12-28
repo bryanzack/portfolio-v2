@@ -44,9 +44,10 @@ const Deck: FC = (props): ReactElement => {
                 </div>
                 <div className="cards">
                     {deckCards.map((index) => (
-                        <div key={index} className={(index === deckCards[deckCards.length-1]) ? 'top-card-deck' : 'card'}>
-                            <Card pile={"deck"} isTopCard={index === deckCards[deckCards.length-1]} key={index} id={index}/>
-                        </div>
+                        <Card pile={"deck"}
+                              isTopCard={index === deckCards[deckCards.length-1]}
+                              key={index}
+                              id={index}/>
                     ))}
                 </div>
             </div>
