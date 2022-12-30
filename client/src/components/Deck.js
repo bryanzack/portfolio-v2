@@ -6,23 +6,33 @@ var react_1 = require("react");
 var react_redux_1 = require("react-redux");
 var deckSlice_1 = require("../store/deckSlice");
 var discardSlice_1 = require("../store/discardSlice");
-var cards_js_1 = require("./cards.js");
+var playerSlice_1 = require("../store/playerSlice");
 var Card_js_1 = require("./Card.js");
 var Deck = function (props) {
+    var _a = (0, react_1.useState)(false), test = _a[0], setTest = _a[1];
     var isDeckFull = (0, react_redux_1.useSelector)(function (state) { return state.deck.isFull; });
     var isDeckEmpty = (0, react_redux_1.useSelector)(function (state) { return state.deck.isEmpty; });
     var numDeckCards = (0, react_redux_1.useSelector)(function (state) { return state.deck.numCards; });
     var deckCards = (0, react_redux_1.useSelector)(function (state) { return state.deck.cards; });
-    var topOfDeck = (0, react_redux_1.useSelector)(function (state) { return state.deck.cards[state.deck.cards.length - 1]; });
+    var topOfDeck = (0, react_redux_1.useSelector)(function (state) { return deckCards[state.deck.cards.length - 1]; });
+    var numPlayerCards = (0, react_redux_1.useSelector)(function (state) { return state.player.numCards; });
     var dispatch = (0, react_redux_1.useDispatch)();
-    (0, react_1.useEffect)(function () {
-        if (numDeckCards > 0)
-            console.log("lastOfDeckVal: " + cards_js_1["default"][deckCards[deckCards.length - 1]].data);
-        else
-            console.log("empty deck");
-    }, [deckCards]);
-    var handleClick = function () {
-        dispatch((0, discardSlice_1.addToDiscard)(topOfDeck)) && dispatch((0, deckSlice_1.removeFromDeck)(topOfDeck));
+    var handleSingle = function (pile, topOfDeck) {
+        if (pile == 'discard') {
+            dispatch((0, discardSlice_1.addToDiscard)(topOfDeck));
+            dispatch((0, deckSlice_1.removeFromDeck)(topOfDeck));
+        }
+        else if (pile == 'player') {
+            dispatch((0, playerSlice_1.addToPlayer)(topOfDeck));
+            if (numPlayerCards < 3)
+                dispatch((0, deckSlice_1.removeFromDeck)(topOfDeck));
+        }
+    };
+    var handleAll = function (pile) {
+        var tmp = 0;
+        for (var i = topOfDeck; i > 0; i-- && tmp++) {
+            handleSingle(pile, topOfDeck - tmp);
+        }
     };
     return (React.createElement(React.Fragment, null,
         React.createElement("div", { className: "deck" },
@@ -30,7 +40,9 @@ var Deck = function (props) {
                 "numCards: ",
                 numDeckCards),
             React.createElement("div", { className: "deck-buttons" },
-                React.createElement("button", { onClick: function () { return handleClick(); } }, "Discard top of deck card"),
+                React.createElement("button", { onClick: function () { return handleSingle('discard', topOfDeck); } }, "Send to discard"),
+                React.createElement("button", { onClick: function () { return handleSingle('player', topOfDeck); } }, "Deal card"),
+                React.createElement("button", { onClick: function () { return handleAll('discard'); } }, "Discard all"),
                 React.createElement("span", null, isDeckFull ? "full" : ""),
                 React.createElement("span", null, isDeckEmpty ? "empty" : "")),
             React.createElement("div", { className: "cards" }, deckCards.map(function (index) { return (React.createElement(Card_js_1["default"], { pile: "deck", isTopCard: index === deckCards[deckCards.length - 1], key: index, id: index })); })))));

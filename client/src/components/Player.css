@@ -1,0 +1,15 @@
+.player {
+    transform-style: preserve-3d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+//align-items: center;
+    border: 2px solid black;
+    width: 250px;
+}
+.player-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

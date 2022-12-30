@@ -17,15 +17,16 @@ const Discard: FC = (props): ReactElement => {
     const topOfDiscard = useSelector((state: RootState) => state.discard.cards[state.discard.cards.length-1]);
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        if (numDiscardCards > 0)
-            console.log("lastOfDiscardVal: " + cards[discardCards[discardCards.length-1]].data);
-        else
-            console.log("empty deck");
-    }, [discardCards]);
+    const handleSingle = (topOfDiscard: number) => {
+        dispatch(addToDeck(topOfDiscard));
+        dispatch(removeFromDiscard(topOfDiscard));
+    }
 
-    const handleClick = () => {
-        dispatch(addToDeck(topOfDiscard)) && dispatch(removeFromDiscard(topOfDiscard));
+    const handleAll = () => {
+        let tmp = 0;
+        for (let i = topOfDiscard; i > 0; i-- && tmp++) {
+            handleSingle(topOfDiscard-tmp);
+        }
     }
 
     return (
@@ -33,7 +34,7 @@ const Discard: FC = (props): ReactElement => {
             <div className="discard">
                 <h1>numCards: {numDiscardCards}</h1>
                 <div className="discard-buttons">
-                    <button onClick={() => handleClick()}>
+                    <button onClick={() => handleSingle(topOfDiscard)}>
                         Reclaim top of discard
                     </button>
                     <span>{isDiscardFull ? "full" : ""}</span>
@@ -41,7 +42,10 @@ const Discard: FC = (props): ReactElement => {
                 </div>
                 <div className="cards">
                     {discardCards.map((index) => (
-                        <Card pile={"discard"} isTopCard={index ===discardCards[discardCards.length-1]} key={index} id={index}/>
+                        <Card pile={"discard"}
+                              isTopCard={index ===discardCards[discardCards.length-1]}
+                              key={index}
+                              id={index}/>
                     ))}
                 </div>
             </div>

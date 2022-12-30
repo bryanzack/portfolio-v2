@@ -15,7 +15,7 @@ html {
     justify-content: center;
     background: grey;
     width: 90%;
-    height: 400px;
+    height: 50%;
     border: 2px solid black;
 }
 .top-container {
@@ -33,7 +33,17 @@ html {
 .bot {
     display: flex;
     justify-content: center;
-    background: yellow;
-    width: 80%;
-    height: fit-content;
+    background: grey;
+    align-items: center;
+    width: 90%;
+    height: 50%;
+    border: 2px solid black;
+}
+.bot-container {
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    flex-direction: row;
+    width: 50%;
 }

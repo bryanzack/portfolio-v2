@@ -1,24 +1,22 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 export interface CardState {
-    isFaceUp: boolean,
-    isTopCard: boolean,
+    theme: string,
 }
 
 const initialState: CardState = {
-    isFaceUp: false,
-    isTopCard: false,
+    theme: "blue",
 }
 
 export const cardSlice = createSlice({
     name: 'card',
     initialState,
     reducers: {
-        flip: (state) => {
-            state.isFaceUp = !state.isFaceUp;
-        },
+        changeTheme: (state, action: PayloadAction<string>) => {
+            state.theme = action.payload;
+        }
     },
 });
 
-export const { flip } = cardSlice.actions;
+export const { changeTheme } = cardSlice.actions;
 export default cardSlice.reducer;
