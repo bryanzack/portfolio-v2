@@ -8,8 +8,7 @@ var initialState = {
     numCards: 0,
     isEmpty: true,
     isFull: false,
-    cards: [],
-    topCard: 0
+    cards: []
 };
 var discardSlice = (0, toolkit_1.createSlice)({
     name: 'discard',
@@ -45,6 +44,9 @@ var discardSlice = (0, toolkit_1.createSlice)({
             }
             else if (state.numCards === 51) {
                 state.isFull = false;
+            }
+            else {
+                console.log("frog: discard");
             }
         }
     }

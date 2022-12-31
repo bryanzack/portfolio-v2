@@ -7,7 +7,6 @@ export interface DiscardState {
     isEmpty: boolean,
     isFull: boolean,
     cards: number[],
-    topCard: number,
 }
 
 const initialState: DiscardState = {
@@ -15,7 +14,6 @@ const initialState: DiscardState = {
     isEmpty: true,
     isFull: false,
     cards: [],
-    topCard: 0,
 }
 
 const discardSlice = createSlice({
@@ -48,6 +46,8 @@ const discardSlice = createSlice({
                 state.cards.pop();
             } else if (state.numCards === 51) {
                 state.isFull = false;
+            } else {
+                console.log("frog: discard");
             }
         },
     },

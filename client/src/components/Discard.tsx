@@ -24,7 +24,7 @@ const Discard: FC = (props): ReactElement => {
 
     const handleAll = () => {
         let tmp = 0;
-        for (let i = numDiscardCards; i >= 0; i-- && tmp++) {
+        for (let i = numDiscardCards; i > 0; i-- && tmp++) {
             handleSingle(discardCards[i-1]);
         }
     }
@@ -34,9 +34,6 @@ const Discard: FC = (props): ReactElement => {
             <div className="discard">
                 <h1>numCards: {numDiscardCards}</h1>
                 <div className="discard-buttons">
-                    <button onClick={() => handleSingle(topOfDiscard)}>
-                        Reclaim top of discard
-                    </button>
                     <button onClick={() => handleAll()}>
                         Repopulate deck
                     </button>

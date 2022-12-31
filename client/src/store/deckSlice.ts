@@ -14,7 +14,6 @@ export interface DeckState {
     isEmpty: boolean,
     isFull: boolean,
     cards: number[],
-    topCard: number,
 }
 
 const initialState: DeckState = {
@@ -22,7 +21,6 @@ const initialState: DeckState = {
     isEmpty: false,
     isFull: true,
     cards: fullDeck(),
-    topCard: 52,
 }
 
 export const deckSlice = createSlice({
@@ -42,17 +40,16 @@ export const deckSlice = createSlice({
                 state.isEmpty = false;
                 state.numCards++;
                 state.cards.push(action.payload);
-                state.topCard = action.payload;
             } else if (state.numCards === 51) {
                 state.isFull = true;
                 state.numCards++;
                 state.cards.push(action.payload);
-                state.topCard = action.payload;
             } else if (state.numCards === 0) {
                 state.isEmpty = false;
                 state.numCards++;
                 state.cards.push(action.payload);
-                state.topCard = action.payload;
+            } else {
+                console.log("frog: deck");
             }
         },
         removeFromDeck: (state, action: PayloadAction<number>) => {
@@ -60,12 +57,10 @@ export const deckSlice = createSlice({
                 state.isFull = false;
                 state.numCards--;
                 state.cards.pop();
-                state.topCard = action.payload;
             } else if (state.numCards === 1) {
                 state.isEmpty = true;
                 state.numCards--;
                 state.cards.pop();
-                state.topCard = action.payload;
             } else if (state.numCards === 51) {
                 state.isFull = false;
             }

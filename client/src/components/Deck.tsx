@@ -1,13 +1,14 @@
+import {removeFromDiscard} from "../store/discardSlice";
+
 const React = require('react');
 import './Deck.css';
 
 import type { RootState } from '../store';
 import { FC, ReactElement, useEffect, useState } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
-import { removeFromDeck } from '../store/deckSlice';
+import {addToDeck, removeFromDeck} from '../store/deckSlice';
 import { shuffle } from '../store/deckSlice';
 import { addToPlayer } from '../store/playerSlice';
-
 
 import Card from './Card.js';
 
@@ -26,15 +27,29 @@ const Deck: FC = (props): ReactElement => {
     const handleShuffle = (): void => {
         dispatch(shuffle());
     }
-    const handleSingle = (topOfDeck: number): void => {
+    const handleDeal = (topOfDeck: number): void => {
         if (!isPlayerBust) {
             dispatch(addToPlayer(topOfDeck));
             dispatch(removeFromDeck(topOfDeck));
         }
     }
+    const handleReclaimOne = (topOfDiscard: number): void => {
+        dispatch(addToDeck(topOfDiscard));
+        dispatch(removeFromDiscard(topOfDiscard));
+    }
+    const handleReclaimAll = (): void => {
+        let tmp = 0;
+        for (let i = numDiscardCards; i >= 0; i-- && tmp++) {
+            handleReclaimOne(discardCards[i-1]);
+        }
+    }
     useEffect(() => {
         console.log("Reclaim discard and deal one card")
+        //handleReclaimAll();
     },[numDeckCards === 0]);
+    useEffect(() => {
+        handleShuffle();
+    }, []);
 
 
     return (
@@ -45,7 +60,7 @@ const Deck: FC = (props): ReactElement => {
                     <button onClick={() => handleShuffle()}>
                         Shuffle
                     </button>
-                    <button onClick ={() => handleSingle(topOfDeck)}>
+                    <button onClick ={() => handleDeal(topOfDeck)}>
                         Deal card
                     </button>
                     <span>{isDeckFull ? "full" : ""}</span>

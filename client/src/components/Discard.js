@@ -19,7 +19,7 @@ var Discard = function (props) {
     };
     var handleAll = function () {
         var tmp = 0;
-        for (var i = numDiscardCards; i >= 0; i-- && tmp++) {
+        for (var i = numDiscardCards; i > 0; i-- && tmp++) {
             handleSingle(discardCards[i - 1]);
         }
     };
@@ -29,7 +29,6 @@ var Discard = function (props) {
                 "numCards: ",
                 numDiscardCards),
             React.createElement("div", { className: "discard-buttons" },
-                React.createElement("button", { onClick: function () { return handleSingle(topOfDiscard); } }, "Reclaim top of discard"),
                 React.createElement("button", { onClick: function () { return handleAll(); } }, "Repopulate deck"),
                 React.createElement("span", null, isDiscardFull ? "full" : ""),
                 React.createElement("span", null, isDiscardEmpty ? "empty" : "")),
