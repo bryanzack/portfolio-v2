@@ -14,7 +14,7 @@ const Discard: FC = (props): ReactElement => {
     const isDiscardEmpty = useSelector((state: RootState) => state.discard.isEmpty);
     const numDiscardCards = useSelector((state: RootState) => state.discard.numCards);
     const  discardCards = useSelector((state: RootState) => state.discard.cards);
-    const topOfDiscard = useSelector((state: RootState) => state.discard.cards[state.discard.cards.length-1]);
+    const topOfDiscard = useSelector((state: RootState) => discardCards[state.discard.cards.length-1]);
     const dispatch = useDispatch();
 
     const handleSingle = (topOfDiscard: number) => {
@@ -24,8 +24,9 @@ const Discard: FC = (props): ReactElement => {
 
     const handleAll = () => {
         let tmp = 0;
-        for (let i = topOfDiscard; i > 0; i-- && tmp++) {
-            handleSingle(topOfDiscard-tmp);
+        for (let i = numDiscardCards; i > 0; i-- && tmp++) {
+            //handleSingle(topOfDiscard-tmp);
+            handleSingle(discardCards[i-1]);
         }
     }
 
@@ -36,6 +37,9 @@ const Discard: FC = (props): ReactElement => {
                 <div className="discard-buttons">
                     <button onClick={() => handleSingle(topOfDiscard)}>
                         Reclaim top of discard
+                    </button>
+                    <button onClick={() => handleAll()}>
+                        Repopulate deck
                     </button>
                     <span>{isDiscardFull ? "full" : ""}</span>
                     <span>{isDiscardEmpty ? "empty" : ""}</span>

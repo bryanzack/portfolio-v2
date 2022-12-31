@@ -17,14 +17,16 @@ const Card: FC<CardProps> = (props): ReactElement => {
     const card_theme = useSelector((state: RootState) => state.card.theme);
     const sendToDiscard = useSpring({
         from: {
-            x: "25vw",
+            x: "15vw",
+            y: "35vh",
             scaleX: 1,
             transform: "rotateX(0deg) rotateY(0deg)",
         },
         to: {
             x: "0vw",
+            y: "0vh",
             scaleX: -1,
-            transform: "rotateX(180deg) rotateY(360deg)",
+            transform: "rotateX(180deg) rotateY(180deg)",
         },
         config: {
             mass: 1,
@@ -36,7 +38,7 @@ const Card: FC<CardProps> = (props): ReactElement => {
         from: {
             x: "-25vw",
             scaleX: 1,
-            transform: "rotateX(180deg) rotateY(0deg)",
+            transform: "rotateX(0deg) rotateY(0deg)",
         },
         to: {
             x: "0vw",

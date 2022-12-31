@@ -8,7 +8,8 @@ var initialState = {
     numCards: 0,
     isEmpty: true,
     isFull: false,
-    cards: []
+    cards: [],
+    score: 0
 };
 exports.playerSlice = (0, toolkit_1.createSlice)({
     name: 'player',
@@ -16,32 +17,30 @@ exports.playerSlice = (0, toolkit_1.createSlice)({
     reducers: {
         addToPlayer: function (state, action) {
             if (state.numCards === 0) {
-                state.isEmpty = false;
                 state.cards.push(action.payload);
                 state.numCards++;
+                state.isEmpty = false;
             }
             else if (state.numCards === 1) {
-                state.isEmpty = false;
-                state.isFull = false;
                 state.cards.push(action.payload);
                 state.numCards++;
+                state.isFull = true;
             }
             else if (state.numCards === 2) {
-                state.isFull = true;
             }
         },
         removeFromPlayer: function (state, action) {
             if (state.numCards === 0) {
-                state.isEmpty = true;
             }
             else if (state.numCards === 1) {
                 state.cards.pop();
+                state.numCards--;
                 state.isEmpty = true;
-                state.isFull = false;
             }
             else if (state.numCards === 2) {
                 state.cards.pop();
-                state.isFull = true;
+                state.numCards--;
+                state.isFull = false;
             }
         }
     }

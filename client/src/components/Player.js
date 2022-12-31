@@ -12,15 +12,17 @@ var Player = function (props) {
     var isPlayerFull = (0, react_redux_1.useSelector)(function (state) { return state.player.isFull; });
     var isPlayerEmpty = (0, react_redux_1.useSelector)(function (state) { return state.player.isEmpty; });
     var playerCards = (0, react_redux_1.useSelector)(function (state) { return state.player.cards; });
-    var topOfDeck = (0, react_redux_1.useSelector)(function (state) { return playerCards[state.deck.cards.length - 1]; });
+    var topOfDeck = (0, react_redux_1.useSelector)(function (state) { return playerCards[state.player.cards.length - 1]; });
     var dispatch = (0, react_redux_1.useDispatch)();
+    var handleSingle = function (topOfDeck) {
+        if (numPlayerCards > 0) {
+            dispatch((0, discardSlice_1.addToDiscard)(topOfDeck));
+            dispatch((0, playerSlice_1.removeFromPlayer)(topOfDeck));
+        }
+    };
     (0, react_1.useEffect)(function () {
         console.log(playerCards);
     }, [playerCards]);
-    var handleSingle = function (topOfDeck) {
-        dispatch((0, discardSlice_1.addToDiscard)(topOfDeck));
-        dispatch((0, playerSlice_1.removeFromPlayer)(topOfDeck));
-    };
     return (React.createElement(React.Fragment, null,
         React.createElement("div", { className: "player" },
             React.createElement("h1", null,

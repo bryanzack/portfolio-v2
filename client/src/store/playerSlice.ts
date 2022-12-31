@@ -7,12 +7,14 @@ export interface PlayerState {
     isEmpty: boolean,
     isFull: boolean,
     cards: number[],
+    score: number,
 }
 const initialState: PlayerState = {
     numCards: 0,
     isEmpty: true,
     isFull: false,
     cards: [],
+    score: 0,
 }
 export const playerSlice = createSlice({
     name: 'player',
@@ -20,29 +22,26 @@ export const playerSlice = createSlice({
     reducers: {
         addToPlayer: (state, action:PayloadAction<number>) => {
             if (state.numCards === 0) {
-                state.isEmpty = false;
                 state.cards.push(action.payload);
                 state.numCards++;
+                state.isEmpty = false;
             } else if (state.numCards === 1) {
-                state.isEmpty = false;
-                state.isFull = false;
                 state.cards.push(action.payload);
                 state.numCards++;
-            } else if (state.numCards === 2) {
                 state.isFull = true;
+            } else if (state.numCards === 2) {
             }
-
         },
         removeFromPlayer: (state, action:PayloadAction<number>) => {
             if (state.numCards === 0) {
-                state.isEmpty = true;
             } else if (state.numCards === 1) {
                 state.cards.pop();
+                state.numCards--;
                 state.isEmpty = true;
-                state.isFull = false;
             } else if (state.numCards === 2) {
                 state.cards.pop();
-                state.isFull = true;
+                state.numCards--;
+                state.isFull = false;
             }
         },
     },

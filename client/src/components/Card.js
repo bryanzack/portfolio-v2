@@ -9,14 +9,16 @@ var Card = function (props) {
     var card_theme = (0, react_redux_1.useSelector)(function (state) { return state.card.theme; });
     var sendToDiscard = (0, web_1.useSpring)({
         from: {
-            x: "25vw",
+            x: "15vw",
+            y: "35vh",
             scaleX: 1,
             transform: "rotateX(0deg) rotateY(0deg)"
         },
         to: {
             x: "0vw",
+            y: "0vh",
             scaleX: -1,
-            transform: "rotateX(180deg) rotateY(360deg)"
+            transform: "rotateX(180deg) rotateY(180deg)"
         },
         config: {
             mass: 1,
@@ -28,7 +30,7 @@ var Card = function (props) {
         from: {
             x: "-25vw",
             scaleX: 1,
-            transform: "rotateX(180deg) rotateY(0deg)"
+            transform: "rotateX(0deg) rotateY(0deg)"
         },
         to: {
             x: "0vw",

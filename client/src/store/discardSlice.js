@@ -20,19 +20,16 @@ var discardSlice = (0, toolkit_1.createSlice)({
                 state.isEmpty = false;
                 state.numCards++;
                 state.cards.push(action.payload);
-                state.topCard = action.payload;
             }
             else if (state.numCards === 51) {
                 state.isFull = true;
                 state.numCards++;
                 state.cards.push(action.payload);
-                state.topCard = action.payload;
             }
             else if (state.numCards === 0) {
                 state.isEmpty = false;
                 state.numCards++;
                 state.cards.push(action.payload);
-                state.topCard = action.payload;
             }
         },
         removeFromDiscard: function (state, action) {
@@ -40,13 +37,11 @@ var discardSlice = (0, toolkit_1.createSlice)({
                 state.isFull = false;
                 state.numCards--;
                 state.cards.pop();
-                state.topCard = action.payload;
             }
             else if (state.numCards === 1) {
                 state.isEmpty = true;
                 state.numCards--;
                 state.cards.pop();
-                state.topCard = action.payload;
             }
             else if (state.numCards === 51) {
                 state.isFull = false;

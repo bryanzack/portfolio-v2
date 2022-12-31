@@ -14,17 +14,19 @@ const Player: FC = (props): ReactElement => {
     const isPlayerFull = useSelector((state: RootState) => state.player.isFull);
     const isPlayerEmpty = useSelector((state: RootState) => state.player.isEmpty);
     const playerCards = useSelector((state: RootState) => state.player.cards);
-    const topOfDeck = useSelector((state: RootState) => playerCards[state.deck.cards.length-1]);
+    const topOfDeck = useSelector((state: RootState) => playerCards[state.player.cards.length-1]);
     const dispatch = useDispatch();
 
+    const handleSingle = (topOfDeck: number): void => {
+        if (numPlayerCards > 0) {
+            dispatch(addToDiscard(topOfDeck));
+            dispatch(removeFromPlayer(topOfDeck));
+        }
+    }
     useEffect(() => {
         console.log(playerCards);
     }, [playerCards]);
 
-    const handleSingle = (topOfDeck: number): void => {
-        dispatch(addToDiscard(topOfDeck));
-        dispatch(removeFromPlayer(topOfDeck));
-    }
     return (
         <>
             <div className="player">

@@ -7,13 +7,10 @@ import { useDispatch, useSelector} from 'react-redux';
 import { removeFromDeck } from '../store/deckSlice';
 import { addToDiscard } from '../store/discardSlice';
 import { addToPlayer } from '../store/playerSlice';
-import { useTransition, animated } from 'react-spring';
-import cards from './cards.js';
 
 import Card from './Card.js';
 
 const Deck: FC = (props): ReactElement => {
-    const [test, setTest] = useState(false);
     const isDeckFull = useSelector((state: RootState) => state.deck.isFull);
     const isDeckEmpty = useSelector((state: RootState) => state.deck.isEmpty);
     const numDeckCards = useSelector((state: RootState) => state.deck.numCards);
@@ -22,15 +19,16 @@ const Deck: FC = (props): ReactElement => {
     const numPlayerCards = useSelector((state: RootState) => state.player.numCards);
     const dispatch = useDispatch();
 
-
     const handleSingle = (pile: string, topOfDeck: number): void => {
         if (pile == 'discard') {
             dispatch(addToDiscard(topOfDeck));
             dispatch(removeFromDeck(topOfDeck));
-        } else if (pile == 'player') {
-            dispatch(addToPlayer(topOfDeck));
-            if (numPlayerCards < 3)
+        } else if (pile === 'player') {
+            console.log(numPlayerCards);
+            if (numDeckCards > 0 && numPlayerCards < 2) {
+                dispatch(addToPlayer(topOfDeck));
                 dispatch(removeFromDeck(topOfDeck));
+            }
         }
     }
 
@@ -51,9 +49,6 @@ const Deck: FC = (props): ReactElement => {
                     </button>
                     <button onClick ={() => handleSingle('player', topOfDeck)}>
                         Deal card
-                    </button>
-                    <button onClick={() => handleAll('discard')}>
-                        Discard all
                     </button>
                     <span>{isDeckFull ? "full" : ""}</span>
                     <span>{isDeckEmpty ? "empty" : ""}</span>
