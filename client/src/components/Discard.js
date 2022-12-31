@@ -19,8 +19,7 @@ var Discard = function (props) {
     };
     var handleAll = function () {
         var tmp = 0;
-        for (var i = numDiscardCards; i > 0; i-- && tmp++) {
-            //handleSingle(topOfDiscard-tmp);
+        for (var i = numDiscardCards; i >= 0; i-- && tmp++) {
             handleSingle(discardCards[i - 1]);
         }
     };

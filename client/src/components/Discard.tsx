@@ -4,7 +4,7 @@ import './Discard.css';
 import type { RootState } from '../store';
 import { FC, ReactElement, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToDeck } from '../store/deckSlice';
+import {addToDeck, shuffle} from '../store/deckSlice';
 import { removeFromDiscard } from '../store/discardSlice';
 import cards from './cards.js';
 import Card from './Card.js';
@@ -24,8 +24,7 @@ const Discard: FC = (props): ReactElement => {
 
     const handleAll = () => {
         let tmp = 0;
-        for (let i = numDiscardCards; i > 0; i-- && tmp++) {
-            //handleSingle(topOfDiscard-tmp);
+        for (let i = numDiscardCards; i >= 0; i-- && tmp++) {
             handleSingle(discardCards[i-1]);
         }
     }

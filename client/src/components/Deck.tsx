@@ -5,8 +5,9 @@ import type { RootState } from '../store';
 import { FC, ReactElement, useEffect, useState } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
 import { removeFromDeck } from '../store/deckSlice';
-import { addToDiscard } from '../store/discardSlice';
+import { shuffle } from '../store/deckSlice';
 import { addToPlayer } from '../store/playerSlice';
+
 
 import Card from './Card.js';
 
@@ -16,38 +17,35 @@ const Deck: FC = (props): ReactElement => {
     const numDeckCards = useSelector((state: RootState) => state.deck.numCards);
     const deckCards = useSelector((state: RootState) => state.deck.cards);
     const topOfDeck = useSelector((state: RootState) => deckCards[state.deck.cards.length-1]);
-    const numPlayerCards = useSelector((state: RootState) => state.player.numCards);
+    const isPlayerBust = useSelector((state: RootState) => state.player.isBust);
+    const numDiscardCards = useSelector((state: RootState) => state.discard.numCards);
+    const discardCards = useSelector((state: RootState) => state.discard.cards);
     const dispatch = useDispatch();
 
-    const handleSingle = (pile: string, topOfDeck: number): void => {
-        if (pile == 'discard') {
-            dispatch(addToDiscard(topOfDeck));
-            dispatch(removeFromDeck(topOfDeck));
-        } else if (pile === 'player') {
-            console.log(numPlayerCards);
-            if (numDeckCards > 0 && numPlayerCards < 2) {
-                dispatch(addToPlayer(topOfDeck));
-                dispatch(removeFromDeck(topOfDeck));
-            }
-        }
-    }
 
-    const handleAll = (pile: string) => {
-        let tmp = 0;
-        for (let i = topOfDeck; i > 0; i-- && tmp++) {
-            handleSingle(pile,topOfDeck-tmp);
+    const handleShuffle = (): void => {
+        dispatch(shuffle());
+    }
+    const handleSingle = (topOfDeck: number): void => {
+        if (!isPlayerBust) {
+            dispatch(addToPlayer(topOfDeck));
+            dispatch(removeFromDeck(topOfDeck));
         }
     }
+    useEffect(() => {
+        console.log("Reclaim discard and deal one card")
+    },[numDeckCards === 0]);
+
 
     return (
         <>
             <div className="deck">
                 <h1>numCards: {numDeckCards}</h1>
                 <div className="deck-buttons">
-                    <button onClick={() => handleSingle('discard', topOfDeck)}>
-                        Send to discard
+                    <button onClick={() => handleShuffle()}>
+                        Shuffle
                     </button>
-                    <button onClick ={() => handleSingle('player', topOfDeck)}>
+                    <button onClick ={() => handleSingle(topOfDeck)}>
                         Deal card
                     </button>
                     <span>{isDeckFull ? "full" : ""}</span>

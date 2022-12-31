@@ -29,9 +29,11 @@ const Card: FC<CardProps> = (props): ReactElement => {
             transform: "rotateX(180deg) rotateY(180deg)",
         },
         config: {
-            mass: 1,
-            tension: 300,
-            friction: 20,
+            mass: 4,
+            tension: 400,
+            friction: 100,
+            damping: 1,
+            frequency: .5,
         }
     });
     const sendToDeck = useSpring({
@@ -63,7 +65,7 @@ const Card: FC<CardProps> = (props): ReactElement => {
 
     return (
         <>
-            <animated.div className="card-container"
+            <animated.div className={props.pile === "player" ? "card-container-player" : "card-container"}
                           style={props.pile == "deck" ? sendToDeck :
                                  props.pile == "discard" ? sendToDiscard : sendToPlayer}>
                 <img className="card-back"

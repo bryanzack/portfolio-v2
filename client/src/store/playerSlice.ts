@@ -1,47 +1,40 @@
 /* eslint-disable */
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-
+import cards from '../components/cards';
 export interface PlayerState {
     numCards: number,
-    isEmpty: boolean,
-    isFull: boolean,
     cards: number[],
     score: number,
+    isBust: boolean,
 }
 const initialState: PlayerState = {
     numCards: 0,
-    isEmpty: true,
-    isFull: false,
     cards: [],
     score: 0,
+    isBust: false,
 }
 export const playerSlice = createSlice({
     name: 'player',
     initialState,
     reducers: {
         addToPlayer: (state, action:PayloadAction<number>) => {
-            if (state.numCards === 0) {
-                state.cards.push(action.payload);
-                state.numCards++;
-                state.isEmpty = false;
-            } else if (state.numCards === 1) {
-                state.cards.push(action.payload);
-                state.numCards++;
-                state.isFull = true;
-            } else if (state.numCards === 2) {
+            if (!state.isBust) {
+                if (state.score + cards[action.payload].val > 21) {
+                    state.isBust = true;
+                    state.cards.push(action.payload);
+                    state.score += cards[action.payload].val;
+                } else {
+                    state.score += cards[action.payload].val;
+                    state.cards.push(action.payload);
+                }
             }
         },
         removeFromPlayer: (state, action:PayloadAction<number>) => {
-            if (state.numCards === 0) {
-            } else if (state.numCards === 1) {
+            if (state.score < 22) state.isBust = false;
+            if (state.cards.length !== 0) {
+                state.score -= cards[action.payload].val;
                 state.cards.pop();
-                state.numCards--;
-                state.isEmpty = true;
-            } else if (state.numCards === 2) {
-                state.cards.pop();
-                state.numCards--;
-                state.isFull = false;
             }
         },
     },

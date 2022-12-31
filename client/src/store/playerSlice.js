@@ -4,43 +4,36 @@ exports.__esModule = true;
 exports.removeFromPlayer = exports.addToPlayer = exports.playerSlice = void 0;
 /* eslint-disable */
 var toolkit_1 = require("@reduxjs/toolkit");
+var cards_1 = require("../components/cards");
 var initialState = {
     numCards: 0,
-    isEmpty: true,
-    isFull: false,
     cards: [],
-    score: 0
+    score: 0,
+    isBust: false
 };
 exports.playerSlice = (0, toolkit_1.createSlice)({
     name: 'player',
     initialState: initialState,
     reducers: {
         addToPlayer: function (state, action) {
-            if (state.numCards === 0) {
-                state.cards.push(action.payload);
-                state.numCards++;
-                state.isEmpty = false;
-            }
-            else if (state.numCards === 1) {
-                state.cards.push(action.payload);
-                state.numCards++;
-                state.isFull = true;
-            }
-            else if (state.numCards === 2) {
+            if (!state.isBust) {
+                if (state.score + cards_1["default"][action.payload].val > 21) {
+                    state.isBust = true;
+                    state.cards.push(action.payload);
+                    state.score += cards_1["default"][action.payload].val;
+                }
+                else {
+                    state.score += cards_1["default"][action.payload].val;
+                    state.cards.push(action.payload);
+                }
             }
         },
         removeFromPlayer: function (state, action) {
-            if (state.numCards === 0) {
-            }
-            else if (state.numCards === 1) {
+            if (state.score < 22)
+                state.isBust = false;
+            if (state.cards.length !== 0) {
+                state.score -= cards_1["default"][action.payload].val;
                 state.cards.pop();
-                state.numCards--;
-                state.isEmpty = true;
-            }
-            else if (state.numCards === 2) {
-                state.cards.pop();
-                state.numCards--;
-                state.isFull = false;
             }
         }
     }

@@ -7,12 +7,22 @@
 }
 
 .card-container {
+    position: absolute;
     transform-style: preserve-3d;
     height: 100%;
     width: 100%;
-    position:  absolute;
     display: flex;
     justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+.card-container-player {
+
+    transform-style: preserve-3d;
+    height: 100%;
+    width: 30px;
+    display: flex;
+    justify-content: space-around;
     align-items: center;
     background: transparent;
 }

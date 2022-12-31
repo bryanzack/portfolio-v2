@@ -29,6 +29,14 @@ export const deckSlice = createSlice({
     name: 'deck',
     initialState,
     reducers: {
+        shuffle: (state, action: PayloadAction<void>) => {
+            for (let i = state.cards.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                let tmp = state.cards[i];
+                state.cards[i] = state.cards[j];
+                state.cards[j] = tmp;
+            }
+        },
         addToDeck: (state, action: PayloadAction<number>) => {
             if (state.numCards < 51) {
                 state.isEmpty = false;
@@ -48,7 +56,7 @@ export const deckSlice = createSlice({
             }
         },
         removeFromDeck: (state, action: PayloadAction<number>) => {
-            if (state.numCards > 1) {
+            if (state.numCards > 1 && state.numCards) {
                 state.isFull = false;
                 state.numCards--;
                 state.cards.pop();
@@ -65,5 +73,5 @@ export const deckSlice = createSlice({
     },
 });
 
-export const { addToDeck, removeFromDeck } = deckSlice.actions;
+export const { shuffle, addToDeck, removeFromDeck } = deckSlice.actions;
 export default deckSlice.reducer;

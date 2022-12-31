@@ -16,7 +16,7 @@ html {
     background: grey;
     width: 90%;
     height: 50%;
-    border: 2px solid black;
+    //border: 2px solid black;
 }
 .top-container {
     transform-style: preserve-3d;
@@ -37,7 +37,7 @@ html {
     align-items: center;
     width: 90%;
     height: 50%;
-    border: 2px solid black;
+    //border: 2px solid black;
 }
 .bot-container {
     transform-style: preserve-3d;

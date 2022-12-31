@@ -21,9 +21,11 @@ var Card = function (props) {
             transform: "rotateX(180deg) rotateY(180deg)"
         },
         config: {
-            mass: 1,
-            tension: 300,
-            friction: 20
+            mass: 4,
+            tension: 400,
+            friction: 100,
+            damping: 1,
+            frequency: .5
         }
     });
     var sendToDeck = (0, web_1.useSpring)({
@@ -53,7 +55,7 @@ var Card = function (props) {
         }
     });
     return (React.createElement(React.Fragment, null,
-        React.createElement(web_1.animated.div, { className: "card-container", style: props.pile == "deck" ? sendToDeck :
+        React.createElement(web_1.animated.div, { className: props.pile === "player" ? "card-container-player" : "card-container", style: props.pile == "deck" ? sendToDeck :
                 props.pile == "discard" ? sendToDiscard : sendToPlayer },
             React.createElement("img", { className: "card-back", src: require("./../svg_playing_cards/fronts/png_96_dpi/".concat(cards_1["default"][props.id].path, ".png")), alt: "card", height: "130px", width: "100px" }),
             React.createElement("img", { className: "card-front", src: require("./../svg_playing_cards/backs/png_96_dpi/".concat(card_theme, ".png")), alt: "card", height: "130px", width: "100px" }))));
