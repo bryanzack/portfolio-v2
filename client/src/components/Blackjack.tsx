@@ -3,8 +3,9 @@ import './Blackjack.css';
 import { FC } from 'react';
 
 import Deck from './Deck.js';
-import Discard from './Discard.js'
+import Discard from './Discard.js';
 import Player from './Player.js';
+import Dealer from './Dealer.js';
 
 const Blackjack: FC = () => {
 
@@ -13,6 +14,7 @@ const Blackjack: FC = () => {
             <div className="top">
                 <div className="top-container">
                     <Discard />
+                    <Dealer />
                     <Deck />
                 </div>
             </div>

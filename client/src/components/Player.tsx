@@ -1,5 +1,3 @@
-import {useTransition} from "react-spring";
-
 const React = require('react');
 import './Player.css';
 
@@ -9,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { removeFromPlayer, addToPlayer } from '../store/playerSlice';
 import { addToDiscard } from '../store/discardSlice';
 import { removeFromDeck } from '../store/deckSlice';
+import { addToDealer } from '../store/dealerSlice';
 import cards from './cards';
 import Card from './Card.js';
 
@@ -27,12 +26,15 @@ const Player: FC = (props): ReactElement => {
         dispatch(removeFromDeck(topOfDeck));
     }
     const handleStay = (): void => {
+        /*
         let score = 0;
         for (let i = 0; i < playerCards.length; i++) {
             //console.log(cards[playerCards[i]].val);
             score += cards[playerCards[i]].val;
         }
-
+         */
+        dispatch(addToDealer(topOfDeck));
+        dispatch(removeFromDeck(topOfDeck));
         // check sum of dealer hand
         // determine winner
     }

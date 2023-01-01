@@ -37,8 +37,6 @@ const Discard: FC = (props): ReactElement => {
                     <button onClick={() => handleAll()}>
                         Repopulate deck
                     </button>
-                    <span>{isDiscardFull ? "full" : ""}</span>
-                    <span>{isDiscardEmpty ? "empty" : ""}</span>
                 </div>
                 <div className="cards">
                     {discardCards.map((index) => (

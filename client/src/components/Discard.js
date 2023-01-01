@@ -29,9 +29,7 @@ var Discard = function (props) {
                 "numCards: ",
                 numDiscardCards),
             React.createElement("div", { className: "discard-buttons" },
-                React.createElement("button", { onClick: function () { return handleAll(); } }, "Repopulate deck"),
-                React.createElement("span", null, isDiscardFull ? "full" : ""),
-                React.createElement("span", null, isDiscardEmpty ? "empty" : "")),
+                React.createElement("button", { onClick: function () { return handleAll(); } }, "Repopulate deck")),
             React.createElement("div", { className: "cards" }, discardCards.map(function (index) { return (React.createElement(Card_js_1["default"], { pile: "discard", isTopCard: index === discardCards[discardCards.length - 1], key: index, id: index })); })))));
 };
 exports["default"] = Discard;

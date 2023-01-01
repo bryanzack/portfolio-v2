@@ -51,10 +51,7 @@ var Deck = function (props) {
                 "numCards: ",
                 numDeckCards),
             React.createElement("div", { className: "deck-buttons" },
-                React.createElement("button", { onClick: function () { return handleShuffle(); } }, "Shuffle"),
-                React.createElement("button", { onClick: function () { return handleDeal(topOfDeck); } }, "Deal card"),
-                React.createElement("span", null, isDeckFull ? "full" : ""),
-                React.createElement("span", null, isDeckEmpty ? "empty" : "")),
+                React.createElement("button", { onClick: function () { return handleShuffle(); } }, "Shuffle")),
             React.createElement("div", { className: "cards" }, deckCards.map(function (index) { return (React.createElement(Card_js_1["default"], { pile: "deck", isTopCard: index === deckCards[deckCards.length - 1], key: index, id: index })); })))));
 };
 exports["default"] = Deck;

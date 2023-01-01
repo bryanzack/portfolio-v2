@@ -1,15 +1,16 @@
-.deck {
+.dealer {
     transform-style: preserve-3d;
-    display: flex;
+    display:flex;
     flex-direction: column;
     justify-content: center;
-    //align-items: center;
-    border: 2px solid black;
     width: 250px;
+    height: 250px;
+    text-align: center;
 }
-.deck-buttons {
+
+.player-buttons {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }

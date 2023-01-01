@@ -3,13 +3,13 @@ import './Card.css';
 import { FC, ReactElement } from 'react';
 import cards from './cards';
 import { useSelector } from 'react-redux';
-import { useSpring, animated } from '@react-spring/web';
+import { useSpring, animated, easings } from '@react-spring/web';
 import type { RootState } from '../store';
-
+import processCard from '../helpers/processCard.js';
 export interface CardProps {
     id: number,
     isTopCard: boolean,
-    pile: "deck" | "discard" | "player",
+    pile: "deck" | "discard" | "player" | "dealer",
 }
 
 
@@ -29,16 +29,16 @@ const Card: FC<CardProps> = (props): ReactElement => {
             transform: "rotateX(180deg) rotateY(180deg)",
         },
         config: {
-            mass: 4,
-            tension: 400,
-            friction: 100,
-            damping: 1,
-            frequency: .5,
+            mass: 1,
+            //tension: 400,
+            //friction: 50,
+            //damping: 1,
+            //frequency: .5,
         }
     });
     const sendToDeck = useSpring({
         from: {
-            x: "-25vw",
+            x: "-30vw",
             scaleX: 1,
             transform: "rotateX(0deg) rotateY(0deg)",
         },
@@ -47,11 +47,18 @@ const Card: FC<CardProps> = (props): ReactElement => {
             scaleX: 1,
             transform: "rotateX(0deg), rotateY(0deg)",
         },
+        config: {
+            mass: 2,
+            tension: 900,
+            frequency: .6,
+            damping: 1,
+
+        }
     });
     const sendToPlayer = useSpring({
         from: {
             x: "15vw",
-            y: "-35vh",
+            y: "-30vh",
             scaleX: 1,
             transform: "rotateX(0deg) rotateY(0deg)",
         },
@@ -59,15 +66,47 @@ const Card: FC<CardProps> = (props): ReactElement => {
             x: "0vw",
             y: "0vh",
             scaleX: -1,
-            transform:  "rotateX(180deg) rotateY(0deg)",
+            transform:  "rotateX(180deg) rotateY(360deg)",
+        },
+        config: {
+            mass: 2,
+            tension: 200,
+            friction: 30,
+            //damping: 1,
+            //frequency: .5,
         }
+    });
+    const fromDealerToDiscard = useSpring({
+        from: {
+            x: "0vw",
+            y: "0vh",
+        },
+        to: {
+            x: "-10vw",
+            y: "0vh",
+        }
+    });
+    const fromDeckToDealer = useSpring({
+        from: {
+            x: "-20vw",
+            y: "-3vh",
+        },
+        to: {
+            x: "0vw",
+            y: "0vh",
+        },
+        config: {
+
+        },
     });
 
     return (
         <>
-            <animated.div className={props.pile === "player" ? "card-container-player" : "card-container"}
-                          style={props.pile == "deck" ? sendToDeck :
-                                 props.pile == "discard" ? sendToDiscard : sendToPlayer}>
+            <animated.div className={props.pile === "player" ? "card-container-player" :
+                                     props.pile === "dealer" ? "card-container-player" : "card-container"}
+                          style={props.pile === "deck" ? sendToDeck :
+                                 props.pile === "discard" ? sendToDiscard :
+                                 props.pile === "dealer" ? fromDeckToDealer : sendToPlayer}>
                 <img className="card-back"
                      src={require(`./../svg_playing_cards/fronts/png_96_dpi/${cards[props.id].path}.png`)}
                      alt={"card"}

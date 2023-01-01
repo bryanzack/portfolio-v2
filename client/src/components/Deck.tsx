@@ -60,11 +60,6 @@ const Deck: FC = (props): ReactElement => {
                     <button onClick={() => handleShuffle()}>
                         Shuffle
                     </button>
-                    <button onClick ={() => handleDeal(topOfDeck)}>
-                        Deal card
-                    </button>
-                    <span>{isDeckFull ? "full" : ""}</span>
-                    <span>{isDeckEmpty ? "empty" : ""}</span>
                 </div>
                 <div className="cards">
                     {deckCards.map((index) => (

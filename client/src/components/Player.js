@@ -7,7 +7,7 @@ var react_redux_1 = require("react-redux");
 var playerSlice_1 = require("../store/playerSlice");
 var discardSlice_1 = require("../store/discardSlice");
 var deckSlice_1 = require("../store/deckSlice");
-var cards_1 = require("./cards");
+var dealerSlice_1 = require("../store/dealerSlice");
 var Card_js_1 = require("./Card.js");
 var Player = function (props) {
     var numPlayerCards = (0, react_redux_1.useSelector)(function (state) { return state.player.cards.length; });
@@ -23,11 +23,15 @@ var Player = function (props) {
         dispatch((0, deckSlice_1.removeFromDeck)(topOfDeck));
     };
     var handleStay = function () {
-        var score = 0;
-        for (var i = 0; i < playerCards.length; i++) {
+        /*
+        let score = 0;
+        for (let i = 0; i < playerCards.length; i++) {
             //console.log(cards[playerCards[i]].val);
-            score += cards_1["default"][playerCards[i]].val;
+            score += cards[playerCards[i]].val;
         }
+         */
+        dispatch((0, dealerSlice_1.addToDealer)(topOfDeck));
+        dispatch((0, deckSlice_1.removeFromDeck)(topOfDeck));
         // check sum of dealer hand
         // determine winner
     };
