@@ -15,6 +15,7 @@ export interface CardProps {
 
 const Card: FC<CardProps> = (props): ReactElement => {
     const card_theme = useSelector((state: RootState) => state.card.theme);
+    const isPlayerBust = useSelector((state: RootState) => state.player.isBust);
     const sendToDiscard = useSpring({
         from: {
             x: "15vw",
@@ -88,12 +89,16 @@ const Card: FC<CardProps> = (props): ReactElement => {
     });
     const fromDeckToDealer = useSpring({
         from: {
-            x: "-20vw",
-            y: "-3vh",
+            x: "15vw",
+            y: "15vh",
+            scaleX: 1,
+            transform: "rotateX(0deg) rotateY(0deg)",
         },
         to: {
             x: "0vw",
             y: "0vh",
+            scaleX: -1,
+            transform:  "rotateX(180deg) rotateY(360deg)",
         },
         config: {
 
@@ -106,7 +111,10 @@ const Card: FC<CardProps> = (props): ReactElement => {
                                      props.pile === "dealer" ? "card-container-player" : "card-container"}
                           style={props.pile === "deck" ? sendToDeck :
                                  props.pile === "discard" ? sendToDiscard :
-                                 props.pile === "dealer" ? fromDeckToDealer : sendToPlayer}>
+                                 props.pile === "dealer" ? fromDeckToDealer :
+                                 props.pile === "player" ? sendToPlayer :
+                                 props.pile === "discard" && isPlayerBust ? fromDealerToDiscard :
+                                 sendToDiscard}>
                 <img className="card-back"
                      src={require(`./../svg_playing_cards/fronts/png_96_dpi/${cards[props.id].path}.png`)}
                      alt={"card"}

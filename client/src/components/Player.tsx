@@ -17,6 +17,7 @@ const Player: FC = (props): ReactElement => {
     const topOfPlayer = useSelector((state: RootState) => playerCards[state.player.cards.length-1]);
     const playerScore = useSelector((state: RootState) => state.player.score);
     const isPlayerBust = useSelector((state: RootState) => state.player.isBust);
+    const isDealerBust = useSelector((state: RootState) => state.dealer.isBust);
     const deckCards = useSelector((state: RootState) => state.deck.cards);
     const topOfDeck = useSelector((state: RootState) => deckCards[state.deck.cards.length-1]);
     const dispatch = useDispatch();
@@ -33,8 +34,10 @@ const Player: FC = (props): ReactElement => {
             score += cards[playerCards[i]].val;
         }
          */
-        dispatch(addToDealer(topOfDeck));
-        dispatch(removeFromDeck(topOfDeck));
+        if (!isDealerBust) {
+            dispatch(addToDealer(topOfDeck));
+            dispatch(removeFromDeck(topOfDeck));
+        }
         // check sum of dealer hand
         // determine winner
     }

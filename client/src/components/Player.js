@@ -15,6 +15,7 @@ var Player = function (props) {
     var topOfPlayer = (0, react_redux_1.useSelector)(function (state) { return playerCards[state.player.cards.length - 1]; });
     var playerScore = (0, react_redux_1.useSelector)(function (state) { return state.player.score; });
     var isPlayerBust = (0, react_redux_1.useSelector)(function (state) { return state.player.isBust; });
+    var isDealerBust = (0, react_redux_1.useSelector)(function (state) { return state.dealer.isBust; });
     var deckCards = (0, react_redux_1.useSelector)(function (state) { return state.deck.cards; });
     var topOfDeck = (0, react_redux_1.useSelector)(function (state) { return deckCards[state.deck.cards.length - 1]; });
     var dispatch = (0, react_redux_1.useDispatch)();
@@ -30,8 +31,10 @@ var Player = function (props) {
             score += cards[playerCards[i]].val;
         }
          */
-        dispatch((0, dealerSlice_1.addToDealer)(topOfDeck));
-        dispatch((0, deckSlice_1.removeFromDeck)(topOfDeck));
+        if (!isDealerBust) {
+            dispatch((0, dealerSlice_1.addToDealer)(topOfDeck));
+            dispatch((0, deckSlice_1.removeFromDeck)(topOfDeck));
+        }
         // check sum of dealer hand
         // determine winner
     };
