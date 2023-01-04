@@ -32,7 +32,6 @@ const Discard: FC = (props): ReactElement => {
     return (
         <>
             <div className="discard">
-                <h1>numCards: {numDiscardCards}</h1>
                 <div className="discard-buttons">
                     <button onClick={() => handleAll()}>
                         Repopulate deck

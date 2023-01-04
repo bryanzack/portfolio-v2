@@ -14,7 +14,8 @@ var initialState = {
     numCards: 52,
     isEmpty: false,
     isFull: true,
-    cards: fullDeck()
+    cards: fullDeck(),
+    topCard: 1
 };
 exports.deckSlice = (0, toolkit_1.createSlice)({
     name: 'deck',

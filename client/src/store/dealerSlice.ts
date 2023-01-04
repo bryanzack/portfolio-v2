@@ -23,26 +23,20 @@ export const dealerSlice = createSlice({
     initialState,
     reducers: {
         addToDealer: (state, action: PayloadAction<number>) => {
-            if (!state.isBust) {
-                if (state.score + cards[action.payload].val > 21) {
-                    state.isBust = true;
-                    state.cards.push(action.payload);
-                    state.score += cards[action.payload].val;
-                } else {
-                    state.score += cards[action.payload].val;
-                    state.cards.push(action.payload);
-                }
-            }
+            state.cards.push(action.payload);
+            state.score += cards[action.payload].val;
         },
         removeFromDealer: (state, action: PayloadAction<number>) => {
-            if (state.score < 22) state.isBust = false;
             if (state.cards.length !== 0) {
                 state.score -= cards[action.payload].val;
                 state.cards.pop();
             }
         },
+        bustDealer: (state) => {
+            state.isBust = !state.isBust;
+        },
     },
 });
 
-export const { addToDealer, removeFromDealer } = dealerSlice.actions;
+export const { addToDealer, removeFromDealer, bustDealer } = dealerSlice.actions;
 export default dealerSlice.reducer;

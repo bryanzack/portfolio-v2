@@ -14,6 +14,7 @@ export interface DeckState {
     isEmpty: boolean,
     isFull: boolean,
     cards: number[],
+    topCard: number,
 }
 
 const initialState: DeckState = {
@@ -21,6 +22,7 @@ const initialState: DeckState = {
     isEmpty: false,
     isFull: true,
     cards: fullDeck(),
+    topCard: 1,
 }
 
 export const deckSlice = createSlice({

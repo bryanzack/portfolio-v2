@@ -4,6 +4,7 @@ import cardReducer from '../store/cardSlice';
 import discardReducer from '../store/discardSlice';
 import playerReducer from '../store/playerSlice';
 import dealerReducer from '../store/dealerSlice';
+import gameReducer from '../store/gameSlice';
 
 export const store = configureStore({
     reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
         discard: discardReducer,
         player: playerReducer,
         dealer: dealerReducer,
+        game: gameReducer,
     },
 });
 

@@ -1,7 +1,7 @@
 "use strict";
 var _a;
 exports.__esModule = true;
-exports.removeFromDealer = exports.addToDealer = exports.dealerSlice = void 0;
+exports.bustDealer = exports.removeFromDealer = exports.addToDealer = exports.dealerSlice = void 0;
 /* eslint-disable */
 var toolkit_1 = require("@reduxjs/toolkit");
 var cards_1 = require("../components/cards");
@@ -16,27 +16,19 @@ exports.dealerSlice = (0, toolkit_1.createSlice)({
     initialState: initialState,
     reducers: {
         addToDealer: function (state, action) {
-            if (!state.isBust) {
-                if (state.score + cards_1["default"][action.payload].val > 21) {
-                    state.isBust = true;
-                    state.cards.push(action.payload);
-                    state.score += cards_1["default"][action.payload].val;
-                }
-                else {
-                    state.score += cards_1["default"][action.payload].val;
-                    state.cards.push(action.payload);
-                }
-            }
+            state.cards.push(action.payload);
+            state.score += cards_1["default"][action.payload].val;
         },
         removeFromDealer: function (state, action) {
-            if (state.score < 22)
-                state.isBust = false;
             if (state.cards.length !== 0) {
                 state.score -= cards_1["default"][action.payload].val;
                 state.cards.pop();
             }
+        },
+        bustDealer: function (state) {
+            state.isBust = !state.isBust;
         }
     }
 });
-exports.addToDealer = (_a = exports.dealerSlice.actions, _a.addToDealer), exports.removeFromDealer = _a.removeFromDealer;
+exports.addToDealer = (_a = exports.dealerSlice.actions, _a.addToDealer), exports.removeFromDealer = _a.removeFromDealer, exports.bustDealer = _a.bustDealer;
 exports["default"] = exports.dealerSlice.reducer;

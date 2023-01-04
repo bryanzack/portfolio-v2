@@ -12,15 +12,18 @@ import Card from './Card.js';
 
 const Dealer: FC = (): ReactElement => {
     const dealerCards = useSelector((state: RootState) => state.dealer.cards);
+    const dealerScore = useSelector((state: RootState) => state.dealer.score);
    return (
        <>
            <div className="dealer">
-              <div className="cards">
+               {dealerScore}
+               <div className="cards">
                   {dealerCards.map((index) => (
                     <Card pile={"dealer"}
                         isTopCard={index === dealerCards[dealerCards.length-1]}
                         key={index}
-                        id={index}/>
+                        id={index}
+                        from={"dealer"}/>
                   ))}
               </div>
            </div>
