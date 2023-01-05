@@ -10,6 +10,6 @@ var Dealer = function () {
     return (React.createElement(React.Fragment, null,
         React.createElement("div", { className: "dealer" },
             dealerScore,
-            React.createElement("div", { className: "cards" }, dealerCards.map(function (index) { return (React.createElement(Card_js_1["default"], { pile: "dealer", isTopCard: index === dealerCards[dealerCards.length - 1], key: index, id: index, from: "dealer" })); })))));
+            React.createElement("div", { className: "cards" }, dealerCards.map(function (index) { return (React.createElement(Card_js_1["default"], { pile: "dealer", key: index, id: index, from: "dealer" })); })))));
 };
 exports["default"] = Dealer;

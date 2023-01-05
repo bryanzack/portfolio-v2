@@ -35,15 +35,9 @@ const Deck: FC = (props): ReactElement => {
     return (
         <>
             <div className="deck">
-                <div className="deck-buttons">
-                    <button onClick={() => handleShuffle()}>
-                        Shuffle
-                    </button>
-                </div>
                 <div className="cards">
                     {deckCards.map((index) => (
                         <Card pile={"deck"}
-                              isTopCard={index === deckCards[deckCards.length-1]}
                               key={index}
                               id={index}/>
                     ))}

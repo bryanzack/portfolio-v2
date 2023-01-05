@@ -8,16 +8,12 @@ import type { RootState } from '../store';
 import processCard from '../helpers/processCard.js';
 export interface CardProps {
     id: number,
-    isTopCard: boolean,
     pile: "deck" | "discard" | "player" | "dealer",
     from?: any,
 }
 
-
 const Card: FC<CardProps> = (props): ReactElement => {
     const card_theme = useSelector((state: RootState) => state.card.theme);
-    const isPlayerBust = useSelector((state: RootState) => state.player.isBust);
-    const numDealerCards = useSelector((state: RootState) => state.dealer.cards.length);
 
     return (
         <>

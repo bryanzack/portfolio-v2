@@ -2,16 +2,11 @@ const React = require('react');
 import './Player.css';
 
 import type { RootState } from '../store';
-import {FC, ReactElement, useEffect} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { removeFromPlayer, addToPlayer } from '../store/playerSlice';
-import { addToDiscard } from '../store/discardSlice';
-import { removeFromDeck } from '../store/deckSlice';
-import { addToDealer } from '../store/dealerSlice';
-import cards from './cards';
+import {FC, ReactElement } from 'react';
+import { useSelector } from 'react-redux';
 import Card from './Card.js';
 
-const Player: FC = (props): ReactElement => {
+const Player: FC = (): ReactElement => {
     const playerCards = useSelector((state: RootState) => state.player.cards);
     const playerScore = useSelector((state: RootState) => state.player.score);
 
@@ -22,7 +17,6 @@ const Player: FC = (props): ReactElement => {
                 <div className="cards">
                     {playerCards.map((index) => (
                         <Card pile={"player"}
-                            isTopCard={index === playerCards[playerCards.length-1]}
                             key={index}
                             id={index}
                             from={"player"}/>
