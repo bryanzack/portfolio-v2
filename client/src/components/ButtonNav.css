@@ -1,0 +1,6 @@
+.deal-buttons-active {
+    display: flex;
+}
+.deal-buttons-empty {
+    display: none;
+}

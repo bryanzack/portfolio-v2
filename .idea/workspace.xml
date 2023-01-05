@@ -16,9 +16,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
         <option value="CSS File" />
-        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -78,7 +78,7 @@
       <workItem from="1672338733434" duration="59321000" />
       <workItem from="1672505430104" duration="6138000" />
       <workItem from="1672536308707" duration="561000" />
-      <workItem from="1672598209649" duration="42684000" />
+      <workItem from="1672598209649" duration="46617000" />
     </task>
     <servers />
   </component>
@@ -103,6 +103,7 @@
         <option value="$PROJECT_DIR$/client/src/helpers/processCard.js" />
         <option value="$PROJECT_DIR$/client/src/components/ButtonNav.js" />
         <option value="$PROJECT_DIR$/client/src/store/gameSlice.js" />
+        <option value="$PROJECT_DIR$/client/src/components/Popup.js" />
       </list>
     </option>
   </component>

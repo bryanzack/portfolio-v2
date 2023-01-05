@@ -16,6 +16,7 @@ let ButtonNav: FC = (): ReactElement => {
     const playerCards = useSelector((state: RootState) => state.player.cards);
     const dealerScore = useSelector((state: RootState) => state.dealer.score);
     const playerScore = useSelector((state: RootState) => state.player.score);
+    const winner = useSelector((state: RootState) => state.game.didSomeoneWin);
     const dispatch = useDispatch();
 
     const hitPlayer = () => {
@@ -61,17 +62,21 @@ let ButtonNav: FC = (): ReactElement => {
     return (
         <>
             <div className="button-container">
-                {playerCards.length === 0 &&
-                    <button disabled={playerCards.length !== 0} onClick={() => (dealHands())}>
-                        Play
+                <div className="play-button">
+                    {playerCards.length === 0 &&
+                        <button disabled={playerCards.length !== 0} onClick={() => (dealHands())}>
+                            Play
+                        </button>
+                    }
+                </div>
+                <div className={playerScore > 0 ? "deal-buttons-active" : "deal-buttons-empty"}>
+                    <button onClick={() => hitPlayer()} disabled={winner}>
+                        Hit
                     </button>
-                }
-                <button onClick={() => hitPlayer()} disabled={playerScore > 21}>
-                    Hit
-                </button>
-                <button onClick={() => handleStay()} disabled={playerCards.length === 0}>
-                Stay
-                </button>
+                    <button onClick={() => handleStay()} disabled={winner}>
+                        Stay
+                    </button>
+                </div>
             </div>
         </>
     );

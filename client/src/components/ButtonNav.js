@@ -14,6 +14,7 @@ var ButtonNav = function () {
     var playerCards = (0, react_redux_1.useSelector)(function (state) { return state.player.cards; });
     var dealerScore = (0, react_redux_1.useSelector)(function (state) { return state.dealer.score; });
     var playerScore = (0, react_redux_1.useSelector)(function (state) { return state.player.score; });
+    var winner = (0, react_redux_1.useSelector)(function (state) { return state.game.didSomeoneWin; });
     var dispatch = (0, react_redux_1.useDispatch)();
     var hitPlayer = function () {
         if (cards_1["default"][topOfDeck].val + playerScore > 21) {
@@ -59,9 +60,10 @@ var ButtonNav = function () {
     };
     return (React.createElement(React.Fragment, null,
         React.createElement("div", { className: "button-container" },
-            playerCards.length === 0 &&
-                React.createElement("button", { disabled: playerCards.length !== 0, onClick: function () { return (dealHands()); } }, "Play"),
-            React.createElement("button", { onClick: function () { return hitPlayer(); }, disabled: playerScore > 21 }, "Hit"),
-            React.createElement("button", { onClick: function () { return handleStay(); }, disabled: playerCards.length === 0 }, "Stay"))));
+            React.createElement("div", { className: "play-button" }, playerCards.length === 0 &&
+                React.createElement("button", { disabled: playerCards.length !== 0, onClick: function () { return (dealHands()); } }, "Play")),
+            React.createElement("div", { className: playerScore > 0 ? "deal-buttons-active" : "deal-buttons-empty" },
+                React.createElement("button", { onClick: function () { return hitPlayer(); }, disabled: winner }, "Hit"),
+                React.createElement("button", { onClick: function () { return handleStay(); }, disabled: winner }, "Stay")))));
 };
 exports["default"] = ButtonNav;
