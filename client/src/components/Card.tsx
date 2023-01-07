@@ -1,11 +1,13 @@
 const React = require('react');
 import './Card.css';
+
 import { FC, ReactElement } from 'react';
 import cards from './cards';
 import { useSelector } from 'react-redux';
 import { useSpring, animated } from '@react-spring/web';
 import type { RootState } from '../store';
 import processCard from '../helpers/processCard.js';
+
 export interface CardProps {
     id: number,
     pile: "deck" | "discard" | "player" | "dealer",

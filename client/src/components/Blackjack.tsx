@@ -19,7 +19,7 @@ const Blackjack: FC = (): ReactElement => {
     return (
         <>
             <div className="popup">
-                <Popup />
+                <Popup winner={winner}/>
             </div>
             <div className={winner ? "blackjack-blur" : "blackjack"}>
                 <div className="top">

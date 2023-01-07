@@ -4,7 +4,7 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 
 export interface GameState {
     didSomeoneWin: boolean,
-    winner?: string,
+    winner?: string | undefined,
 }
 
 const initialState: GameState = {
@@ -19,8 +19,12 @@ export const gameSlice = createSlice({
             state.didSomeoneWin = true;
             state.winner = action.payload;
         },
+        resetGame: (state, action: PayloadAction) => {
+            state.didSomeoneWin = false;
+            state.winner = undefined;
+        },
     },
 });
 
-export const { determineWinner } = gameSlice.actions;
+export const { resetGame, determineWinner } = gameSlice.actions;
 export default gameSlice.reducer;

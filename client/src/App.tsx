@@ -1,12 +1,12 @@
-import React, {FC} from 'react';
-
-import Home from './components/Home.js';
-import Blackjack from './components/Blackjack.js';
-import {Routes, Route, BrowserRouter} from 'react-router-dom';
-
+const React = require('react');
+import { FC, ReactElement } from 'react';
 import './App.css';
 
-const App: FC = () => {
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import Home from './components/Home.js';
+import Blackjack from './components/Blackjack.js';
+
+const App: FC = (): ReactElement => {
   return (
       <div className="app">
           <BrowserRouter>

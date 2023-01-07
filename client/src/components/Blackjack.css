@@ -23,6 +23,8 @@ html {
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     //-webkit-perspective: 1000;
+    transition: 10s;
+    transition-delay: 1s;
 }
 
 .top {

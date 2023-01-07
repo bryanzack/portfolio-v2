@@ -1,6 +1,7 @@
 "use strict";
+var _a;
 exports.__esModule = true;
-exports.determineWinner = exports.gameSlice = void 0;
+exports.determineWinner = exports.resetGame = exports.gameSlice = void 0;
 /* eslint-disable */
 var toolkit_1 = require("@reduxjs/toolkit");
 var initialState = {
@@ -13,8 +14,12 @@ exports.gameSlice = (0, toolkit_1.createSlice)({
         determineWinner: function (state, action) {
             state.didSomeoneWin = true;
             state.winner = action.payload;
+        },
+        resetGame: function (state, action) {
+            state.didSomeoneWin = false;
+            state.winner = undefined;
         }
     }
 });
-exports.determineWinner = exports.gameSlice.actions.determineWinner;
+exports.resetGame = (_a = exports.gameSlice.actions, _a.resetGame), exports.determineWinner = _a.determineWinner;
 exports["default"] = exports.gameSlice.reducer;

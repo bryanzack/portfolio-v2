@@ -15,7 +15,7 @@ var Blackjack = function () {
     var winner = (0, react_redux_1.useSelector)(function (state) { return state.game.winner; });
     return (React.createElement(React.Fragment, null,
         React.createElement("div", { className: "popup" },
-            React.createElement(Popup_js_1["default"], null)),
+            React.createElement(Popup_js_1["default"], { winner: winner })),
         React.createElement("div", { className: winner ? "blackjack-blur" : "blackjack" },
             React.createElement("div", { className: "top" },
                 React.createElement("div", { className: "top-container" },

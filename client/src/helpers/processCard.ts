@@ -78,7 +78,7 @@ const fromPlayerToDiscard = {
 const fromDealerToDiscard = {
     from: {
         x: "15vw",
-        y: "-35vh",
+        y: "10vh",
         scaleX: 1,
         transform: "rotateX(0deg) rotateY(0deg)",
     },
