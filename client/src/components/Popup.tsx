@@ -1,3 +1,5 @@
+import card from "./Card";
+
 const React = require('react');
 import {ReactElement} from "react";
 import './Popup.css';
@@ -9,6 +11,7 @@ import { resetGame } from '../store/gameSlice';
 import { addToDiscard } from '../store/discardSlice';
 import { removeFromPlayer } from '../store/playerSlice';
 import { removeFromDealer } from '../store/dealerSlice';
+import cards from "./cards";
 
 const Popup = ( style: any, closePopup: any ): ReactElement => {
     const winner = useSelector((state: RootState) => state.game.winner);
@@ -33,6 +36,9 @@ const Popup = ( style: any, closePopup: any ): ReactElement => {
     const dealerCards = useSelector((state: RootState) => state.dealer.cards);
     const handleClose = () => {
         dispatch(resetGame());
+        console.log(playerCards);
+        console.log(dealerCards);
+
         playerCards.forEach((card) => {
             dispatch(addToDiscard(card));
             dispatch(removeFromPlayer(card));

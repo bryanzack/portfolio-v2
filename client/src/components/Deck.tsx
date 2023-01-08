@@ -24,10 +24,6 @@ const Deck: FC = (props): ReactElement => {
     const handleShuffle = (): void => {
         dispatch(shuffle());
     }
-    const handleReclaimOne = (topOfDiscard: number): void => {
-        dispatch(addToDeck(topOfDiscard));
-        dispatch(removeFromDiscard(topOfDiscard));
-    }
     useEffect(() => {
         handleShuffle();
     }, []);
@@ -35,6 +31,7 @@ const Deck: FC = (props): ReactElement => {
     return (
         <>
             <div className="deck">
+                ({deckCards.length})
                 <div className="cards">
                     {deckCards.map((index) => (
                         <Card pile={"deck"}

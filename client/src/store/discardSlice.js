@@ -15,20 +15,22 @@ var discardSlice = (0, toolkit_1.createSlice)({
     initialState: initialState,
     reducers: {
         addToDiscard: function (state, action) {
-            if (state.numCards < 51) {
-                state.isEmpty = false;
+            if (!state.cards.includes(action.payload)) {
+                if (state.numCards < 51) {
+                    state.isEmpty = false;
+                }
+                else if (state.numCards === 51) {
+                    state.isFull = true;
+                }
+                else if (state.numCards === 0) {
+                    state.isEmpty = false;
+                }
                 state.numCards++;
                 state.cards.push(action.payload);
+                console.log("addToDiscard: ", action.payload);
             }
-            else if (state.numCards === 51) {
-                state.isFull = true;
-                state.numCards++;
-                state.cards.push(action.payload);
-            }
-            else if (state.numCards === 0) {
-                state.isEmpty = false;
-                state.numCards++;
-                state.cards.push(action.payload);
+            else {
+                console.log("failed to add to discard: ", action.payload);
             }
         },
         removeFromDiscard: function (state, action) {

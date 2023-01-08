@@ -19,7 +19,8 @@ export const playerSlice = createSlice({
     initialState,
     reducers: {
         addToPlayer: (state, action:PayloadAction<number>) => {
-            if (!state.isBust) {
+            console.log("addToPlayer: ", action.payload);
+            if (!state.cards.includes(action.payload)) {
                 if (state.score + cards[action.payload].val > 21) {
                     state.isBust = true;
                     state.cards.push(action.payload);

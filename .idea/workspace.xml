@@ -38,6 +38,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/bryan/Desktop/new-portfolio",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -45,7 +46,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors",
-    "ts.external.directory.path": "C:\\Users\\bryan\\react-practice\\react-router-backend\\client\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\Users\\bryan\\Desktop\\new-portfolio\\client\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -79,6 +80,7 @@
       <workItem from="1672505430104" duration="6138000" />
       <workItem from="1672536308707" duration="561000" />
       <workItem from="1672598209649" duration="46617000" />
+      <workItem from="1673194110725" duration="8335000" />
     </task>
     <servers />
   </component>
@@ -106,5 +108,17 @@
         <option value="$PROJECT_DIR$/client/src/components/Popup.js" />
       </list>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/client/src/components/Card.tsx</url>
+          <line>1</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

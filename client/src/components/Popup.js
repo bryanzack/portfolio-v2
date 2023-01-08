@@ -31,6 +31,8 @@ var Popup = function (style, closePopup) {
     var dealerCards = (0, react_redux_1.useSelector)(function (state) { return state.dealer.cards; });
     var handleClose = function () {
         dispatch((0, gameSlice_1.resetGame)());
+        console.log(playerCards);
+        console.log(dealerCards);
         playerCards.forEach(function (card) {
             dispatch((0, discardSlice_1.addToDiscard)(card));
             dispatch((0, playerSlice_1.removeFromPlayer)(card));

@@ -5,7 +5,6 @@ require("./Deck.css");
 var react_1 = require("react");
 var react_redux_1 = require("react-redux");
 var deckSlice_1 = require("../store/deckSlice");
-var discardSlice_1 = require("../store/discardSlice");
 var Card_js_1 = require("./Card.js");
 var Deck = function (props) {
     var isDeckFull = (0, react_redux_1.useSelector)(function (state) { return state.deck.isFull; });
@@ -20,15 +19,14 @@ var Deck = function (props) {
     var handleShuffle = function () {
         dispatch((0, deckSlice_1.shuffle)());
     };
-    var handleReclaimOne = function (topOfDiscard) {
-        dispatch((0, deckSlice_1.addToDeck)(topOfDiscard));
-        dispatch((0, discardSlice_1.removeFromDiscard)(topOfDiscard));
-    };
     (0, react_1.useEffect)(function () {
         handleShuffle();
     }, []);
     return (React.createElement(React.Fragment, null,
         React.createElement("div", { className: "deck" },
+            "(",
+            deckCards.length,
+            ")",
             React.createElement("div", { className: "cards" }, deckCards.map(function (index) { return (React.createElement(Card_js_1["default"], { pile: "deck", key: index, id: index })); })))));
 };
 exports["default"] = Deck;
