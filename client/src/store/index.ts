@@ -1,10 +1,10 @@
 import {configureStore, ThunkAction, Action} from '@reduxjs/toolkit';
-import deckReducer from '../store/deckSlice';
-import cardReducer from '../store/cardSlice';
-import discardReducer from '../store/discardSlice';
-import playerReducer from '../store/playerSlice';
-import dealerReducer from '../store/dealerSlice';
-import gameReducer from '../store/gameSlice';
+import deckReducer from '../blackjack/reducers/deckSlice';
+import cardReducer from '../blackjack/reducers/cardSlice';
+import discardReducer from '../blackjack/reducers/discardSlice';
+import playerReducer from '../blackjack/reducers/playerSlice';
+import dealerReducer from '../blackjack/reducers/dealerSlice';
+import gameReducer from '../blackjack/reducers/gameSlice';
 import { ToolkitStore } from "@reduxjs/toolkit/dist/configureStore";
 import { useDispatch } from "react-redux";
 
