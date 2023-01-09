@@ -33,7 +33,7 @@ const Deck: FC = (props): ReactElement => {
             <div className="deck">
                 ({deckCards.length})
                 <div className="cards">
-                    {deckCards.map((index) => (
+                    {deckCards.map((index: number) => (
                         <Card pile={"deck"}
                               key={index}
                               id={index}/>

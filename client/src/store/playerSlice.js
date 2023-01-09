@@ -16,7 +16,6 @@ exports.playerSlice = (0, toolkit_1.createSlice)({
     initialState: initialState,
     reducers: {
         addToPlayer: function (state, action) {
-            console.log("addToPlayer: ", action.payload);
             if (!state.cards.includes(action.payload)) {
                 if (state.score + cards_1["default"][action.payload].val > 21) {
                     state.isBust = true;

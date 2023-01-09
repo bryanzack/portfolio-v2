@@ -15,7 +15,7 @@ const Player: FC = (): ReactElement => {
             <div className="player">
                 {playerScore}
                 <div className="cards">
-                    {playerCards.map((index) => (
+                    {playerCards.map((index: number) => (
                         <Card pile={"player"}
                             key={index}
                             id={index}

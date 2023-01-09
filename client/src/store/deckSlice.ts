@@ -1,6 +1,8 @@
 /* eslint-disable */
-import { createSlice } from '@reduxjs/toolkit';
-import type { PayloadAction } from '@reduxjs/toolkit';
+import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { AppThunk, RootState } from '../store';
+import { removeFromDiscard } from "./discardSlice";
+import cards from "../components/cards";
 
 let fullDeck = (): number[] => {
     let deck: number[] = [];
@@ -25,6 +27,22 @@ const initialState: DeckState = {
     topCard: 1,
 }
 
+export const testThunk =
+    (discardCards: number[]): AppThunk =>
+        (dispatch, getState) => {
+        discardCards.forEach((card: number) => {
+            dispatch(removeFromDiscard(card));
+            dispatch(addToDeck(card));
+        });
+        /*
+        const currVal = selectCards(getState());
+        console.log(currVal);
+        dispatch(removeFromDeck(currVal.length-1));
+        const newVal = selectCards(getState());
+        console.log(newVal);
+         */
+    }
+
 export const deckSlice = createSlice({
     name: 'deck',
     initialState,
@@ -38,37 +56,34 @@ export const deckSlice = createSlice({
             }
         },
         addToDeck: (state, action: PayloadAction<number>) => {
-            if (state.numCards < 51) {
-                state.isEmpty = false;
-                state.numCards++;
-                state.cards.push(action.payload);
-            } else if (state.numCards === 51) {
-                state.isFull = true;
-                state.numCards++;
-                state.cards.push(action.payload);
-            } else if (state.numCards === 0) {
-                state.isEmpty = false;
+            if (!state.cards.includes(action.payload)) {
+                if (state.numCards < 51) {
+                    state.isEmpty = false;
+                } else if (state.numCards === 51) {
+                    state.isFull = true;
+                } else if (state.numCards === 0) {
+                    state.isEmpty = false;
+                }
                 state.numCards++;
                 state.cards.push(action.payload);
             } else {
-                console.log("frog: deck");
+                console.log("failed to add to deck: " + cards[action.payload].name + " of " + cards[action.payload].suite + " (" + action.payload + ")");
             }
         },
         removeFromDeck: (state, action: PayloadAction<number>) => {
             if (state.numCards > 1 && state.numCards) {
                 state.isFull = false;
-                state.numCards--;
-                state.cards.pop();
             } else if (state.numCards === 1) {
                 state.isEmpty = true;
-                state.numCards--;
-                state.cards.pop();
             } else if (state.numCards === 51) {
                 state.isFull = false;
             }
+            state.numCards--;
+            state.cards.pop();
         },
     },
 });
 
 export const { shuffle, addToDeck, removeFromDeck } = deckSlice.actions;
+export const selectCards = (state: RootState) => state.deck.cards;
 export default deckSlice.reducer;

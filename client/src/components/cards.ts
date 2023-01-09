@@ -1,4 +1,4 @@
-interface Card {
+export interface Card {
     path: string,
     suite: string,
     val: number,

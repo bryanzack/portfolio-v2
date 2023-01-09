@@ -14,7 +14,7 @@ const Dealer: FC = (): ReactElement => {
            <div className="dealer">
                {dealerScore}
                <div className="cards">
-                  {dealerCards.map((index) => (
+                  {dealerCards.map((index: number) => (
                     <Card pile={"dealer"}
                         key={index}
                         id={index}

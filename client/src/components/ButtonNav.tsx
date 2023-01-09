@@ -1,55 +1,68 @@
 const React = require('react');
 import './ButtonNav.css';
 
-import type { RootState } from '../store';
+import type { AppDispatch, RootState } from '../store';
+import { useAppSelector, useAppDispatch } from '../store/hooks';
+import { selectCards, testThunk } from "../store/deckSlice.js";
 import { FC, ReactElement } from 'react';
 import { addToPlayer } from '../store/playerSlice.js';
 import { addToDeck, removeFromDeck } from '../store/deckSlice.js';
 import { addToDealer } from '../store/dealerSlice.js';
 import { removeFromDiscard } from '../store/discardSlice.js';
-import { determineWinner } from '../store/gameSlice.js';
+import { determineWinner, toggleRepopulating } from '../store/gameSlice.js';
 import { useDispatch, useSelector } from "react-redux";
+import {AnyAction, createAsyncThunk, Dispatch} from '@reduxjs/toolkit';
 import card from "./cards";
 
 let ButtonNav: FC = (): ReactElement => {
     const dealerCards = useSelector((state: RootState) => state.dealer.cards);
     const deckCards = useSelector((state: RootState) => state.deck.cards);
     const discardCards = useSelector((state: RootState) => state.discard.cards);
-    const topOfDeck = useSelector((state: RootState) => deckCards[state.deck.cards.length-1]);
     const playerCards = useSelector((state: RootState) => state.player.cards);
     const dealerScore = useSelector((state: RootState) => state.dealer.score);
     const playerScore = useSelector((state: RootState) => state.player.score);
     const winner = useSelector((state: RootState) => state.game.didSomeoneWin);
-    const dispatch = useDispatch();
+    const isDeckRepopulating = useSelector((state: RootState) => state.game.repopulating);
+    const dispatch = useAppDispatch();
 
-    const repopulateDeck = () => {
-        discardCards.forEach((card) => {
-            dispatch(addToDeck(card));
-            dispatch(removeFromDiscard(card));
-        });
-    }
-
-    const hitPlayer = () => {
-        if (deckCards.length !== 0) {
-            if (card[deckCards.length - 1].val + playerScore > 21) {
+    // if player hits and deck is not empty, hit as normal
+    // else if deck is empty, repopulate deck with discard, and deal from top of new deck state
+    const hitPlayerThunk = () => (dispatch: any, getState: any): void => {
+        const originalState = selectCards(getState());
+        if (originalState.length !== 0) {
+            if (card[originalState[originalState.length-1]].val + playerScore > 21) {
                 dispatch(determineWinner("dealer"));
             }
-            dispatch(addToPlayer(deckCards[deckCards.length-1]));
-            dispatch(removeFromDeck(deckCards[deckCards.length-1]));
+            dispatch(addToPlayer(originalState[originalState.length-1]));
+            dispatch(removeFromDeck(originalState[originalState.length-1]));
         } else {
-            console.log("NOT ENOUGH CARDS FOR hitPlayer()...");
-            repopulateDeck();
+            dispatch(toggleRepopulating(true));
+            discardCards.forEach((card: number) => {
+                dispatch(removeFromDiscard(card));
+                dispatch(addToDeck(card));
+            });
+            const newState = selectCards(getState());
+            setTimeout(() => {
+                if (card[newState[newState.length-1]].val + playerScore > 21) {
+                    dispatch(determineWinner("dealer"));
+                }
+                dispatch(addToPlayer(newState[newState.length-1]));
+                dispatch(removeFromDeck(newState[newState.length-1]));
+            }, 500);
+            dispatch(toggleRepopulating(false));
         }
     }
-    const handleStay = () => {
-        if (deckCards.length !== 0) {
-            let tmpDealerScore = dealerScore;
-            let count = 0;
+    const newHandleStayThunk = () => (dispatch: any, getState: any): void => {
+        // given current deck state, how many cards can be dealt to the dealer
+        // before dealer busts or reaches dealerScore > = 17?
+        const originalDeck = selectCards(getState());
+        let tmpDealerScore = dealerScore;
+        let count = 0;
+        if (originalDeck.length >= 7) {
             while (tmpDealerScore < 17) {
-                tmpDealerScore += card[deckCards[deckCards.length - 1 - count]].val;
-                console.log("adding to dealer: ", deckCards[deckCards.length - 1 - count]);
-                dispatch(addToDealer(deckCards[deckCards.length - 1 - count]));
-                dispatch(removeFromDeck(deckCards[deckCards.length - 1 - count]));
+                tmpDealerScore += card[originalDeck[originalDeck.length - 1 - count]].val;
+                dispatch(addToDealer(originalDeck[originalDeck.length - 1 - count]));
+                dispatch(removeFromDeck(originalDeck[originalDeck.length - 1 - count]));
                 count++;
             }
             if (tmpDealerScore > 21) {
@@ -62,10 +75,34 @@ let ButtonNav: FC = (): ReactElement => {
                 dispatch(determineWinner('push'));
             }
         } else {
-            console.log("NOT ENOUGH CARDS FOR handleStay()...");
-            repopulateDeck();
+            console.log("not enough cards for stay operation...");
+            dispatch(toggleRepopulating(true));
+            discardCards.forEach((card: number) => {
+                dispatch(removeFromDiscard(card));
+                dispatch(addToDeck(card));
+            });
+            const newDeck = selectCards(getState());
+            setTimeout(() => {
+                while (tmpDealerScore < 17) {
+                    tmpDealerScore += card[newDeck[newDeck.length - 1 - count]].val;
+                    dispatch(addToDealer(newDeck[newDeck.length - 1 - count]));
+                    dispatch(removeFromDeck(newDeck[newDeck.length - 1 - count]));
+                    count++;
+                }
+                if (tmpDealerScore > 21) {
+                    dispatch(determineWinner('player'));
+                } else if (tmpDealerScore <= 21 && tmpDealerScore > playerScore) {
+                    dispatch(determineWinner('dealer'));
+                } else if (tmpDealerScore <= 21 && tmpDealerScore < playerScore) {
+                    dispatch(determineWinner('player'));
+                } else if (tmpDealerScore === playerScore) {
+                    dispatch(determineWinner('push'));
+                }
+            }, 500);
+            dispatch(toggleRepopulating(false));
         }
     }
+
     const dealDealer = (card: number) => {
         dispatch(addToDealer(card));
         dispatch(removeFromDeck(card));
@@ -74,15 +111,25 @@ let ButtonNav: FC = (): ReactElement => {
         dispatch(addToPlayer(card));
         dispatch(removeFromDeck(card));
     }
-    const dealHands = () => {
-        // why is topOfDeck undefined sometimes?
-        if (deckCards.length > 2) {
+    const dealHandsThunk = () => (dispatch: any, getState: any) => {
+        const originalDeck = selectCards(getState());
+        if (originalDeck.length > 2) {
             dealDealer(deckCards[deckCards.length-1]);
             dealPlayer(deckCards[deckCards.length-2]);
             dealPlayer(deckCards[deckCards.length-3]);
         } else {
-            console.log("NOT ENOUGH CARDS TO FOR dealHands()...");
-            repopulateDeck();
+            dispatch(toggleRepopulating(true));
+            discardCards.forEach((card: number) => {
+                dispatch(removeFromDiscard(card));
+                dispatch(addToDeck(card));
+            });
+            const newDeck = selectCards(getState());
+            setTimeout(() => {
+                dealDealer(newDeck[newDeck.length-1]);
+                dealPlayer(newDeck[newDeck.length-2]);
+                dealPlayer(newDeck[newDeck.length-3]);
+            }, 500);
+            dispatch(toggleRepopulating(false));
         }
     }
 
@@ -92,16 +139,16 @@ let ButtonNav: FC = (): ReactElement => {
                 totalNumCards: {deckCards.length + discardCards.length + playerCards.length + dealerCards.length}
                 <div className="play-button">
                     {playerCards.length === 0 &&
-                        <button disabled={playerCards.length !== 0} onClick={() => (dealHands())}>
+                        <button disabled={isDeckRepopulating} onClick={() => dispatch(dealHandsThunk() as any)}>
                             Play
                         </button>
                     }
                 </div>
                 <div className={playerScore > 0 ? "deal-buttons-active" : "deal-buttons-empty"}>
-                    <button onClick={() => hitPlayer()} disabled={winner}>
+                    <button onClick={() => dispatch(hitPlayerThunk() as any)} disabled={winner && !isDeckRepopulating}>
                         Hit
                     </button>
-                    <button onClick={() => handleStay()} disabled={winner}>
+                    <button onClick={() => dispatch(newHandleStayThunk() as any)} disabled={winner && !isDeckRepopulating}>
                         Stay
                     </button>
                 </div>

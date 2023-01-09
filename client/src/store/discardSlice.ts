@@ -31,7 +31,6 @@ const discardSlice = createSlice({
                 }
                 state.numCards++;
                 state.cards.push(action.payload);
-                console.log("addToDiscard: ", action.payload);
             } else {
                 console.log("failed to add to discard: ", action.payload);
             }

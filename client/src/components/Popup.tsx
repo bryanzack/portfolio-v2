@@ -34,21 +34,21 @@ const Popup = ( style: any, closePopup: any ): ReactElement => {
     });
     const playerCards = useSelector((state: RootState) => state.player.cards);
     const dealerCards = useSelector((state: RootState) => state.dealer.cards);
+    const deckCards = useSelector((state: RootState) => state.deck.cards);
+    const dispatch = useDispatch();
+
     const handleClose = () => {
         dispatch(resetGame());
-        console.log(playerCards);
-        console.log(dealerCards);
-
-        playerCards.forEach((card) => {
+        playerCards.forEach((card: number) => {
             dispatch(addToDiscard(card));
             dispatch(removeFromPlayer(card));
         });
-        dealerCards.forEach((card) => {
+        dealerCards.forEach((card: number) => {
             dispatch(addToDiscard(card));
             dispatch(removeFromDealer(card));
         });
+        console.log(deckCards.length);
     }
-    const dispatch = useDispatch();
 
     return transitions((style) => (
         <animated.div style={style} className={"popup"}>

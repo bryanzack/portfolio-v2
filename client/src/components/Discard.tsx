@@ -13,7 +13,7 @@ const Discard: FC = (): ReactElement => {
             <div className="discard">
                 ({discardCards.length})
                 <div className="cards">
-                    {discardCards.map((index) => (
+                    {discardCards.map((index: number) => (
                         <Card pile={"discard"}
                               key={index}
                               id={index}/>

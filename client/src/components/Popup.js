@@ -29,10 +29,10 @@ var Popup = function (style, closePopup) {
     });
     var playerCards = (0, react_redux_1.useSelector)(function (state) { return state.player.cards; });
     var dealerCards = (0, react_redux_1.useSelector)(function (state) { return state.dealer.cards; });
+    var deckCards = (0, react_redux_1.useSelector)(function (state) { return state.deck.cards; });
+    var dispatch = (0, react_redux_1.useDispatch)();
     var handleClose = function () {
         dispatch((0, gameSlice_1.resetGame)());
-        console.log(playerCards);
-        console.log(dealerCards);
         playerCards.forEach(function (card) {
             dispatch((0, discardSlice_1.addToDiscard)(card));
             dispatch((0, playerSlice_1.removeFromPlayer)(card));
@@ -41,8 +41,8 @@ var Popup = function (style, closePopup) {
             dispatch((0, discardSlice_1.addToDiscard)(card));
             dispatch((0, dealerSlice_1.removeFromDealer)(card));
         });
+        console.log(deckCards.length);
     };
-    var dispatch = (0, react_redux_1.useDispatch)();
     return transitions(function (style) { return (React.createElement(react_spring_1.animated.div, { style: style, className: "popup" },
         React.createElement("h3", { className: "popup-title" }, winner === "push" ? "Tie!" : winner === "dealer" ? "You lose!" : winner === "player" ? "You win!" : ""),
         React.createElement("p", { className: "popup-content" }, "content"),
