@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins&family=Roboto:ital,wght@0,500;1,400&display=swap');
+
+.landing {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.sidewaystext {
+    position: fixed;
+    margin-right: 850px;
+    margin-top: 460px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 100px;
+    transform: rotate(-90deg);
+    font-family: Roboto, sans-serif;
+}
+.names {
+    display: flex;
+    //position: absolute;
+    font-family: "Roboto", sans-serif;
+    //background: lightskyblue;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    flex-direction: column;
+    //transform: rotate(-30deg);
+    user-select: none;
+    //filter: blur(0);
+    border: 2px solid transparent;
+    padding: 8px 12px;
+}
+.line {
+    display: flex;
+    justify-content: center;
+    //align-items: center;
+    flex-direction: row;
+    white-space: nowrap;
+}
+.line > p {
+    //margin: 0;
+    font-size: 5px;
+}
+
+.nav {
+    width: 300px;
+    height: 100px;
+    position: absolute;
+
+}
+
+.nav > h1 {
+    color: white;
+}

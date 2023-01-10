@@ -17,7 +17,6 @@ export const store: ToolkitStore = configureStore({
         player: playerReducer,
         dealer: dealerReducer,
         game: gameReducer,
-
     },
 });
 
