@@ -1,81 +1,37 @@
 const React = require('react');
 import './Landing.css';
 
+
 import { FC, ReactElement, useRef, useState } from 'react';
 import type { RootState } from '../../store';
 import { Canvas, useFrame } from  '@react-three/fiber';
 import { Mesh } from 'three';
-import { animated, useTransition, useSpring } from '@react-spring/web';
+import { animated, useTransition, useTrail } from '@react-spring/web';
+import Marquee from 'react-fast-marquee';
+import Names from './Names.js';
 
-interface LineProps {
-    num: number,
+interface TrailProps<T> {
+    open: boolean,
+    itemsList: T[],
 }
-
-const TestBox: FC = (): ReactElement => {
-    const myMesh = useRef<Mesh>(null!);
-    useFrame(({ clock }) => {
-        myMesh.current.rotation.x = Math.sin(clock.getElapsedTime());
-    });
+const Trail: FC<TrailProps<any>> = (TrailProps) => {
+    const items = React.Children.toArray(TrailProps.itemsList)
+    const trail = useTrail(items.length, {
+        config: { mass: 5, tension: 2000, friction: 200 },
+        opacity: TrailProps.open ? 1 : 0,
+        x: TrailProps.open ? 0 : 20,
+        height: TrailProps.open ? 110 : 0,
+        from: { opacity: 0, x: 20, height: 0 },
+    })
     return (
-        <mesh
-            ref={myMesh}
-            onClick={(e) => console.log("Test!")}
-            onPointerMissed={() => console.log("miss!")}>
-            <boxGeometry />
-            <meshBasicMaterial color={'royalblue'} />
-        </mesh>
-    );
-}
-const Line: FC<LineProps> = (props): ReactElement => {
-    const arr: number[] = [];
-    for (let i = 0; i < 30; i++) {
-        arr.push(i);
-    }
-    return (
-        <div className="line">
-            {arr.map((index: number) => {
-                return <p key={index}>bryan zack &nbsp;</p>
-            })}
+        <div>
+            {trail.map(({ height, ...style }, index) => (
+                <animated.div key={index} className={"trailsText"} style={style}>
+                    <animated.div style={{ height }}>{items[index]}</animated.div>
+                </animated.div>
+            ))}
         </div>
-    );
-}
-
-const Names: FC = (): ReactElement => {
-    const [mouseHover, setMouseHover] = useState(false);
-    const [isClicked, setClicked] = useState(false);
-    const arr: number[] = [];
-    for (let i = 0; i < 40; i++) {
-        arr.push(i);
-    }
-    const active = {
-        opacity: 1,
-        transition: 'opacity 500ms',
-    }
-    const inactive = {
-        opacity: 0,
-        transition: 'opacity 500ms',
-    }
-
-    const clicked = {
-       border: '2px solid black',
-    }
-    const notclicked = {
-       border: 'none',
-    }
-
-    return (
-        <>
-            <animated.div className="names-container">
-                <div className={'names'} onMouseEnter={() => setMouseHover(true)} onMouseLeave={() => setMouseHover(false)}>
-                    {arr.map((index: number) => {
-                        return <Line num={index} key={index}/>
-                    })}
-                </div>
-                <div style={mouseHover ? active : inactive} className="background">
-                </div>
-            </animated.div>
-        </>
-    );
+    )
 }
 
 const Landing: FC = (): ReactElement => {
@@ -84,14 +40,23 @@ const Landing: FC = (): ReactElement => {
         enter: { opacity: 1 },
         leave: { opacity: 0 },
     });
+    let arr: number[] = [];
+    for (let i = 0; i < 150; i++) {
+        arr.push(i);
+    }
 
     return fadeIn((style) => (
         <>
             <animated.div style={style} className="landing">
                 <div className="sidewaystext">
-                    <h1>bryan zack</h1>
+                        {arr.map((index: number) => {
+                            return <h1 key={index}>bryan zack</h1>
+                        })}
                 </div>
                 <Names />
+                <div className="hero">
+                    <h1>about me</h1>
+                </div>
             </animated.div>
         </>
     ));
@@ -102,12 +67,11 @@ export default Landing;
 
 /*
 
-            <Canvas>
-                <ambientLight intensity={0.1} />
-                <directionalLight color={"red"} position={[0,0,5]} />
-                <mesh>
-                    <boxGeometry args={[2,2,2]}/>
-                    <meshStandardMaterial />
-                </mesh>
-            </Canvas>
+            <div className="three">
+                <Canvas>
+                    <hemisphereLight args={["blue", "red", .7]} />
+                    <directionalLight position={[5,5,2]} intensity={.4}  />
+                    <RotateSphere />
+                </Canvas>
+            </div>
  */

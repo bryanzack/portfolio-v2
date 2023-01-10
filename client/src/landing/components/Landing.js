@@ -1,56 +1,34 @@
 "use strict";
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
 exports.__esModule = true;
 var React = require('react');
 require("./Landing.css");
-var react_1 = require("react");
-var fiber_1 = require("@react-three/fiber");
 var web_1 = require("@react-spring/web");
-var TestBox = function () {
-    var myMesh = (0, react_1.useRef)(null);
-    (0, fiber_1.useFrame)(function (_a) {
-        var clock = _a.clock;
-        myMesh.current.rotation.x = Math.sin(clock.getElapsedTime());
+var Names_js_1 = require("./Names.js");
+var Trail = function (TrailProps) {
+    var items = React.Children.toArray(TrailProps.itemsList);
+    var trail = (0, web_1.useTrail)(items.length, {
+        config: { mass: 5, tension: 2000, friction: 200 },
+        opacity: TrailProps.open ? 1 : 0,
+        x: TrailProps.open ? 0 : 20,
+        height: TrailProps.open ? 110 : 0,
+        from: { opacity: 0, x: 20, height: 0 }
     });
-    return (React.createElement("mesh", { ref: myMesh, onClick: function (e) { return console.log("Test!"); }, onPointerMissed: function () { return console.log("miss!"); } },
-        React.createElement("boxGeometry", null),
-        React.createElement("meshBasicMaterial", { color: 'royalblue' })));
-};
-var Line = function (props) {
-    var arr = [];
-    for (var i = 0; i < 30; i++) {
-        arr.push(i);
-    }
-    return (React.createElement("div", { className: "line" }, arr.map(function (index) {
-        return React.createElement("p", { key: index }, "bryan zack \u00A0");
+    return (React.createElement("div", null, trail.map(function (_a, index) {
+        var height = _a.height, style = __rest(_a, ["height"]);
+        return (React.createElement(web_1.animated.div, { key: index, className: "trailsText", style: style },
+            React.createElement(web_1.animated.div, { style: { height: height } }, items[index])));
     })));
-};
-var Names = function () {
-    var _a = (0, react_1.useState)(false), mouseHover = _a[0], setMouseHover = _a[1];
-    var _b = (0, react_1.useState)(false), isClicked = _b[0], setClicked = _b[1];
-    var arr = [];
-    for (var i = 0; i < 40; i++) {
-        arr.push(i);
-    }
-    var active = {
-        opacity: 1,
-        transition: 'opacity 500ms'
-    };
-    var inactive = {
-        opacity: 0,
-        transition: 'opacity 500ms'
-    };
-    var clicked = {
-        border: '2px solid black'
-    };
-    var notclicked = {
-        border: 'none'
-    };
-    return (React.createElement(React.Fragment, null,
-        React.createElement(web_1.animated.div, { className: "names-container" },
-            React.createElement("div", { className: 'names', onMouseEnter: function () { return setMouseHover(true); }, onMouseLeave: function () { return setMouseHover(false); } }, arr.map(function (index) {
-                return React.createElement(Line, { num: index, key: index });
-            })),
-            React.createElement("div", { style: mouseHover ? active : inactive, className: "background" }))));
 };
 var Landing = function () {
     var fadeIn = (0, web_1.useTransition)(null, {
@@ -58,21 +36,27 @@ var Landing = function () {
         enter: { opacity: 1 },
         leave: { opacity: 0 }
     });
+    var arr = [];
+    for (var i = 0; i < 150; i++) {
+        arr.push(i);
+    }
     return fadeIn(function (style) { return (React.createElement(React.Fragment, null,
         React.createElement(web_1.animated.div, { style: style, className: "landing" },
-            React.createElement("div", { className: "sidewaystext" },
-                React.createElement("h1", null, "bryan zack")),
-            React.createElement(Names, null)))); });
+            React.createElement("div", { className: "sidewaystext" }, arr.map(function (index) {
+                return React.createElement("h1", { key: index }, "bryan zack");
+            })),
+            React.createElement(Names_js_1["default"], null),
+            React.createElement("div", { className: "hero" },
+                React.createElement("h1", null, "about me"))))); });
 };
 exports["default"] = Landing;
 /*
 
-            <Canvas>
-                <ambientLight intensity={0.1} />
-                <directionalLight color={"red"} position={[0,0,5]} />
-                <mesh>
-                    <boxGeometry args={[2,2,2]}/>
-                    <meshStandardMaterial />
-                </mesh>
-            </Canvas>
+            <div className="three">
+                <Canvas>
+                    <hemisphereLight args={["blue", "red", .7]} />
+                    <directionalLight position={[5,5,2]} intensity={.4}  />
+                    <RotateSphere />
+                </Canvas>
+            </div>
  */ 
