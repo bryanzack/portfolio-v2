@@ -26,6 +26,7 @@ var Line = function (props) {
 };
 var Names = function () {
     var _a = (0, react_1.useState)(false), mouseHover = _a[0], setMouseHover = _a[1];
+    var _b = (0, react_1.useState)(false), isClicked = _b[0], setClicked = _b[1];
     var arr = [];
     for (var i = 0; i < 40; i++) {
         arr.push(i);
@@ -38,11 +39,18 @@ var Names = function () {
         opacity: 0,
         transition: 'opacity 500ms'
     };
+    var clicked = {
+        border: '2px solid black'
+    };
+    var notclicked = {
+        border: 'none'
+    };
     return (React.createElement(React.Fragment, null,
-        React.createElement("div", { className: 'names' }, arr.map(function (index) {
-            return React.createElement(Line, { num: index, key: index });
-        })),
-        React.createElement("div", { style: mouseHover ? active : inactive, className: "background", onMouseEnter: function () { return setMouseHover(true); }, onMouseLeave: function () { return setMouseHover(false); } }, "test")));
+        React.createElement(web_1.animated.div, { className: "names-container" },
+            React.createElement("div", { className: 'names', onMouseEnter: function () { return setMouseHover(true); }, onMouseLeave: function () { return setMouseHover(false); } }, arr.map(function (index) {
+                return React.createElement(Line, { num: index, key: index });
+            })),
+            React.createElement("div", { style: mouseHover ? active : inactive, className: "background" }))));
 };
 var Landing = function () {
     var fadeIn = (0, web_1.useTransition)(null, {
@@ -50,21 +58,6 @@ var Landing = function () {
         enter: { opacity: 1 },
         leave: { opacity: 0 }
     });
-    var backgroundFade = (0, web_1.useSpring)({
-        from: {
-            background: "linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),\n                             linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),\n                             linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%)"
-        },
-        to: {
-            background: 'none'
-        }
-    });
-    var hover = {
-        background: "linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),\n    linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),\n    linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%)"
-    };
-    var not_hover = {
-        background: 'white',
-        transition: 'background .5s ease'
-    };
     return fadeIn(function (style) { return (React.createElement(React.Fragment, null,
         React.createElement(web_1.animated.div, { style: style, className: "landing" },
             React.createElement("div", { className: "sidewaystext" },

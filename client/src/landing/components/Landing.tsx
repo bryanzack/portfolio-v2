@@ -42,11 +42,11 @@ const Line: FC<LineProps> = (props): ReactElement => {
 
 const Names: FC = (): ReactElement => {
     const [mouseHover, setMouseHover] = useState(false);
+    const [isClicked, setClicked] = useState(false);
     const arr: number[] = [];
     for (let i = 0; i < 40; i++) {
         arr.push(i);
     }
-
     const active = {
         opacity: 1,
         transition: 'opacity 500ms',
@@ -56,46 +56,34 @@ const Names: FC = (): ReactElement => {
         transition: 'opacity 500ms',
     }
 
+    const clicked = {
+       border: '2px solid black',
+    }
+    const notclicked = {
+       border: 'none',
+    }
+
     return (
         <>
-            <div className={'names'}>
-                {arr.map((index: number) => {
-                    return <Line num={index} key={index}/>
-                })}
-            </div>
-            <div style={mouseHover ? active : inactive} className="background" onMouseEnter={() => setMouseHover(true)} onMouseLeave={() => setMouseHover(false)}>
-                test
-            </div>
+            <animated.div className="names-container">
+                <div className={'names'} onMouseEnter={() => setMouseHover(true)} onMouseLeave={() => setMouseHover(false)}>
+                    {arr.map((index: number) => {
+                        return <Line num={index} key={index}/>
+                    })}
+                </div>
+                <div style={mouseHover ? active : inactive} className="background">
+                </div>
+            </animated.div>
         </>
     );
 }
+
 const Landing: FC = (): ReactElement => {
     const fadeIn = useTransition(null, {
         from: { opacity: 0 },
         enter: { opacity: 1 },
         leave: { opacity: 0 },
     });
-
-    const backgroundFade = useSpring({
-        from: {
-            background: `linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
-                             linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
-                             linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%)`,
-        },
-        to: {
-            background: 'none',
-        }
-    })
-    const hover = {
-        background: `linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
-    linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
-    linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%)`,
-    }
-    const not_hover = {
-        background: 'white',
-        transition: 'background .5s ease',
-
-    }
 
     return fadeIn((style) => (
         <>

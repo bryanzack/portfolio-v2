@@ -23,11 +23,16 @@
     font-family: Roboto, sans-serif;
     user-select: none;
 }
-
+.names-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .names {
     display: flex;
     //position: absolute;
     font-family: "Roboto", sans-serif;
+    //background: red;
     //background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
     linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
     linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
@@ -72,7 +77,10 @@
 .background {
     z-index: -1;
     position: absolute;
-    width: 820px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 830px;
     height: 660px;
     background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
     linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
