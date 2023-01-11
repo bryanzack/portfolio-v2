@@ -5,8 +5,8 @@ import discardReducer from '../blackjack/reducers/discardSlice';
 import playerReducer from '../blackjack/reducers/playerSlice';
 import dealerReducer from '../blackjack/reducers/dealerSlice';
 import gameReducer from '../blackjack/reducers/gameSlice';
+import navReducer from '../landing/reducers/navSlice';
 import { ToolkitStore } from "@reduxjs/toolkit/dist/configureStore";
-import { useDispatch } from "react-redux";
 
 
 export const store: ToolkitStore = configureStore({
@@ -17,6 +17,7 @@ export const store: ToolkitStore = configureStore({
         player: playerReducer,
         dealer: dealerReducer,
         game: gameReducer,
+        nav: navReducer,
     },
 });
 

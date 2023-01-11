@@ -37,13 +37,10 @@ const Names: FC = (): ReactElement => {
         transition: 'opacity 500ms',
     }
 
-    const click = useSpring({
-        border: isClicked ? '4px solid black' : 'none',
-    });
 
     return (
         <>
-            <animated.div onClick={() => setClicked(!isClicked)} className="names-container">
+            <animated.div className="names-container">
                 <div className={'names'} onMouseEnter={() => setMouseHover(true)} onMouseLeave={() => setMouseHover(false)}>
                     {arr.map((index: number) => {
                         return <Line num={index} key={index}/>

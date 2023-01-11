@@ -27,11 +27,8 @@ var Names = function () {
         opacity: 0,
         transition: 'opacity 500ms'
     };
-    var click = (0, web_1.useSpring)({
-        border: isClicked ? '4px solid black' : 'none'
-    });
     return (React.createElement(React.Fragment, null,
-        React.createElement(web_1.animated.div, { onClick: function () { return setClicked(!isClicked); }, className: "names-container" },
+        React.createElement(web_1.animated.div, { className: "names-container" },
             React.createElement("div", { className: 'names', onMouseEnter: function () { return setMouseHover(true); }, onMouseLeave: function () { return setMouseHover(false); } }, arr.map(function (index) {
                 return React.createElement(Line, { num: index, key: index });
             })),

@@ -5,12 +5,39 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = require('react');
 require("./Landing.css");
-const react_fast_marquee_1 = __importDefault(require("react-fast-marquee"));
+const web_1 = require("@react-spring/web");
+const Names_js_1 = __importDefault(require("./Names.js"));
+const Nav_js_1 = __importDefault(require("./Nav.js"));
 const Landing = () => {
-    return (<div className="landing">
-            <react_fast_marquee_1.default>
-                bryan zack
-            </react_fast_marquee_1.default>
-        </div>);
+    const fadeIn = (0, web_1.useTransition)(null, {
+        from: { opacity: 0 },
+        enter: { opacity: 1 },
+        leave: { opacity: 0 },
+    });
+    let arr = [];
+    for (let i = 0; i < 150; i++) {
+        arr.push(i);
+    }
+    return fadeIn((style) => (<>
+            <web_1.animated.div style={style} className="landing">
+                <div className="sidewaystext">
+                        {arr.map((index) => {
+            return <h1 key={index}>bryan zack</h1>;
+        })}
+                </div>
+                <Names_js_1.default />
+                <Nav_js_1.default />
+            </web_1.animated.div>
+        </>));
 };
 exports.default = Landing;
+/*
+
+            <div className="three">
+                <Canvas>
+                    <hemisphereLight args={["blue", "red", .7]} />
+                    <directionalLight position={[5,5,2]} intensity={.4}  />
+                    <RotateSphere />
+                </Canvas>
+            </div>
+ */ 

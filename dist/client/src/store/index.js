@@ -11,6 +11,7 @@ const discardSlice_1 = __importDefault(require("../blackjack/reducers/discardSli
 const playerSlice_1 = __importDefault(require("../blackjack/reducers/playerSlice"));
 const dealerSlice_1 = __importDefault(require("../blackjack/reducers/dealerSlice"));
 const gameSlice_1 = __importDefault(require("../blackjack/reducers/gameSlice"));
+const navSlice_1 = __importDefault(require("../landing/reducers/navSlice"));
 exports.store = (0, toolkit_1.configureStore)({
     reducer: {
         deck: deckSlice_1.default,
@@ -19,5 +20,6 @@ exports.store = (0, toolkit_1.configureStore)({
         player: playerSlice_1.default,
         dealer: dealerSlice_1.default,
         game: gameSlice_1.default,
+        nav: navSlice_1.default,
     },
 });

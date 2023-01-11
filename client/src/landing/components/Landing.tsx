@@ -9,30 +9,7 @@ import { Mesh } from 'three';
 import { animated, useTransition, useTrail } from '@react-spring/web';
 import Marquee from 'react-fast-marquee';
 import Names from './Names.js';
-
-interface TrailProps<T> {
-    open: boolean,
-    itemsList: T[],
-}
-const Trail: FC<TrailProps<any>> = (TrailProps) => {
-    const items = React.Children.toArray(TrailProps.itemsList)
-    const trail = useTrail(items.length, {
-        config: { mass: 5, tension: 2000, friction: 200 },
-        opacity: TrailProps.open ? 1 : 0,
-        x: TrailProps.open ? 0 : 20,
-        height: TrailProps.open ? 110 : 0,
-        from: { opacity: 0, x: 20, height: 0 },
-    })
-    return (
-        <div>
-            {trail.map(({ height, ...style }, index) => (
-                <animated.div key={index} className={"trailsText"} style={style}>
-                    <animated.div style={{ height }}>{items[index]}</animated.div>
-                </animated.div>
-            ))}
-        </div>
-    )
-}
+import Nav from './Nav.js';
 
 const Landing: FC = (): ReactElement => {
     const fadeIn = useTransition(null, {
@@ -54,9 +31,7 @@ const Landing: FC = (): ReactElement => {
                         })}
                 </div>
                 <Names />
-                <div className="hero">
-                    <h1>about me</h1>
-                </div>
+                <Nav />
             </animated.div>
         </>
     ));
