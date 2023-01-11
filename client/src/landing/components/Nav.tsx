@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toggleHover } from '../reducers/navSlice';
 import handleHover from "../helpers/handleNavHover";
 import NavItem from './NavItem';
+import TabContent from './TabContent';
 
 interface NavProps {
 
@@ -29,13 +30,15 @@ const Nav: FC<NavProps> = (): ReactElement => {
     const dispatch = useDispatch();
 
     return (
-        <animated.div className={"nav-contents"}>
-            <div onMouseLeave={() => dispatch(toggleHover(handleHover(tabs, 'leave', active_tab)))} className="nav-fit">
-                {tabs.map((tab: string, index: number) => {
-                    return <NavItem key={index} tab_name={tab} />
-                })}
-            </div>
-        </animated.div>
+        <>
+            <animated.div className={"nav-contents"}>
+                <div onMouseLeave={() => dispatch(toggleHover(handleHover(tabs, 'leave', active_tab)))} className="nav-fit">
+                    {tabs.map((tab: string, index: number) => {
+                        return <NavItem key={index} tab_name={tab} />
+                    })}
+                </div>
+            </animated.div>
+        </>
     );
 }
 

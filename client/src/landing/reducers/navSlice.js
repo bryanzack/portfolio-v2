@@ -16,7 +16,7 @@ var toolkit_1 = require("@reduxjs/toolkit");
 var initialState = {
     active_tab: 'about',
     visible_tabs: ['about'],
-    tabs: ['test', 'tech', 'projects', 'about']
+    tabs: ['tech', 'projects', 'about']
 };
 exports.navSlice = (0, toolkit_1.createSlice)({
     name: 'nav',

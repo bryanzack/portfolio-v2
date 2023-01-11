@@ -10,6 +10,7 @@ import { animated, useTransition, useTrail } from '@react-spring/web';
 import Marquee from 'react-fast-marquee';
 import Names from './Names.js';
 import Nav from './Nav.js';
+import TabContent from './TabContent';
 
 const Landing: FC = (): ReactElement => {
     const fadeIn = useTransition(null, {
@@ -32,6 +33,7 @@ const Landing: FC = (): ReactElement => {
                 </div>
                 <Names />
                 <Nav />
+                <TabContent />
             </animated.div>
         </>
     ));

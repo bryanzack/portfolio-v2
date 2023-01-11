@@ -16,14 +16,15 @@ var Nav = function () {
         x: props.test ? 0 : 20,
         height: props.test ? 110 : 0,
         from: { opacity: 0, x: 20, height: 0 },
-    })
+    });
     */
     var tabs = (0, react_redux_1.useSelector)(function (state) { return state.nav.tabs; });
     var active_tab = (0, react_redux_1.useSelector)(function (state) { return state.nav.active_tab; });
     var dispatch = (0, react_redux_1.useDispatch)();
-    return (React.createElement(web_1.animated.div, { className: "nav-contents" },
-        React.createElement("div", { onMouseLeave: function () { return dispatch((0, navSlice_1.toggleHover)((0, handleNavHover_1["default"])(tabs, 'leave', active_tab))); }, className: "nav-fit" }, tabs.map(function (tab, index) {
-            return React.createElement(NavItem_1["default"], { key: index, tab_name: tab });
-        }))));
+    return (React.createElement(React.Fragment, null,
+        React.createElement(web_1.animated.div, { className: "nav-contents" },
+            React.createElement("div", { onMouseLeave: function () { return dispatch((0, navSlice_1.toggleHover)((0, handleNavHover_1["default"])(tabs, 'leave', active_tab))); }, className: "nav-fit" }, tabs.map(function (tab, index) {
+                return React.createElement(NavItem_1["default"], { key: index, tab_name: tab });
+            })))));
 };
 exports["default"] = Nav;
