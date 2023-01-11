@@ -10,7 +10,7 @@ interface NavState {
 const initialState: NavState = {
     active_tab: 'about',
     visible_tabs: ['about'],
-    tabs: ['tech', 'projects', 'about'],
+    tabs: ['test', 'tech', 'projects', 'about'],
 }
 
 export const navSlice = createSlice({

@@ -18,9 +18,6 @@ const NavItem: FC<NavItemProps> = ({ tab_name}): ReactElement => {
     const is_hover = useSelector((state: RootState) => state.nav.is_hover);
     const visible_tabs = useSelector((state: RootState) => state.nav.visible_tabs);
     const tabs = useSelector((state: RootState) => state.nav.tabs);
-    useEffect(() => {
-
-    }, [active_tab]);
     const mouseEnter = () => {
         dispatch(toggleHover(handleHover(tabs, 'enter', tab_name)))
     }
@@ -35,7 +32,7 @@ const NavItem: FC<NavItemProps> = ({ tab_name}): ReactElement => {
                 <h1 onMouseEnter={() => mouseEnter()}
                     onClick={() => mouseClick(tab_name)}>
                     {visible_tabs.includes(tab_name) ? tab_name : ""}
-                </h1>j
+                </h1>
             </div>
         </>
     );

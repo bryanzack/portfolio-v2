@@ -21,11 +21,11 @@ const Nav: FC<NavProps> = (): ReactElement => {
         x: props.test ? 0 : 20,
         height: props.test ? 110 : 0,
         from: { opacity: 0, x: 20, height: 0 },
-    })
+    });
     */
+
     const tabs = useSelector((state: RootState) => state.nav.tabs);
     const active_tab = useSelector((state: RootState) => state.nav.active_tab);
-    const fixed_tabs: string[] = ['tech', 'projects', 'about'];
     const dispatch = useDispatch();
 
     return (
