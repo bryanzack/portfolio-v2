@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:wght@100&display=swap');
+
 .tab-content {
+    font-family: 'Montserrat', sans-serif;
     position: absolute;
     display: flex;
     justify-content: center;
