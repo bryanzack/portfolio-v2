@@ -5,7 +5,7 @@ require("./TabContent.css");
 var react_redux_1 = require("react-redux");
 var About = function () {
     return (React.createElement("div", { className: "tab-content" },
-        React.createElement("h1", null, "About")));
+        React.createElement("h1", null, "PENN STATE BEHREND")));
 };
 var Tech = function () {
     return (React.createElement("div", { className: "tab-content" },

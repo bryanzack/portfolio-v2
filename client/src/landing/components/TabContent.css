@@ -1,9 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300&display=swap');
 
 .tab-content {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Rowdies', cursive;
     position: absolute;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    //justify-content: center;
+    //align-items: center;
+    //border: 1px solid white;
+    width: 520px;
+    height: 470px;
+}
+
+.tab-content > h1 {
+    color: white;
+    font-weight: bold;
 }

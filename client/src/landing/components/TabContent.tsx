@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 const About: FC = (): ReactElement => {
     return (
         <div className={"tab-content"}>
-            <h1>About</h1>
+            <h1>PENN STATE BEHREND</h1>
         </div>
     );
 }
