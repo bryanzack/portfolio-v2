@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="fbb5762a-091d-48cc-80b0-d66138f2a830" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/landing/components/Landing.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/landing/components/Landing.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/landing/components/TabContent.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/landing/components/TabContent.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/landing/components/TabContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/landing/components/TabContent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/landing/components/TabContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/landing/components/TabContent.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

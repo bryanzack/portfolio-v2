@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:wght@100&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 .tab-content {
-    font-family: 'Rowdies', cursive;
+    font-family: 'Bebas Neue', cursive;
     position: absolute;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     //justify-content: center;
     //align-items: center;
     //border: 1px solid white;
@@ -15,4 +17,8 @@
 .tab-content > h1 {
     color: white;
     font-weight: bold;
+    opacity: 90%;
+    user-select: none;
+    font-size: 40px;
+    margin: 0;
 }
