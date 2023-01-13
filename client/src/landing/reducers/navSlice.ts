@@ -25,7 +25,6 @@ export const navSlice = createSlice({
                 if (tab !== state.active_tab) tmpArr.push(tab);
             });
             state.tabs = [...tmpArr, action.payload];
-            //console.log('visible: ', state.visible_tabs);
         },
         toggleHover: (state, action: PayloadAction<string[]>) => {
             state.visible_tabs = action.payload;

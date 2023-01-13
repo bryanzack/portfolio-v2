@@ -5,11 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fbb5762a-091d-48cc-80b0-d66138f2a830" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/landing/components/Page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/landing/components/Page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/landing/components/Landing.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/landing/components/Landing.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/landing/components/TabContent.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/landing/components/TabContent.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/landing/components/TabContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/landing/components/TabContent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/landing/components/TabContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/landing/components/TabContent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/landing/components/Landing.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/landing/components/Landing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/landing/components/Landing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/landing/components/Landing.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/landing/components/Nav.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/landing/components/Nav.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/landing/components/TabContent.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/landing/components/Page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/landing/components/TabContent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/landing/components/TabContent.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/landing/reducers/navSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/landing/reducers/navSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/landing/reducers/navSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/landing/reducers/navSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/components/Landing.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/landing/components/Landing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/components/Nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/landing/components/Nav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/components/NavItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/landing/components/NavItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/reducers/navSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/landing/reducers/navSlice.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

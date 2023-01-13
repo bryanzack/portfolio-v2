@@ -31,7 +31,6 @@ exports.navSlice = (0, toolkit_1.createSlice)({
                     tmpArr.push(tab);
             });
             state.tabs = __spreadArray(__spreadArray([], tmpArr, true), [action.payload], false);
-            //console.log('visible: ', state.visible_tabs);
         },
         toggleHover: function (state, action) {
             state.visible_tabs = action.payload;

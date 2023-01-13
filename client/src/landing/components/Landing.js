@@ -5,7 +5,7 @@ require("./Landing.css");
 var web_1 = require("@react-spring/web");
 var Names_js_1 = require("./Names.js");
 var Nav_js_1 = require("./Nav.js");
-var TabContent_1 = require("./TabContent");
+var Page_1 = require("./Page");
 var Landing = function () {
     var fadeIn = (0, web_1.useTransition)(null, {
         from: { opacity: 0 },
@@ -23,7 +23,7 @@ var Landing = function () {
             })),
             React.createElement(Names_js_1["default"], null),
             React.createElement(Nav_js_1["default"], null),
-            React.createElement(TabContent_1["default"], null)))); });
+            React.createElement(Page_1["default"], null)))); });
 };
 exports["default"] = Landing;
 /*

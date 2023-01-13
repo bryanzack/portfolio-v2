@@ -4,13 +4,10 @@ import './Landing.css';
 
 import { FC, ReactElement, useRef, useState } from 'react';
 import type { RootState } from '../../store';
-import { Canvas, useFrame } from  '@react-three/fiber';
-import { Mesh } from 'three';
 import { animated, useTransition, useTrail } from '@react-spring/web';
-import Marquee from 'react-fast-marquee';
 import Names from './Names.js';
 import Nav from './Nav.js';
-import TabContent from './TabContent';
+import Page from './Page';
 
 const Landing: FC = (): ReactElement => {
     const fadeIn = useTransition(null, {
@@ -33,7 +30,7 @@ const Landing: FC = (): ReactElement => {
                 </div>
                 <Names />
                 <Nav />
-                <TabContent />
+                <Page />
             </animated.div>
         </>
     ));

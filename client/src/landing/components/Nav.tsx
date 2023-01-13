@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toggleHover } from '../reducers/navSlice';
 import handleHover from "../helpers/handleNavHover";
 import NavItem from './NavItem';
-import TabContent from './TabContent';
+import Page from './Page';
 
 interface NavProps {
 

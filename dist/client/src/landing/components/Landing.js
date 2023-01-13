@@ -8,6 +8,7 @@ require("./Landing.css");
 const web_1 = require("@react-spring/web");
 const Names_js_1 = __importDefault(require("./Names.js"));
 const Nav_js_1 = __importDefault(require("./Nav.js"));
+const Page_1 = __importDefault(require("./Page"));
 const Landing = () => {
     const fadeIn = (0, web_1.useTransition)(null, {
         from: { opacity: 0 },
@@ -27,6 +28,7 @@ const Landing = () => {
                 </div>
                 <Names_js_1.default />
                 <Nav_js_1.default />
+                <Page_1.default />
             </web_1.animated.div>
         </>));
 };
