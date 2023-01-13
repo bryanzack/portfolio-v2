@@ -9,6 +9,7 @@ import Names from './Names.js';
 import Nav from './Nav.js';
 import Page from './Page';
 import CursorAnimation from './CursorAnimation';
+import Magnification from './Magnification';
 
 const Landing: FC = (): ReactElement => {
     const fadeIn = useTransition(null, {
@@ -33,6 +34,7 @@ const Landing: FC = (): ReactElement => {
                 <Nav />
                 <Page />
                 <CursorAnimation />
+                <Magnification />
             </animated.div>
         </>
     ));
