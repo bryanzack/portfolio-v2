@@ -57,7 +57,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "Z:\\WebStorm 2022.3.1\\projects\\client\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\Users\\bryan\\react-practice\\portfolio-site-v2\\client\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -110,6 +110,7 @@
       <workItem from="1673408832691" duration="1356000" />
       <workItem from="1673410391129" duration="1917000" />
       <workItem from="1673413379813" duration="3426000" />
+      <workItem from="1673647734556" duration="1348000" />
     </task>
     <servers />
   </component>
@@ -139,7 +140,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/landing/components/NavItem.tsx</url>
           <line>3</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
