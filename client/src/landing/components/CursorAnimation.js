@@ -28,14 +28,14 @@ var CursorAnimation = function () {
         api.start({ xy: [e.clientX - left, e.clientY - top] });
     };
     return (React.createElement(React.Fragment, null,
-        React.createElement("div", { className: 'cursor-animation-container-close' },
+        React.createElement("div", { className: 'cursor-animation-container-far' },
             React.createElement("svg", { style: { position: "absolute", width: 0, height: 0 } },
                 React.createElement("filter", { id: "goo" },
                     React.createElement("feGaussianBlur", { "in": "SourceGraphic", result: "blur", stdDeviation: "30" }),
                     React.createElement("feColorMatrix", { "in": "blur", values: "1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 30 -7" }))),
             React.createElement("div", { ref: ref, className: 'cursor-animation-main', onMouseMove: handleMouseMove }, trail.map(function (props, index) { return (React.createElement(web_1.animated.div, { key: index, style: { transform: props.xy.to(trans) } })); })),
             React.createElement("div", { ref: ref, className: 'cursor-animation-main', onMouseMove: handleMouseMove }, trail.map(function (props, index) { return (React.createElement(web_1.animated.div, { key: index, style: { transform: props.xy.to(transInvertedXY) } })); }))),
-        React.createElement("div", { className: 'cursor-animation-container-far' },
+        React.createElement("div", { className: 'cursor-animation-container-close' },
             React.createElement("svg", { style: { position: "absolute", width: 0, height: 0 } },
                 React.createElement("filter", { id: "goo" },
                     React.createElement("feGaussianBlur", { "in": "SourceGraphic", result: "blur", stdDeviation: "30" }),

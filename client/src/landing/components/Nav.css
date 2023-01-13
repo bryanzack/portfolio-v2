@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:wght@100&display=swap');
 
 .nav-contents {
+    z-index: 5;
     font-family: 'Montserrat', sans-serif;
     display: flex;
     position: fixed;

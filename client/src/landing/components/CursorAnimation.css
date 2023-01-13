@@ -35,10 +35,6 @@
     opacity: 0.6;
 }
 
-.cursor-animation-main > div:nth-child(1) {
-    width: 0px;
-    height: 0px;
-}
 .cursor-animation-main > div:nth-child(2) {
     width: 125px;
     height: 125px;

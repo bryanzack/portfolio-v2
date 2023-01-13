@@ -29,7 +29,7 @@ const CursorAnimation: FC = (): ReactElement => {
 
     return (
         <>
-            <div className={'cursor-animation-container-close'}>
+            <div className={'cursor-animation-container-far'}>
                 <svg style={{ position: "absolute", width: 0, height: 0 }}>
                     <filter id="goo">
                         <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="30" />
@@ -50,7 +50,7 @@ const CursorAnimation: FC = (): ReactElement => {
                     ))}
                 </div>
             </div>
-            <div className={'cursor-animation-container-far'}>
+            <div className={'cursor-animation-container-close'}>
                 <svg style={{ position: "absolute", width: 0, height: 0 }}>
                     <filter id="goo">
                         <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="30" />
