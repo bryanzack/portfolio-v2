@@ -4,6 +4,7 @@ var React = require('react');
 require("./NavItem.css");
 var react_redux_1 = require("react-redux");
 var navSlice_1 = require("../reducers/navSlice");
+var web_1 = require("@react-spring/web");
 var handleNavHover_1 = require("../helpers/handleNavHover");
 var NavItem = function (_a) {
     var tab_name = _a.tab_name;
@@ -21,7 +22,7 @@ var NavItem = function (_a) {
     var dispatch = (0, react_redux_1.useDispatch)();
     return (React.createElement(React.Fragment, null,
         React.createElement("div", { className: "contents", id: tab_name },
-            React.createElement("h1", { onMouseEnter: function () { return mouseEnter(); }, onClick: function () { return mouseClick(tab_name); } }, visible_tabs.includes(tab_name) ? tab_name : ""))));
+            React.createElement(web_1.animated.h1, { onMouseEnter: function () { return mouseEnter(); }, onClick: function () { return mouseClick(tab_name); } }, visible_tabs.includes(tab_name) ? tab_name : ""))));
 };
 exports["default"] = NavItem;
 // <h1 onClick={() => tab_name === active_tab ? dispatch(switchToTab('')) : dispatch(switchToTab(tab_name))}>{tab_name === active_tab ? tab_name : tab_name[0]}</h1>

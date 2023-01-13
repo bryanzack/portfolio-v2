@@ -36,21 +36,26 @@ const Trail: FC<TrailProps> = ({ open, children}) => {
 const Page: FC = (): ReactElement => {
     const active_tab = useSelector((state: RootState) => state.nav.active_tab);
     const [open, setOpen] = useState(false);
+    const [hover, setHover] = useState("");
     const about: string[] = ['PHOTOGRAPHY', 'PENNSTATE', 'WEBDEV', 'MUSIC'];
     const tech: string[] = ['TYPESCRIPT', 'REACTJS', 'REDUX', 'NODE'];
     const projects: string[] = ['DATADISPLAY', 'PORTFOLIO', 'CARDS', '...']
+    const handleHover = (item: string, index: number) => {
+        //setHover(item);
+    }
     useEffect(() => {
         setOpen(false);
         setTimeout(() => {
             setOpen(true);
         }, 100);
     }, [active_tab]);
+
     return (
         <div className={'tab-content'}>
-            <div className={'container'} onClick={() => setOpen(state => !state)}>
+            <div className={'container'}>
                 <Trail open={open}>
                     {active_tab === 'about' && about.map((item, index) => (
-                        <span key={index}>{item}</span>
+                        <span onMouseEnter={() => handleHover(item, index)} key={index}>{item}</span>
                     ))}
                     {active_tab === 'tech' && tech.map((item, index) => (
                         <span key={index}>{item}</span>

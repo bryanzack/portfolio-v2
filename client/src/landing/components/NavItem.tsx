@@ -7,6 +7,7 @@ import {FC, ReactElement, useEffect, useState} from 'react';
 import type { RootState } from '../../store';
 import { useDispatch, useSelector } from 'react-redux';
 import { switchToTab, toggleHover } from "../reducers/navSlice";
+import { animated } from '@react-spring/web';
 import handleHover from "../helpers/handleNavHover";
 
 interface NavItemProps {
@@ -29,10 +30,10 @@ const NavItem: FC<NavItemProps> = ({ tab_name}): ReactElement => {
     return (
         <>
             <div className="contents" id={tab_name}>
-                <h1 onMouseEnter={() => mouseEnter()}
+                <animated.h1 onMouseEnter={() => mouseEnter()}
                     onClick={() => mouseClick(tab_name)}>
                     {visible_tabs.includes(tab_name) ? tab_name : ""}
-                </h1>
+                </animated.h1>
             </div>
         </>
     );

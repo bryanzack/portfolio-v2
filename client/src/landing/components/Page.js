@@ -37,9 +37,13 @@ var Trail = function (_a) {
 var Page = function () {
     var active_tab = (0, react_redux_1.useSelector)(function (state) { return state.nav.active_tab; });
     var _a = (0, react_1.useState)(false), open = _a[0], setOpen = _a[1];
+    var _b = (0, react_1.useState)(""), hover = _b[0], setHover = _b[1];
     var about = ['PHOTOGRAPHY', 'PENNSTATE', 'WEBDEV', 'MUSIC'];
     var tech = ['TYPESCRIPT', 'REACTJS', 'REDUX', 'NODE'];
     var projects = ['DATADISPLAY', 'PORTFOLIO', 'CARDS', '...'];
+    var handleHover = function (item, index) {
+        //setHover(item);
+    };
     (0, react_1.useEffect)(function () {
         setOpen(false);
         setTimeout(function () {
@@ -47,9 +51,9 @@ var Page = function () {
         }, 100);
     }, [active_tab]);
     return (React.createElement("div", { className: 'tab-content' },
-        React.createElement("div", { className: 'container', onClick: function () { return setOpen(function (state) { return !state; }); } },
+        React.createElement("div", { className: 'container' },
             React.createElement(Trail, { open: open },
-                active_tab === 'about' && about.map(function (item, index) { return (React.createElement("span", { key: index }, item)); }),
+                active_tab === 'about' && about.map(function (item, index) { return (React.createElement("span", { onMouseEnter: function () { return handleHover(item, index); }, key: index }, item)); }),
                 active_tab === 'tech' && tech.map(function (item, index) { return (React.createElement("span", { key: index }, item)); }),
                 active_tab === 'projects' && projects.map(function (item, index) { return (React.createElement("span", { key: index }, item)); })))));
 };

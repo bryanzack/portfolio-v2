@@ -1,9 +1,9 @@
 const React = require('react');
 import './Nav.css';
 
-import {FC, ReactElement, useEffect} from 'react';
+import { FC, ReactElement, useEffect } from 'react';
 import type { RootState } from "../../store";
-import { animated, useSpring } from '@react-spring/web';
+import { animated, useTrail } from '@react-spring/web';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleHover } from '../reducers/navSlice';
 import handleHover from "../helpers/handleNavHover";
@@ -28,14 +28,17 @@ const Nav: FC<NavProps> = (): ReactElement => {
     const tabs = useSelector((state: RootState) => state.nav.tabs);
     const active_tab = useSelector((state: RootState) => state.nav.active_tab);
     const dispatch = useDispatch();
+    const trail = useTrail(tabs.length, {
+
+    });
 
     return (
         <>
             <animated.div className={"nav-contents"}>
                 <div onMouseLeave={() => dispatch(toggleHover(handleHover(tabs, 'leave', active_tab)))} className="nav-fit">
-                    {tabs.map((tab: string, index: number) => {
-                        return <NavItem key={index} tab_name={tab} />
-                    })}
+                    {tabs.map((tab: string, index: number) => (
+                        <NavItem key={index} tab_name={tab} />
+                    ))}
                 </div>
             </animated.div>
         </>
