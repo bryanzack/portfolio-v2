@@ -3,14 +3,17 @@
     position: absolute;
     width: 100vw;
     height: 100vh;
+    pointer-events: none;
 }
 .cursor-animation-container-far {
     z-index: -1;
     position: absolute;
     width: 100vw;
     height: 100vh;
+    pointer-events: visibleFill;
 }
 .cursor-animation-main {
+    //pointer-events: none;
     z-index: 1;
     position: absolute;
     width: 100%;
@@ -33,15 +36,18 @@
     background: lightcoral;
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     opacity: 0.6;
+
 }
 
 .cursor-animation-main > div:nth-child(2) {
     width: 125px;
     height: 125px;
+
 }
 .cursor-animation-main > div:nth-child(3) {
     width: 75px;
     height: 75px;
+
 }
 
 .cursor-animation-main > div::after {
@@ -53,6 +59,7 @@
     height: 20px;
     border-radius: 50%;
     background: rgba(255,255,255,0.8);
+
 }
 
 .cursor-animation-main > div:nth-child(2)::after {

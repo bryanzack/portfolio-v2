@@ -34,7 +34,6 @@ const Landing: FC = (): ReactElement => {
                 <Nav />
                 <Page />
                 <CursorAnimation />
-                <Magnification />
             </animated.div>
         </>
     ));

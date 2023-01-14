@@ -31,9 +31,11 @@
 .trailsText > div {
     padding-right: 0.05em;
     overflow: hidden;
-    user_select: none;
+    //user_select: none;
 }
 
 .trailsText > div > span {
+    //color: blue;
     user-select: none;
+    cursor: pointer;
 }

@@ -5,6 +5,7 @@ import { FC, ReactElement, ReactNode, useState, useEffect } from 'react';
 import type { RootState } from "../../store";
 import { useSelector } from 'react-redux';
 import { animated, useSpring, useTrail } from '@react-spring/web';
+import { useNavigate } from "react-router-dom";
 
 interface TrailProps {
     children?: ReactNode,
@@ -14,6 +15,9 @@ interface TrailProps {
 const Trail: FC<TrailProps> = ({ open, children}) => {
     const active_tab = useSelector((state: RootState) => state.nav.active_tab);
     const items = React.Children.toArray(children);
+    const handleClick = (item: string) => {
+        console.log(item);
+    }
     const trail = useTrail(items.length, {
         config: { mass: 5, tension: 2000, friction: 200 },
         opacity: open ? 1 : 0,
@@ -26,7 +30,7 @@ const Trail: FC<TrailProps> = ({ open, children}) => {
         <div>
             {trail.map(({ height, ...style }, index) => (
                 <animated.div key={index} className={'trailsText'} style={style}>
-                    <animated.div style={{ height }}>{items[index]}</animated.div>
+                    <animated.div  style={{ height }}>{items[index]}</animated.div>
                 </animated.div>
                 ))}
         </div>
@@ -40,9 +44,6 @@ const Page: FC = (): ReactElement => {
     const about: string[] = ['PHOTOGRAPHY', 'PENNSTATE', 'WEBDEV', 'MUSIC'];
     const tech: string[] = ['TYPESCRIPT', 'REACTJS', 'REDUX', 'NODE'];
     const projects: string[] = ['DATADISPLAY', 'PORTFOLIO', 'CARDS', '...']
-    const handleHover = (item: string, index: number) => {
-        //setHover(item);
-    }
     useEffect(() => {
         setOpen(false);
         setTimeout(() => {
@@ -55,7 +56,7 @@ const Page: FC = (): ReactElement => {
             <div className={'container'}>
                 <Trail open={open}>
                     {active_tab === 'about' && about.map((item, index) => (
-                        <span onMouseEnter={() => handleHover(item, index)} key={index}>{item}</span>
+                        <span key={index}>{item}</span>
                     ))}
                     {active_tab === 'tech' && tech.map((item, index) => (
                         <span key={index}>{item}</span>

@@ -20,6 +20,9 @@ var Trail = function (_a) {
     var open = _a.open, children = _a.children;
     var active_tab = (0, react_redux_1.useSelector)(function (state) { return state.nav.active_tab; });
     var items = React.Children.toArray(children);
+    var handleClick = function (item) {
+        console.log(item);
+    };
     var trail = (0, web_1.useTrail)(items.length, {
         config: { mass: 5, tension: 2000, friction: 200 },
         opacity: open ? 1 : 0,
@@ -41,9 +44,6 @@ var Page = function () {
     var about = ['PHOTOGRAPHY', 'PENNSTATE', 'WEBDEV', 'MUSIC'];
     var tech = ['TYPESCRIPT', 'REACTJS', 'REDUX', 'NODE'];
     var projects = ['DATADISPLAY', 'PORTFOLIO', 'CARDS', '...'];
-    var handleHover = function (item, index) {
-        //setHover(item);
-    };
     (0, react_1.useEffect)(function () {
         setOpen(false);
         setTimeout(function () {
@@ -53,7 +53,7 @@ var Page = function () {
     return (React.createElement("div", { className: 'tab-content' },
         React.createElement("div", { className: 'container' },
             React.createElement(Trail, { open: open },
-                active_tab === 'about' && about.map(function (item, index) { return (React.createElement("span", { onMouseEnter: function () { return handleHover(item, index); }, key: index }, item)); }),
+                active_tab === 'about' && about.map(function (item, index) { return (React.createElement("span", { key: index }, item)); }),
                 active_tab === 'tech' && tech.map(function (item, index) { return (React.createElement("span", { key: index }, item)); }),
                 active_tab === 'projects' && projects.map(function (item, index) { return (React.createElement("span", { key: index }, item)); })))));
 };
