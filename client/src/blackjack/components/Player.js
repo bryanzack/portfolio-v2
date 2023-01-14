@@ -7,9 +7,10 @@ var Card_js_1 = require("./Card.js");
 var Player = function () {
     var playerCards = (0, react_redux_1.useSelector)(function (state) { return state.player.cards; });
     var playerScore = (0, react_redux_1.useSelector)(function (state) { return state.player.score; });
+    var debug_mode = (0, react_redux_1.useSelector)(function (state) { return state.game.debug; });
     return (React.createElement(React.Fragment, null,
         React.createElement("div", { className: "player" },
-            playerScore,
+            debug_mode && "".concat(playerCards.length, " (").concat(playerScore, ")"),
             React.createElement("div", { className: "cards" }, playerCards.map(function (index) { return (React.createElement(Card_js_1["default"], { pile: "player", key: index, id: index, from: "player" })); })))));
 };
 exports["default"] = Player;

@@ -1,20 +1,20 @@
 const React = require('react');
 import './ButtonNav.css';
 
-import type { AppDispatch, RootState } from '../../store';
-import { useAppSelector, useAppDispatch } from '../../store/hooks';
-import { selectCards, testThunk } from "../reducers/deckSlice.js";
+import type { RootState } from '../../store';
+import { useAppDispatch } from '../../store/hooks';
+import { selectCards } from "../reducers/deckSlice.js";
 import { FC, ReactElement } from 'react';
 import { addToPlayer } from '../reducers/playerSlice.js';
 import { addToDeck, removeFromDeck } from '../reducers/deckSlice.js';
 import { addToDealer } from '../reducers/dealerSlice.js';
 import { removeFromDiscard } from '../reducers/discardSlice.js';
-import { determineWinner, toggleRepopulating } from '../reducers/gameSlice.js';
-import { useDispatch, useSelector } from "react-redux";
-import {AnyAction, createAsyncThunk, Dispatch} from '@reduxjs/toolkit';
+import { toggleDebug, determineWinner, toggleRepopulating } from '../reducers/gameSlice.js';
+import { useSelector } from "react-redux";
 import card from "../helpers/cards";
 
 let ButtonNav: FC = (): ReactElement => {
+    const debug_mode = useSelector((state: RootState) => state.game.debug);
     const dealerCards = useSelector((state: RootState) => state.dealer.cards);
     const deckCards = useSelector((state: RootState) => state.deck.cards);
     const discardCards = useSelector((state: RootState) => state.discard.cards);
@@ -136,7 +136,7 @@ let ButtonNav: FC = (): ReactElement => {
     return (
         <>
             <div className="button-container">
-                totalNumCards: {deckCards.length + discardCards.length + playerCards.length + dealerCards.length}
+                {debug_mode && `# cards in ecosystem: ${deckCards.length + discardCards.length + playerCards.length + dealerCards.length}`}
                 <div className="play-button">
                     {playerCards.length === 0 &&
                         <button disabled={isDeckRepopulating} onClick={() => dispatch(dealHandsThunk() as any)}>
@@ -150,6 +150,11 @@ let ButtonNav: FC = (): ReactElement => {
                     </button>
                     <button onClick={() => dispatch(newHandleStayThunk() as any)} disabled={winner}>
                         Stay
+                    </button>
+                </div>
+                <div className={"toggle-buttons"}>
+                    <button onClick={() => dispatch(toggleDebug())}>
+                        debug
                     </button>
                 </div>
             </div>

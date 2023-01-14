@@ -3,31 +3,33 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    //border: 3px solid black;
     height: 100vh;
     width: 100vw;
+    background: black;
 }
 .blackjack-blur {
+    background: black;
     display: flex;
     flex-direction: column;
     align-items: center;
-    //border: 3px solid black;
     height: 100vh;
-    width: 100%;
-    //filter: blur(9px);
-    //transition: filter 8s;
+    width: 100vw;
+    filter: blur(2px);
+    transition: filter 8s;
     transform: translateZ(0);
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
+    //backface-visibility: hidden;
+    //-webkit-backface-visibility: hidden;
     //-webkit-perspective: 1000;
     transition: 10s;
-    transition-delay: 1s;
+    transition-delay: 2s;
 }
 
 .top {
+    position: absolute;
+    top: 50px;
     display: flex;
     justify-content: center;
-    background: grey;
+    background: black;
     width: 90%;
     height: 50%;
     //border: 2px solid black;
@@ -42,9 +44,10 @@
 
 }
 .bot {
+    position: absolute;
+    bottom: 100px;
     display: flex;
     justify-content: center;
-    background: grey;
     align-items: center;
     width: fit-content;
     height: fit-content;

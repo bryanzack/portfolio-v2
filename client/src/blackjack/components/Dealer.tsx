@@ -9,10 +9,11 @@ import Card from './Card.js';
 const Dealer: FC = (): ReactElement => {
     const dealerCards = useSelector((state: RootState) => state.dealer.cards);
     const dealerScore = useSelector((state: RootState) => state.dealer.score);
-   return (
-       <>
+    const debug_mode = useSelector((state: RootState) => state.game.debug);
+    return (
+        <>
            <div className="dealer">
-               {dealerScore}
+               {debug_mode && `${dealerCards.length} (${dealerScore})`}
                <div className="cards">
                   {dealerCards.map((index: number) => (
                     <Card pile={"dealer"}

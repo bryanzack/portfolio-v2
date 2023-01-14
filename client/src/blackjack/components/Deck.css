@@ -6,6 +6,9 @@
     align-items: center;
     //border: 2px solid black;
     width: 250px;
+    user-select: none;
+    color: white;
+    font-weight: bold;
 }
 .deck-buttons {
     display: flex;

@@ -13,11 +13,7 @@ interface TrailProps {
 }
 
 const Trail: FC<TrailProps> = ({ open, children}) => {
-    const active_tab = useSelector((state: RootState) => state.nav.active_tab);
     const items = React.Children.toArray(children);
-    const handleClick = (item: string) => {
-        console.log(item);
-    }
     const trail = useTrail(items.length, {
         config: { mass: 5, tension: 2000, friction: 200 },
         opacity: open ? 1 : 0,
@@ -38,12 +34,23 @@ const Trail: FC<TrailProps> = ({ open, children}) => {
 }
 
 const Page: FC = (): ReactElement => {
+    const navigate = useNavigate();
     const active_tab = useSelector((state: RootState) => state.nav.active_tab);
     const [open, setOpen] = useState(false);
     const [hover, setHover] = useState("");
     const about: string[] = ['PHOTOGRAPHY', 'PENNSTATE', 'WEBDEV', 'MUSIC'];
     const tech: string[] = ['TYPESCRIPT', 'REACTJS', 'REDUX', 'NODE'];
     const projects: string[] = ['DATADISPLAY', 'PORTFOLIO', 'CARDS', '...']
+    const handleClick = (item: string) => {
+        switch(item) {
+            case 'CARDS':
+                console.log("send user to card game selection");
+                navigate("/blackjack");
+                break;
+            default:
+                console.log("clicked: " + item);
+        }
+    }
     useEffect(() => {
         setOpen(false);
         setTimeout(() => {
@@ -56,13 +63,13 @@ const Page: FC = (): ReactElement => {
             <div className={'container'}>
                 <Trail open={open}>
                     {active_tab === 'about' && about.map((item, index) => (
-                        <span key={index}>{item}</span>
+                        <span onClick={() => handleClick(item)} key={index}>{item}</span>
                     ))}
                     {active_tab === 'tech' && tech.map((item, index) => (
-                        <span key={index}>{item}</span>
+                        <span onClick={() => handleClick(item)} key={index}>{item}</span>
                     ))}
                     {active_tab === 'projects' && projects.map((item, index) => (
-                        <span key={index}>{item}</span>
+                        <span onClick={() => handleClick(item)} key={index}>{item}</span>
                     ))}
                 </Trail>
             </div>

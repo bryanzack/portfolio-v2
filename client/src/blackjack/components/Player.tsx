@@ -9,11 +9,11 @@ import Card from './Card.js';
 const Player: FC = (): ReactElement => {
     const playerCards = useSelector((state: RootState) => state.player.cards);
     const playerScore = useSelector((state: RootState) => state.player.score);
-
+    const debug_mode = useSelector((state: RootState) => state.game.debug);
     return (
         <>
             <div className="player">
-                {playerScore}
+                {debug_mode && `${playerCards.length} (${playerScore})`}
                 <div className="cards">
                     {playerCards.map((index: number) => (
                         <Card pile={"player"}

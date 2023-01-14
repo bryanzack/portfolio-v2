@@ -12,6 +12,7 @@ var gameSlice_js_1 = require("../reducers/gameSlice.js");
 var react_redux_1 = require("react-redux");
 var cards_1 = require("../helpers/cards");
 var ButtonNav = function () {
+    var debug_mode = (0, react_redux_1.useSelector)(function (state) { return state.game.debug; });
     var dealerCards = (0, react_redux_1.useSelector)(function (state) { return state.dealer.cards; });
     var deckCards = (0, react_redux_1.useSelector)(function (state) { return state.deck.cards; });
     var discardCards = (0, react_redux_1.useSelector)(function (state) { return state.discard.cards; });
@@ -138,12 +139,13 @@ var ButtonNav = function () {
     }; };
     return (React.createElement(React.Fragment, null,
         React.createElement("div", { className: "button-container" },
-            "totalNumCards: ",
-            deckCards.length + discardCards.length + playerCards.length + dealerCards.length,
+            debug_mode && "# cards in ecosystem: ".concat(deckCards.length + discardCards.length + playerCards.length + dealerCards.length),
             React.createElement("div", { className: "play-button" }, playerCards.length === 0 &&
                 React.createElement("button", { disabled: isDeckRepopulating, onClick: function () { return dispatch(dealHandsThunk()); } }, "Play")),
             React.createElement("div", { className: (playerScore > 0) ? "deal-buttons-active" : "deal-buttons-empty" },
                 React.createElement("button", { onClick: function () { return dispatch(hitPlayerThunk()); }, disabled: winner }, "Hit"),
-                React.createElement("button", { onClick: function () { return dispatch(newHandleStayThunk()); }, disabled: winner }, "Stay")))));
+                React.createElement("button", { onClick: function () { return dispatch(newHandleStayThunk()); }, disabled: winner }, "Stay")),
+            React.createElement("div", { className: "toggle-buttons" },
+                React.createElement("button", { onClick: function () { return dispatch((0, gameSlice_js_1.toggleDebug)()); } }, "debug")))));
 };
 exports["default"] = ButtonNav;

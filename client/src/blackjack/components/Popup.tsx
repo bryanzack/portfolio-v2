@@ -1,9 +1,7 @@
-import card from "./Card";
-
 const React = require('react');
-import {ReactElement} from "react";
 import './Popup.css';
 
+import { FC, ReactElement } from "react";
 import { RootState } from "../../store";
 import { useDispatch, useSelector } from 'react-redux';
 import { animated, useTransition } from 'react-spring';
@@ -11,20 +9,22 @@ import { resetGame } from '../reducers/gameSlice';
 import { addToDiscard } from '../reducers/discardSlice';
 import { removeFromPlayer } from '../reducers/playerSlice';
 import { removeFromDealer } from '../reducers/dealerSlice';
-import cards from "../helpers/cards";
 
-const Popup = ( style: any, closePopup: any ): ReactElement => {
+const Popup = (style: any, closePopup: any): ReactElement => {
     const winner = useSelector((state: RootState) => state.game.winner);
     const transitions = useTransition(winner, {
         from: {
+            ...style,
             scale: "150%",
             opacity: 0,
         },
         enter: {
+            ...style,
             scale: "100%",
             opacity: 1,
         },
         leave: {
+            ...style,
             scale: "150%",
             opacity: 0,
         },
@@ -54,7 +54,7 @@ const Popup = ( style: any, closePopup: any ): ReactElement => {
         <animated.div style={style} className={"popup"}>
             <h3 className={"popup-title"}>
                 {winner === "push" ? "Tie!" : winner === "dealer" ? "You lose!" : winner === "player" ? "You win!" : ""}</h3>
-            <p className={"popup-content"}>content</p>
+            <p className={"popup-content"} />
             <button onClick={handleClose} className={"popup-close-button"}>
                 close
             </button>

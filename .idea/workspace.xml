@@ -103,7 +103,8 @@
       <workItem from="1673410391129" duration="1917000" />
       <workItem from="1673413379813" duration="3426000" />
       <workItem from="1673647734556" duration="4548000" />
-      <workItem from="1673660142015" duration="1794000" />
+      <workItem from="1673660142015" duration="5442000" />
+      <workItem from="1673696131144" duration="3620000" />
     </task>
     <servers />
   </component>
@@ -135,6 +136,11 @@
           <url>file://$PROJECT_DIR$/client/src/landing/components/NavItem.tsx</url>
           <line>3</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/client/src/App.tsx</url>
+          <line>1</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

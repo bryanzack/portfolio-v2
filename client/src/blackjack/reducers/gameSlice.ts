@@ -6,11 +6,13 @@ export interface GameState {
     didSomeoneWin: boolean,
     winner?: string | undefined,
     repopulating: boolean,
+    debug: boolean,
 }
 
 const initialState: GameState = {
     didSomeoneWin: false,
     repopulating: false,
+    debug: false,
 }
 
 export const gameSlice = createSlice({
@@ -27,9 +29,12 @@ export const gameSlice = createSlice({
         },
         toggleRepopulating: (state, action: PayloadAction<boolean>) => {
             state.repopulating = action.payload;
+        },
+        toggleDebug: (state) => {
+            state.debug = !state.debug;
         }
     },
 });
 
-export const { toggleRepopulating, resetGame, determineWinner } = gameSlice.actions;
+export const { toggleDebug, toggleRepopulating, resetGame, determineWinner } = gameSlice.actions;
 export default gameSlice.reducer;

@@ -6,6 +6,9 @@
     //border: 2px solid black;
     width: 250px;
     z-index: 0;
+    color: white;
+    user-select: none;
+    font-weight: bold;
 }
 .discard-buttons {
     display: flex;

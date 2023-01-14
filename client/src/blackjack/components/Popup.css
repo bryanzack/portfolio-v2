@@ -1,12 +1,22 @@
 .popup {
-    position: absolute;
+    position: fixed;
+    //padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     left: calc(50% - 200px);
-    top: calc(50% - 50px);
+    top: calc(50% - 150px);
     width: 400px;
     z-index: 1;
-    background: orange;
+    background: grey;
+    user-select: none;
+}
+
+.popup > button {
+    color: black;
+    background: white;
+    width: 50px;
+    height: 30px;
+    margin-bottom: 10px;
 }
