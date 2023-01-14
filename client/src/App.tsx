@@ -4,6 +4,7 @@ import './App.css';
 
 import Blackjack from './blackjack/components/Blackjack.js';
 import Landing from './landing/components/Landing.js';
+import League from './league/components/League.js';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
 const App: FC = (): ReactElement => {
@@ -13,6 +14,7 @@ const App: FC = (): ReactElement => {
               <Routes>
                   <Route path='/' element={<Landing />} />
                   <Route path='/blackjack' element={<Blackjack />} />
+                  <Route path='/league' element={<League />} />
               </Routes>
           </BrowserRouter>
       </div>

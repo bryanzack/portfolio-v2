@@ -43,10 +43,19 @@ var Page = function () {
     var tech = ['TYPESCRIPT', 'REACTJS', 'REDUX', 'NODE'];
     var projects = ['DATADISPLAY', 'PORTFOLIO', 'CARDS', '...'];
     var handleClick = function (item) {
-        switch (item) {
-            case 'CARDS':
+        switch (item.toLowerCase()) {
+            case 'cards':
                 console.log("send user to card game selection");
                 navigate("/blackjack");
+                break;
+            case '...':
+                console.log("send user to github");
+                // @ts-ignore
+                window.open('https://github.com/bryanzack', '_blank').focus();
+                break;
+            case 'datadisplay':
+                console.log("send user to league project");
+                navigate("/league");
                 break;
             default:
                 console.log("clicked: " + item);

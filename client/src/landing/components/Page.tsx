@@ -42,10 +42,19 @@ const Page: FC = (): ReactElement => {
     const tech: string[] = ['TYPESCRIPT', 'REACTJS', 'REDUX', 'NODE'];
     const projects: string[] = ['DATADISPLAY', 'PORTFOLIO', 'CARDS', '...']
     const handleClick = (item: string) => {
-        switch(item) {
-            case 'CARDS':
+        switch(item.toLowerCase()) {
+            case 'cards':
                 console.log("send user to card game selection");
                 navigate("/blackjack");
+                break;
+            case '...':
+                console.log("send user to github");
+                // @ts-ignore
+                window.open('https://github.com/bryanzack', '_blank').focus();
+                break;
+            case 'datadisplay':
+                console.log("send user to league project");
+                navigate("/league");
                 break;
             default:
                 console.log("clicked: " + item);
