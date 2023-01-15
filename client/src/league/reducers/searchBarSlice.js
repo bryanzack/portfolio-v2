@@ -5,10 +5,10 @@ exports.updateSelectedRegion = exports.updateUserInput = exports.searchBarSlice 
 /* eslint-disable */
 var toolkit_1 = require("@reduxjs/toolkit");
 var initialState = {
-    regions: ['br1', 'eun1', 'euw1', 'jp1', 'kr',
-        'la1', 'la2', 'na1', 'oc1', 'tr1',
-        'ru', ' ph2', 'sg2', 'th2', 'tw2',
-        'vn2'],
+    regions: ['br1', 'eun1', 'euw1', 'la1',
+        'la2', 'na1', 'oc1', 'ru',
+        'tr1', 'jp1', 'kr', 'ph2',
+        'sg2', 'tw2', 'th2', 'vn2'],
     selected_region: "na1",
     user_input: ""
 };
@@ -21,7 +21,7 @@ exports.searchBarSlice = (0, toolkit_1.createSlice)({
         },
         updateSelectedRegion: function (state, action) {
             if (state.regions.includes(action.payload)) {
-                state.selected_region = action.payload;
+                state.selected_region = action.payload.toLowerCase();
             }
             else {
                 console.log("Error: ".concat(action.payload, " is not a valid region"));
