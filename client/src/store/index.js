@@ -9,6 +9,7 @@ var playerSlice_1 = require("../blackjack/reducers/playerSlice");
 var dealerSlice_1 = require("../blackjack/reducers/dealerSlice");
 var gameSlice_1 = require("../blackjack/reducers/gameSlice");
 var navSlice_1 = require("../landing/reducers/navSlice");
+var searchBarSlice_1 = require("../league/reducers/searchBarSlice");
 exports.store = (0, toolkit_1.configureStore)({
     reducer: {
         deck: deckSlice_1["default"],
@@ -17,6 +18,7 @@ exports.store = (0, toolkit_1.configureStore)({
         player: playerSlice_1["default"],
         dealer: dealerSlice_1["default"],
         game: gameSlice_1["default"],
-        nav: navSlice_1["default"]
+        nav: navSlice_1["default"],
+        searchbar: searchBarSlice_1["default"]
     }
 });

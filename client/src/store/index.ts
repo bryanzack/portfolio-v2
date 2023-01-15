@@ -6,6 +6,7 @@ import playerReducer from '../blackjack/reducers/playerSlice';
 import dealerReducer from '../blackjack/reducers/dealerSlice';
 import gameReducer from '../blackjack/reducers/gameSlice';
 import navReducer from '../landing/reducers/navSlice';
+import searchBarReducer from '../league/reducers/searchBarSlice';
 import { ToolkitStore } from "@reduxjs/toolkit/dist/configureStore";
 
 
@@ -18,10 +19,10 @@ export const store: ToolkitStore = configureStore({
         dealer: dealerReducer,
         game: gameReducer,
         nav: navReducer,
+        searchbar: searchBarReducer,
     },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, RootState, unknown, Action<string>>
-

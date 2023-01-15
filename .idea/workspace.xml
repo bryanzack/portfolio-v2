@@ -16,9 +16,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
         <option value="CSS File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -104,7 +104,7 @@
       <workItem from="1673413379813" duration="3426000" />
       <workItem from="1673647734556" duration="4548000" />
       <workItem from="1673660142015" duration="5442000" />
-      <workItem from="1673696131144" duration="6418000" />
+      <workItem from="1673696131144" duration="21334000" />
     </task>
     <servers />
   </component>
@@ -123,6 +123,8 @@
         <option value="$PROJECT_DIR$/client/src/landing/components/CursorAnimation.js" />
         <option value="$PROJECT_DIR$/client/src/landing/components/Magnification.js" />
         <option value="$PROJECT_DIR$/client/src/league/components/League.js" />
+        <option value="$PROJECT_DIR$/client/src/league/components/SearchBar.js" />
+        <option value="$PROJECT_DIR$/client/src/league/reducers/searchBarSlice.js" />
       </list>
     </option>
   </component>
