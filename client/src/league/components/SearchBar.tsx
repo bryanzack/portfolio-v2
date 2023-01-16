@@ -2,16 +2,18 @@ const React = require('react');
 import './SearchBar.css';
 
 import type { RootState } from "../../store";
-import { FC, ReactElement, useState, useEffect } from 'react';
+import type { SummonerQueryArgs } from '../../store/api';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUserInput, updateSelectedRegion } from "../reducers/searchBarSlice";
+import { setSubmitted } from '../reducers/leagueSlice';
 import Regions from '../helpers/regions';
 
-const SearchBar: FC = (): ReactElement => {
+const SearchBar = (): JSX.Element => {
     const regions = useSelector((state: RootState) => state.searchbar.regions);
     const selected_region = useSelector((state: RootState) => state.searchbar.selected_region);
+    const user_input = useSelector((state: RootState) => state.searchbar.user_input);
     const [region_menu, setRegionMenu] = useState(false);
-    const [hovered_region, setHoveredRegion] = useState("");
     const dispatch = useDispatch();
     const handleRegionClick = (item: string) => {
         dispatch(updateSelectedRegion(item));
@@ -21,6 +23,16 @@ const SearchBar: FC = (): ReactElement => {
     }
     const handleRegionLeave = () => {
 
+    }
+    const handleInputChange = (event: any) => {
+        dispatch(updateUserInput(event.target.value));
+        console.log(event.target.value);
+    }
+    const handleSubmit = () => {
+        if (user_input) {
+            setRegionMenu(false);
+            dispatch(setSubmitted(true));
+        }
     }
     return (
        <>
@@ -46,9 +58,12 @@ const SearchBar: FC = (): ReactElement => {
                                <p>{Regions[selected_region].abbreviation}</p>
                            </div>
                    }
-                   <input className="username-input" onClick={() => setRegionMenu(false)} type={"text"}>
-                   </input>
-                   <button className="submit-button" onClick={() => setRegionMenu(false)}>
+                   <input className="username-input"
+                          value={user_input}
+                          onClick={() => setRegionMenu(false)}
+                          onInput={handleInputChange}
+                          type={"text"} />
+                   <button className="submit-button" onClick={() => handleSubmit()}>
                        Search
                    </button>
                 </div>

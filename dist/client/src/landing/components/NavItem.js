@@ -7,6 +7,7 @@ const React = require('react');
 require("./NavItem.css");
 const react_redux_1 = require("react-redux");
 const navSlice_1 = require("../reducers/navSlice");
+const web_1 = require("@react-spring/web");
 const handleNavHover_1 = __importDefault(require("../helpers/handleNavHover"));
 const NavItem = ({ tab_name }) => {
     const active_tab = (0, react_redux_1.useSelector)((state) => state.nav.active_tab);
@@ -23,9 +24,9 @@ const NavItem = ({ tab_name }) => {
     const dispatch = (0, react_redux_1.useDispatch)();
     return (<>
             <div className="contents" id={tab_name}>
-                <h1 onMouseEnter={() => mouseEnter()} onClick={() => mouseClick(tab_name)}>
+                <web_1.animated.h1 onMouseEnter={() => mouseEnter()} onClick={() => mouseClick(tab_name)}>
                     {visible_tabs.includes(tab_name) ? tab_name : ""}
-                </h1>
+                </web_1.animated.h1>
             </div>
         </>);
 };

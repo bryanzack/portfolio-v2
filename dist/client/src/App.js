@@ -7,6 +7,7 @@ const React = require('react');
 require("./App.css");
 const Blackjack_js_1 = __importDefault(require("./blackjack/components/Blackjack.js"));
 const Landing_js_1 = __importDefault(require("./landing/components/Landing.js"));
+const League_js_1 = __importDefault(require("./league/components/League.js"));
 const react_router_dom_1 = require("react-router-dom");
 const App = () => {
     return (<div className="app">
@@ -14,6 +15,7 @@ const App = () => {
               <react_router_dom_1.Routes>
                   <react_router_dom_1.Route path='/' element={<Landing_js_1.default />}/>
                   <react_router_dom_1.Route path='/blackjack' element={<Blackjack_js_1.default />}/>
+                  <react_router_dom_1.Route path='/league' element={<League_js_1.default />}/>
               </react_router_dom_1.Routes>
           </react_router_dom_1.BrowserRouter>
       </div>);

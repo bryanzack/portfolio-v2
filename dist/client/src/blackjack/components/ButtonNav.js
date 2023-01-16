@@ -15,6 +15,7 @@ const gameSlice_js_1 = require("../reducers/gameSlice.js");
 const react_redux_1 = require("react-redux");
 const cards_1 = __importDefault(require("../helpers/cards"));
 let ButtonNav = () => {
+    const debug_mode = (0, react_redux_1.useSelector)((state) => state.game.debug);
     const dealerCards = (0, react_redux_1.useSelector)((state) => state.dealer.cards);
     const deckCards = (0, react_redux_1.useSelector)((state) => state.deck.cards);
     const discardCards = (0, react_redux_1.useSelector)((state) => state.discard.cards);
@@ -141,7 +142,7 @@ let ButtonNav = () => {
     };
     return (<>
             <div className="button-container">
-                totalNumCards: {deckCards.length + discardCards.length + playerCards.length + dealerCards.length}
+                {debug_mode && `# cards in ecosystem: ${deckCards.length + discardCards.length + playerCards.length + dealerCards.length}`}
                 <div className="play-button">
                     {playerCards.length === 0 &&
             <button disabled={isDeckRepopulating} onClick={() => dispatch(dealHandsThunk())}>
@@ -154,6 +155,11 @@ let ButtonNav = () => {
                     </button>
                     <button onClick={() => dispatch(newHandleStayThunk())} disabled={winner}>
                         Stay
+                    </button>
+                </div>
+                <div className={"toggle-buttons"}>
+                    <button onClick={() => dispatch((0, gameSlice_js_1.toggleDebug)())}>
+                        debug
                     </button>
                 </div>
             </div>

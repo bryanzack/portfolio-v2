@@ -5,7 +5,7 @@ const path = require('path');
 const app = express();
 app.use(express.static(path.join(__dirname, 'client', 'build')));
 app.get('/api', (re, res) => {
-    res.json({ message: "Hello" });
+    res.json({ message: "api" });
 });
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));

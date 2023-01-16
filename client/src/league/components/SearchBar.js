@@ -5,12 +5,13 @@ require("./SearchBar.css");
 var react_1 = require("react");
 var react_redux_1 = require("react-redux");
 var searchBarSlice_1 = require("../reducers/searchBarSlice");
+var leagueSlice_1 = require("../reducers/leagueSlice");
 var regions_1 = require("../helpers/regions");
 var SearchBar = function () {
     var regions = (0, react_redux_1.useSelector)(function (state) { return state.searchbar.regions; });
     var selected_region = (0, react_redux_1.useSelector)(function (state) { return state.searchbar.selected_region; });
+    var user_input = (0, react_redux_1.useSelector)(function (state) { return state.searchbar.user_input; });
     var _a = (0, react_1.useState)(false), region_menu = _a[0], setRegionMenu = _a[1];
-    var _b = (0, react_1.useState)(""), hovered_region = _b[0], setHoveredRegion = _b[1];
     var dispatch = (0, react_redux_1.useDispatch)();
     var handleRegionClick = function (item) {
         dispatch((0, searchBarSlice_1.updateSelectedRegion)(item));
@@ -19,6 +20,16 @@ var SearchBar = function () {
     var handleRegionEnter = function (item) {
     };
     var handleRegionLeave = function () {
+    };
+    var handleInputChange = function (event) {
+        dispatch((0, searchBarSlice_1.updateUserInput)(event.target.value));
+        console.log(event.target.value);
+    };
+    var handleSubmit = function () {
+        if (user_input) {
+            setRegionMenu(false);
+            dispatch((0, leagueSlice_1.setSubmitted)(true));
+        }
     };
     return (React.createElement(React.Fragment, null,
         React.createElement("div", { className: "searchbar" },
@@ -35,7 +46,7 @@ var SearchBar = function () {
                     :
                         React.createElement("div", { className: "region-button", onClick: function () { return setRegionMenu(true); } },
                             React.createElement("p", null, regions_1["default"][selected_region].abbreviation)),
-                React.createElement("input", { className: "username-input", onClick: function () { return setRegionMenu(false); }, type: "text" }),
-                React.createElement("button", { className: "submit-button", onClick: function () { return setRegionMenu(false); } }, "Search")))));
+                React.createElement("input", { className: "username-input", value: user_input, onClick: function () { return setRegionMenu(false); }, onInput: handleInputChange, type: "text" }),
+                React.createElement("button", { className: "submit-button", onClick: function () { return handleSubmit(); } }, "Search")))));
 };
 exports["default"] = SearchBar;

@@ -6,9 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = require('react');
 require("./Landing.css");
 const web_1 = require("@react-spring/web");
-const Names_js_1 = __importDefault(require("./Names.js"));
 const Nav_js_1 = __importDefault(require("./Nav.js"));
 const Page_1 = __importDefault(require("./Page"));
+const CursorAnimation_1 = __importDefault(require("./CursorAnimation"));
 const Landing = () => {
     const fadeIn = (0, web_1.useTransition)(null, {
         from: { opacity: 0 },
@@ -26,9 +26,9 @@ const Landing = () => {
             return <h1 key={index}>bryan zack</h1>;
         })}
                 </div>
-                <Names_js_1.default />
                 <Nav_js_1.default />
                 <Page_1.default />
+                <CursorAnimation_1.default />
             </web_1.animated.div>
         </>));
 };

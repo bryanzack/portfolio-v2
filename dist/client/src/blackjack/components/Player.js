@@ -10,9 +10,10 @@ const Card_js_1 = __importDefault(require("./Card.js"));
 const Player = () => {
     const playerCards = (0, react_redux_1.useSelector)((state) => state.player.cards);
     const playerScore = (0, react_redux_1.useSelector)((state) => state.player.score);
+    const debug_mode = (0, react_redux_1.useSelector)((state) => state.game.debug);
     return (<>
             <div className="player">
-                {playerScore}
+                {debug_mode && `${playerCards.length} (${playerScore})`}
                 <div className="cards">
                     {playerCards.map((index) => (<Card_js_1.default pile={"player"} key={index} id={index} from={"player"}/>))}
                 </div>

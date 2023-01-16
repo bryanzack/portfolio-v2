@@ -6,10 +6,16 @@ const app: Express = express();
 
 app.use(express.static(path.join(__dirname, 'client', 'build')));
 
-app.get('/api', (re: Request, res: Response) => {
-    res.json({message: "Hello"});
+app.get('/api', (req: Request, res: Response) => {
+    res.json({message: "api"});
+});
+app.get('/api/users/:region/:name', (req: Request, res: Response) => {
+    console.log(req.params);
+    res.json({region: "LOL", name: req.params.name});
 });
 app.get('*', (req: Request, res: Response) => {
+    console.log("*: " + req.url);
+    console.log(req.params);
     res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
 

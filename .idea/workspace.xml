@@ -6,6 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="fbb5762a-091d-48cc-80b0-d66138f2a830" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/Blackjack.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/blackjack/components/Blackjack.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/ButtonNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/blackjack/components/ButtonNav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/Dealer.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/blackjack/components/Dealer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/Deck.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/blackjack/components/Deck.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/Discard.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/blackjack/components/Discard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/blackjack/components/Player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/Popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/blackjack/components/Popup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/reducers/gameSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/blackjack/reducers/gameSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/components/Landing.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/landing/components/Landing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/components/Nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/landing/components/Nav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/components/NavItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/landing/components/NavItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/components/Page.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/landing/components/Page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/reducers/navSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/landing/reducers/navSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,16 +73,17 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="Z:\WebStorm 2022.3.1\projects\client\src\store" />
       <recent name="C:\Users\bryan\Desktop\new-portfolio\client\src\blackjack\helpers\" />
       <recent name="C:\Users\bryan\Desktop\new-portfolio\client\src\blackjack\reducers\" />
       <recent name="C:\Users\bryan\Desktop\new-portfolio\client\src\blackjack" />
       <recent name="C:\Users\bryan\Desktop\new-portfolio\client\src\blackjack\" />
-      <recent name="C:\Users\bryan\react-practice\react-router-backend\client\public" />
     </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value=":w" />
+      <command value=":" />
     </option>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -106,7 +125,7 @@
       <workItem from="1673660142015" duration="5442000" />
       <workItem from="1673696131144" duration="30318000" />
       <workItem from="1673825742069" duration="70000" />
-      <workItem from="1673827320388" duration="26473000" />
+      <workItem from="1673827320388" duration="45014000" />
     </task>
     <servers />
   </component>
@@ -128,7 +147,8 @@
         <option value="$PROJECT_DIR$/client/src/league/components/SearchBar.js" />
         <option value="$PROJECT_DIR$/client/src/league/reducers/searchBarSlice.js" />
         <option value="$PROJECT_DIR$/client/src/league/helpers/summoner.js" />
-        <option value="$PROJECT_DIR$/client/src/league/services/league.js" />
+        <option value="$PROJECT_DIR$/client/src/league/reducers/leagueSlice.js" />
+        <option value="$PROJECT_DIR$/client/src/league/components/Matches.js" />
       </list>
     </option>
   </component>

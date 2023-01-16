@@ -11,18 +11,9 @@ const dealerSlice_1 = require("../reducers/dealerSlice");
 const Popup = (style, closePopup) => {
     const winner = (0, react_redux_1.useSelector)((state) => state.game.winner);
     const transitions = (0, react_spring_1.useTransition)(winner, {
-        from: {
-            scale: "150%",
-            opacity: 0,
-        },
-        enter: {
-            scale: "100%",
-            opacity: 1,
-        },
-        leave: {
-            scale: "150%",
-            opacity: 0,
-        },
+        from: Object.assign(Object.assign({}, style), { scale: "150%", opacity: 0 }),
+        enter: Object.assign(Object.assign({}, style), { scale: "100%", opacity: 1 }),
+        leave: Object.assign(Object.assign({}, style), { scale: "150%", opacity: 0 }),
         config: {
             duration: 300,
         },
@@ -46,7 +37,7 @@ const Popup = (style, closePopup) => {
     return transitions((style) => (<react_spring_1.animated.div style={style} className={"popup"}>
             <h3 className={"popup-title"}>
                 {winner === "push" ? "Tie!" : winner === "dealer" ? "You lose!" : winner === "player" ? "You win!" : ""}</h3>
-            <p className={"popup-content"}>content</p>
+            <p className={"popup-content"}/>
             <button onClick={handleClose} className={"popup-close-button"}>
                 close
             </button>

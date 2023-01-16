@@ -9,9 +9,10 @@ const react_redux_1 = require("react-redux");
 const Card_js_1 = __importDefault(require("./Card.js"));
 const Discard = () => {
     const discardCards = (0, react_redux_1.useSelector)((state) => state.discard.cards);
+    const debug_mode = (0, react_redux_1.useSelector)((state) => state.game.debug);
     return (<>
             <div className="discard">
-                ({discardCards.length})
+                {debug_mode && `${discardCards.length}`}
                 <div className="cards">
                     {discardCards.map((index) => (<Card_js_1.default pile={"discard"} key={index} id={index}/>))}
                 </div>
