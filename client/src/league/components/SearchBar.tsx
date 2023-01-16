@@ -48,7 +48,7 @@ const SearchBar: FC = (): ReactElement => {
                    }
                    <input className="username-input" onClick={() => setRegionMenu(false)} type={"text"}>
                    </input>
-                   <button className="submit-button">
+                   <button className="submit-button" onClick={() => setRegionMenu(false)}>
                        Search
                    </button>
                 </div>

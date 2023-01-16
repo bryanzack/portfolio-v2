@@ -4,7 +4,7 @@ var express = require("express");
 var path = require('path');
 var app = express();
 app.use(express.static(path.join(__dirname, 'client', 'build')));
-app.get('/api', function (req, res) {
+app.get('/api', function (re, res) {
     res.json({ message: "Hello" });
 });
 app.get('*', function (req, res) {

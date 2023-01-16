@@ -6,6 +6,7 @@ import type { RootState } from "../../store";
 import { useSelector } from 'react-redux';
 import { animated, useSpring, useTrail } from '@react-spring/web';
 import { useNavigate } from "react-router-dom";
+import CursorAnimation from "./CursorAnimation";
 
 interface TrailProps {
     children?: ReactNode,
@@ -85,10 +86,8 @@ const Page: FC = (): ReactElement => {
                 </div>
             </div>
             <div className={"tab-content-2"}>
-
             </div>
             <div className={"tab-content-3"}>
-
             </div>
         </>
     );

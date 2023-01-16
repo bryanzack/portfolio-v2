@@ -36,6 +36,6 @@ var SearchBar = function () {
                         React.createElement("div", { className: "region-button", onClick: function () { return setRegionMenu(true); } },
                             React.createElement("p", null, regions_1["default"][selected_region].abbreviation)),
                 React.createElement("input", { className: "username-input", onClick: function () { return setRegionMenu(false); }, type: "text" }),
-                React.createElement("button", { className: "submit-button" }, "Search")))));
+                React.createElement("button", { className: "submit-button", onClick: function () { return setRegionMenu(false); } }, "Search")))));
 };
 exports["default"] = SearchBar;

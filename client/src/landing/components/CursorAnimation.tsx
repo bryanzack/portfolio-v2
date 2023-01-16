@@ -18,7 +18,7 @@ const trans = (x: number, y: number) =>
 
 const CursorAnimation: FC = (): ReactElement => {
     const [trail, api] = useTrail(3, (i) => ({
-        xy: [0,0],
+        xy: [580, 600],
         config: i === 0 ? fast : slow,
     }));
     const [ref, { left, top }] = useMeasure();

@@ -20,7 +20,7 @@ var trans = function (x, y) {
 };
 var CursorAnimation = function () {
     var _a = (0, web_1.useTrail)(3, function (i) { return ({
-        xy: [0, 0],
+        xy: [580, 600],
         config: i === 0 ? fast : slow
     }); }), trail = _a[0], api = _a[1];
     var _b = (0, react_use_measure_1["default"])(), ref = _b[0], _c = _b[1], left = _c.left, top = _c.top;
