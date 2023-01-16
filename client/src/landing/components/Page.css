@@ -3,7 +3,7 @@
 .tab-content {
     z-index: 4;
     font-family: 'Bebas Neue', cursive;
-    position: fixed;
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,13 +13,27 @@
     mix-blend-mode: exclusion;
     background: white;
     pointer-events: none;
+    opacity: 1;
 }
 .tab-content-2 {
     position: absolute;
     z-index: 3;
     width: 520px;
     height: 470px;
-    background: black;
+    background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+    linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+    linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+    \\background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,1) 70.71%),
+    linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+    linear-gradient(336deg, rgba(0,0,255, .8), rgba(0,0,255,0) 70.71%);
+    opacity: 1;
+}
+.tab-content-3 {
+    position: fixed;
+    z-index: 2;
+    width: 520px;
+    height: 470px;
+    background: white;
 }
 
 .trailsText {

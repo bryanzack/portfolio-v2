@@ -7,7 +7,7 @@
 }
 
 .cursor-animation-container-far {
-    z-index: 2;
+    z-index: 1;
     position: fixed;
     width: 100vw;
     height: 100vh;

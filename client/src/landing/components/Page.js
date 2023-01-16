@@ -74,6 +74,7 @@ var Page = function () {
                     active_tab === 'about' && about.map(function (item, index) { return (React.createElement("span", { onClick: function () { return handleClick(item); }, key: index }, item)); }),
                     active_tab === 'tech' && tech.map(function (item, index) { return (React.createElement("span", { onClick: function () { return handleClick(item); }, key: index }, item)); }),
                     active_tab === 'projects' && projects.map(function (item, index) { return (React.createElement("span", { onClick: function () { return handleClick(item); }, key: index }, item)); })))),
-        React.createElement("div", { className: "tab-content-2" })));
+        React.createElement("div", { className: "tab-content-2" }),
+        React.createElement("div", { className: "tab-content-3" })));
 };
 exports["default"] = Page;
