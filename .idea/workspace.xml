@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fbb5762a-091d-48cc-80b0-d66138f2a830" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +106,7 @@
       <workItem from="1673660142015" duration="5442000" />
       <workItem from="1673696131144" duration="30318000" />
       <workItem from="1673825742069" duration="70000" />
-      <workItem from="1673827320388" duration="22370000" />
+      <workItem from="1673827320388" duration="26473000" />
     </task>
     <servers />
   </component>
@@ -128,6 +127,8 @@
         <option value="$PROJECT_DIR$/client/src/league/components/League.js" />
         <option value="$PROJECT_DIR$/client/src/league/components/SearchBar.js" />
         <option value="$PROJECT_DIR$/client/src/league/reducers/searchBarSlice.js" />
+        <option value="$PROJECT_DIR$/client/src/league/helpers/summoner.js" />
+        <option value="$PROJECT_DIR$/client/src/league/services/league.js" />
       </list>
     </option>
   </component>
