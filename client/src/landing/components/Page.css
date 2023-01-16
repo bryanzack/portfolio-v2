@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 .tab-content {
+    z-index: 3;
     font-family: 'Bebas Neue', cursive;
     position: absolute;
     display: flex;
@@ -12,6 +13,8 @@
     //border: 1px solid white;
     //width: 520px;
     //height: 470px;
+    //mix-blend-mode: difference;
+    //isolation: isolate;
 }
 
 .trailsText {
@@ -26,16 +29,18 @@
     will-change: transform, opacity;
     //overflow: hidden;
     user_select: none;
+
 }
 
 .trailsText > div {
     padding-right: 0.05em;
     overflow: hidden;
     //user_select: none;
+
 }
 
 .trailsText > div > span {
     //color: blue;
-    user-select: none;
     cursor: pointer;
+
 }

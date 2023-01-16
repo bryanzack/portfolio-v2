@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:wght@100&display=swap');
 
 .nav-contents {
-    z-index: 2;
+    z-index: 5;
     font-family: 'Montserrat', sans-serif;
     display: flex;
     position: fixed;
@@ -12,11 +12,13 @@
     //text-decoration: underline;
     width: 540px;
     justify-content: right;
+    mix-blend-mode: difference;
 }
 
 .nav-contents > .nav-fit > .contents > h1 {
     cursor: pointer;
     margin-left: 15px;
+    color: white;
 }
 
 .nav-fit {

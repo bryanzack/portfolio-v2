@@ -2,7 +2,7 @@ const React = require('react');
 import './CursorAnimation.css';
 
 import { FC, ReactElement } from 'react';
-import { animated, useTrail } from '@react-spring/web';
+import {animated, useTrail, useTransition} from '@react-spring/web';
 import useMeasure from 'react-use-measure';
 
 const fast = { tension: 1200, friction: 40 };
