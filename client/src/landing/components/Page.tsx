@@ -23,13 +23,13 @@ const Trail: FC<TrailProps> = ({ open, children}) => {
         from: { opacity: 0, x: 20, height: 0 },
     });
     return (
-        <div>
+        <>
             {trail.map(({ height, ...style }, index) => (
                 <animated.div key={index} className={'trailsText'} style={style}>
                     <animated.div  style={{ height }}>{items[index]}</animated.div>
                 </animated.div>
                 ))}
-        </div>
+        </>
     );
 }
 
@@ -68,21 +68,26 @@ const Page: FC = (): ReactElement => {
     }, [active_tab]);
 
     return (
-        <div className={'tab-content'}>
-            <div className={'container'}>
-                <Trail open={open}>
-                    {active_tab === 'about' && about.map((item, index) => (
-                        <span onClick={() => handleClick(item)} key={index}>{item}</span>
-                    ))}
-                    {active_tab === 'tech' && tech.map((item, index) => (
-                        <span onClick={() => handleClick(item)} key={index}>{item}</span>
-                    ))}
-                    {active_tab === 'projects' && projects.map((item, index) => (
-                        <span onClick={() => handleClick(item)} key={index}>{item}</span>
-                    ))}
-                </Trail>
+        <>
+            <div className={'tab-content'}>
+                <div className={'container'}>
+                    <Trail open={open}>
+                        {active_tab === 'about' && about.map((item, index) => (
+                            <span onClick={() => handleClick(item)} key={index}>{item}</span>
+                        ))}
+                        {active_tab === 'tech' && tech.map((item, index) => (
+                            <span onClick={() => handleClick(item)} key={index}>{item}</span>
+                        ))}
+                        {active_tab === 'projects' && projects.map((item, index) => (
+                            <span onClick={() => handleClick(item)} key={index}>{item}</span>
+                        ))}
+                    </Trail>
+                </div>
             </div>
-        </div>
+            <div className={"tab-content-2"}>
+
+            </div>
+        </>
     );
 }
 

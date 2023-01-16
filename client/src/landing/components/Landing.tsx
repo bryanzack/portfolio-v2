@@ -30,7 +30,6 @@ const Landing: FC = (): ReactElement => {
                             return <h1 key={index}>bryan zack</h1>
                         })}
                 </div>
-                <Names />
                 <Nav />
                 <Page />
                 <CursorAnimation />

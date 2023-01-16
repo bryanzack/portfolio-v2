@@ -1,6 +1,6 @@
 .cursor-animation-container-close {
     z-index: 3;
-    position: absolute;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     mix-blend-mode: difference;
@@ -8,10 +8,10 @@
 
 .cursor-animation-container-far {
     z-index: 2;
-    position: absolute;
+    position: fixed;
     width: 100vw;
     height: 100vh;
-    mix-blend-mode: difference;
+    //mix-blend-mode: difference;
 }
 .cursor-animation-main {
     //z-index: 2;
@@ -30,7 +30,6 @@
     //cursor: default;
 }
 .cursor-animation-main > div {
-    pointer-events: none;
     position: absolute;
     will-change: transform;
     border-radius: 50%;

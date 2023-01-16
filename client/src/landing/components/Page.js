@@ -28,7 +28,7 @@ var Trail = function (_a) {
         reset: true,
         from: { opacity: 0, x: 20, height: 0 }
     });
-    return (React.createElement("div", null, trail.map(function (_a, index) {
+    return (React.createElement(React.Fragment, null, trail.map(function (_a, index) {
         var height = _a.height, style = __rest(_a, ["height"]);
         return (React.createElement(web_1.animated.div, { key: index, className: 'trailsText', style: style },
             React.createElement(web_1.animated.div, { style: { height: height } }, items[index])));
@@ -67,11 +67,13 @@ var Page = function () {
             setOpen(true);
         }, 100);
     }, [active_tab]);
-    return (React.createElement("div", { className: 'tab-content' },
-        React.createElement("div", { className: 'container' },
-            React.createElement(Trail, { open: open },
-                active_tab === 'about' && about.map(function (item, index) { return (React.createElement("span", { onClick: function () { return handleClick(item); }, key: index }, item)); }),
-                active_tab === 'tech' && tech.map(function (item, index) { return (React.createElement("span", { onClick: function () { return handleClick(item); }, key: index }, item)); }),
-                active_tab === 'projects' && projects.map(function (item, index) { return (React.createElement("span", { onClick: function () { return handleClick(item); }, key: index }, item)); })))));
+    return (React.createElement(React.Fragment, null,
+        React.createElement("div", { className: 'tab-content' },
+            React.createElement("div", { className: 'container' },
+                React.createElement(Trail, { open: open },
+                    active_tab === 'about' && about.map(function (item, index) { return (React.createElement("span", { onClick: function () { return handleClick(item); }, key: index }, item)); }),
+                    active_tab === 'tech' && tech.map(function (item, index) { return (React.createElement("span", { onClick: function () { return handleClick(item); }, key: index }, item)); }),
+                    active_tab === 'projects' && projects.map(function (item, index) { return (React.createElement("span", { onClick: function () { return handleClick(item); }, key: index }, item)); })))),
+        React.createElement("div", { className: "tab-content-2" })));
 };
 exports["default"] = Page;

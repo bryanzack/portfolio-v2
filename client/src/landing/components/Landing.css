@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins&family=Roboto:ital,wght@0,500;1,400&display=swap');
 .landing {
     display: flex;
-    position: absolute;
+    position: fixed;
     justify-content: center;
     align-items: center;
     width: 100vw;
@@ -30,12 +30,12 @@
     position: fixed;
     display: flex;
     margin: 0;
-    filter: blur(2px);
+    //filter: blur(2px);
 }
 .names-container {
     z-index: 3;
     display: flex;
-    position: absolute;
+    position: fixed;
     justify-content: center;
     align-items: center;
 }
@@ -44,7 +44,7 @@
     //position: absolute;
     font-family: "Roboto", sans-serif;
     //background: white;
-    background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+    //background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
     linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
     linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
     //box-shadow: 5px 5px 10px 1px teal;
@@ -88,12 +88,12 @@
 
 .background {
     z-index: 2;
-    position: absolute;
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
-    //width: 579px;
-    width: 100%;
+    width: 36%;
+    //width: 100%;
     height: 460px;
     //background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
     linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
@@ -113,6 +113,7 @@
 }
 
 .page-container {
+    pointer-events: all;
     display: flex;
     align-items: center;
     height: 100%;
