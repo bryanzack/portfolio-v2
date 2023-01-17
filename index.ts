@@ -1,13 +1,12 @@
 const express = require("express");
 const path = require('path');
-const dotenv = require('dotenv');
+const dotenv = require('dotenv').confi;
 const app: Express = express();
-import { Express, Request, Response } from 'express';
 import fetch from 'node-fetch';
+import { Express, Request, Response } from 'express';
 
-dotenv.config({ path: './env' });
+dotenv.config({ path: __dirname+'/.env'});
 app.use(express.static(path.join(__dirname, 'client', 'build')));
-
 
 app.get('/api', (req: Request, res: Response) => {
     res.json({message: "api"});
@@ -15,7 +14,9 @@ app.get('/api', (req: Request, res: Response) => {
 app.get('/api/users/:region/:name', (req: Request, res: Response) => {
     console.log("region/name (req): ");
     console.log(req.params);
-    fetch(`https://${req.params.region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${req.params.name}.${process.env.API_KEY}`)
+    let url = `https://${req.params.region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${req.params.name}.${process.env.API_KEY}`
+    console.log(url);
+    fetch(url)
         .then(res => res.json())
         .then(json => console.log(json))
         .catch(err => console.log("error: " + err));
