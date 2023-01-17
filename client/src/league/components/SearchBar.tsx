@@ -32,7 +32,9 @@ const SearchBar = (): JSX.Element => {
         if (user_input) {
             setRegionMenu(false);
             dispatch(setSearchParams({selected_region, user_input}));
-            dispatch(setSubmitted(true));
+            console.log("from searchbar:");
+            console.log(selected_region, user_input);
+            //dispatch(setSubmitted(true));
         }
     }
     return (

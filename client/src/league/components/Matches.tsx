@@ -23,19 +23,23 @@ const Test: FC<TestType> = ({ region, name}): JSX.Element => {
         </>
     );
 }
-const Matches = (): JSX.Element => {
-    const user_input = useSelector((state: RootState) => state.league.user_input);
-    const selected_region = useSelector((state: RootState) => state.league.selected_region);
-    console.log(user_input, selected_region);
+const Matches: FC<TestType> = ({region, name}): JSX.Element => {
+    console.log(region, name);
     const {
         data: summoner,
         isFetching,
         isLoading,
-    } = useGetSummonerDataQuery({region: selected_region, name: user_input})
+    } = useGetSummonerDataQuery({region: region, name: name});
     if (isLoading) return <div>Loading...</div>
+    if (isFetching) return <div>Fetching...</div>
     if (!summoner) return <div>Missing summoner!</div>
     return (
-        <Test name={summoner.name} region={summoner.id} />
+        <>
+            <div className="matches">
+                <span>MATCHES</span>
+                <Test name={summoner.name} region={summoner.id} />
+            </div>
+        </>
     )
 }
 

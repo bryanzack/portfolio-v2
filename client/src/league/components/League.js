@@ -16,6 +16,8 @@ var League = function () {
     });
     return fadeIn(function (style) { return (React.createElement(web_1.animated.div, { style: style, className: "league" },
         React.createElement(SearchBar_1["default"], null),
-        has_submitted && React.createElement(Matches_1["default"], null))); });
+        (search_params.selected_region !== ""
+            && search_params.user_input !== "")
+            && React.createElement(Matches_1["default"], { region: search_params.selected_region, name: search_params.user_input }))); });
 };
 exports["default"] = League;

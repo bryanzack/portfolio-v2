@@ -2,12 +2,15 @@
 exports.__esModule = true;
 var express = require("express");
 var path = require('path');
+var dotenv = require('dotenv');
 var app = express();
+dotenv.config({ path: './env' });
 app.use(express.static(path.join(__dirname, 'client', 'build')));
 app.get('/api', function (req, res) {
     res.json({ message: "api" });
 });
 app.get('/api/users/:region/:name', function (req, res) {
+    console.log("region/name (req): ");
     console.log(req.params);
     res.json({ region: "LOL", name: req.params.name });
 });
