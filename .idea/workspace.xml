@@ -6,23 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fbb5762a-091d-48cc-80b0-d66138f2a830" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/Blackjack.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/blackjack/components/Blackjack.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/ButtonNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/blackjack/components/ButtonNav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/Dealer.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/blackjack/components/Dealer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/Deck.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/blackjack/components/Deck.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/Discard.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/blackjack/components/Discard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/blackjack/components/Player.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/Popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/blackjack/components/Popup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/reducers/gameSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/blackjack/reducers/gameSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/components/Landing.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/landing/components/Landing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/components/Nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/landing/components/Nav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/components/NavItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/landing/components/NavItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/components/Page.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/landing/components/Page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/reducers/navSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/landing/reducers/navSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -125,7 +108,8 @@
       <workItem from="1673660142015" duration="5442000" />
       <workItem from="1673696131144" duration="30318000" />
       <workItem from="1673825742069" duration="70000" />
-      <workItem from="1673827320388" duration="45014000" />
+      <workItem from="1673827320388" duration="45984000" />
+      <workItem from="1673919548832" duration="11909000" />
     </task>
     <servers />
   </component>

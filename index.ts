@@ -10,6 +10,7 @@ app.get('/api', (req: Request, res: Response) => {
     res.json({message: "api"});
 });
 app.get('/api/users/:region/:name', (req: Request, res: Response) => {
+    console.log("region/name: ");
     console.log(req.params);
     res.json({region: "LOL", name: req.params.name});
 });

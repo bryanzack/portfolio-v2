@@ -3,7 +3,7 @@ import './Matches.css';
 
 import type { RootState } from '../../store';
 import type { SummonerQueryArgs } from "../../store/api";
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { useSelector } from "react-redux";
 import { api, useGetSummonerDataQuery } from '../../store/api';
 
@@ -15,25 +15,27 @@ type TestType = {
 interface TestProps {
     test: TestType,
 }
-const Test: FC<TestProps> = ({ test }): JSX.Element => {
-    const {
-        data: summoner,
-        isFetching,
-        isLoading,
-    } = useGetSummonerDataQuery({ region: test.region, name: test.name});
-    if (isLoading) return <div>Loading...</div>
-    if (!summoner) return <div>Missing summoner!</div>
+const Test: FC<TestType> = ({ region, name}): JSX.Element => {
+    console.log(`from test: ${region}, ${name}`);
     return (
         <>
-            <span>{summoner.name} {summoner.id} {isFetching ? '...refetching' : ''}</span>
+            <span>{name} {region}</span>
         </>
     );
 }
 const Matches = (): JSX.Element => {
-    const user_input = useSelector((state: RootState) => state.searchbar.user_input);
-    const selected_region = useSelector((state: RootState) => state.searchbar.selected_region);
+    const user_input = useSelector((state: RootState) => state.league.user_input);
+    const selected_region = useSelector((state: RootState) => state.league.selected_region);
+    console.log(user_input, selected_region);
+    const {
+        data: summoner,
+        isFetching,
+        isLoading,
+    } = useGetSummonerDataQuery({region: selected_region, name: user_input})
+    if (isLoading) return <div>Loading...</div>
+    if (!summoner) return <div>Missing summoner!</div>
     return (
-        <Test test={{name: user_input, region: selected_region}} />
+        <Test name={summoner.name} region={summoner.id} />
     )
 }
 
