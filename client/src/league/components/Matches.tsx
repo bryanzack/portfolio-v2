@@ -1,8 +1,11 @@
+import MatchList = matchNamespace.MatchList;
+
 const React = require('react');
 import './Matches.css';
 
-import { SummonerType } from "../helpers/summoner";
+import type { SummonerType } from "../helpers/summoner";
 import type { RootState } from '../../store';
+import { matchNamespace } from "../helpers/match";
 import { FC, useEffect } from 'react';
 import { useSelector } from "react-redux";
 import { api, useGetSummonerDataQuery } from '../../store/api';
@@ -12,35 +15,36 @@ type SummonerRequestArgs = {
     name: string,
 }
 
-const Test = (props: { summoner: SummonerType} ): JSX.Element => {
-    console.log(props.summoner);
+const Test = (props: { match_list: matchNamespace.MatchList} ): JSX.Element => {
+    console.log(props.match_list);
+    props.match_list.map((item: matchNamespace.Match) => {
+        console.log(item);
+    });
     return (
-        <div className={"data"}>
-            <span>id: {props.summoner.id}</span>
-            <span>accountId: {props.summoner.accountId}</span>
-            <span>puuid: {props.summoner.puuid}</span>
-            <span>name: {props.summoner.name}</span>
-            <span>profileIconId: {props.summoner.profileIconId}</span>
-            <span>revisionDate: {props.summoner.revisionDate}</span>
-            <span>summonerLevel: {props.summoner.summonerLevel}</span>
-        </div>
+        <>
+            {props.match_list.map((match: matchNamespace.Match) => (
+                <div className={"matches"}>
+                    <span>{match.info.gameId}</span>
+                </div>
+            ))}
+        </>
     );
 }
 const Matches: FC<SummonerRequestArgs> = ({region, name}): JSX.Element => {
     const {
-        data: summoner,
+        data: match_list,
         error,
         isFetching,
         isLoading,
     } = useGetSummonerDataQuery({region: region, name: name});
     if (isLoading) return <div>Loading...</div>
     if (isFetching) return <div>Fetching...</div>
-    if (!summoner || !summoner.id) return <div>Summoner not found...</div>
+    if (!match_list) return <div>No matches found...</div>
     if (error) return <div>Error...</div>
     return (
         <>
             <div className="matches">
-                <Test summoner={summoner} />
+                <Test match_list={match_list} />
             </div>
         </>
     )

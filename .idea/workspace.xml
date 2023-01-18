@@ -111,7 +111,7 @@
       <workItem from="1673825742069" duration="70000" />
       <workItem from="1673827320388" duration="45984000" />
       <workItem from="1673919548832" duration="16226000" />
-      <workItem from="1673993037656" duration="12392000" />
+      <workItem from="1673993037656" duration="26373000" />
     </task>
     <servers />
   </component>
@@ -135,6 +135,8 @@
         <option value="$PROJECT_DIR$/client/src/league/helpers/summoner.js" />
         <option value="$PROJECT_DIR$/client/src/league/reducers/leagueSlice.js" />
         <option value="$PROJECT_DIR$/client/src/league/components/Matches.js" />
+        <option value="$PROJECT_DIR$/client/src/league/helpers/translateRegion.js" />
+        <option value="$PROJECT_DIR$/client/src/league/helpers/match.js" />
       </list>
     </option>
   </component>
