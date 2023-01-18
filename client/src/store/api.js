@@ -9,7 +9,6 @@ exports.api = (0, react_1.createApi)({
         getSummonerData: builder.query({
             query: function (arg) {
                 var region = arg.region, name = arg.name;
-                console.log(arg);
                 return {
                     url: "users/".concat(region, "/").concat(name)
                 };

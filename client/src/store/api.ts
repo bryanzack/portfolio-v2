@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import type { Summoner } from '../league/helpers/summoner';
+import type { SummonerType } from '../league/helpers/summoner';
 
 export type SummonerQueryArgs = {
     name: string,
@@ -9,10 +9,9 @@ export const api = createApi({
     reducerPath: 'api',
     baseQuery: fetchBaseQuery({ baseUrl: '/api' }),
     endpoints: (builder) => ({
-        getSummonerData: builder.query<Summoner, { region: string, name: string }>({
+        getSummonerData: builder.query<SummonerType, { region: string, name: string }>({
             query: (arg) => {
                 const { region, name } = arg;
-                console.log(arg);
                 return {
                     url: `users/${region}/${name}`,
                 }

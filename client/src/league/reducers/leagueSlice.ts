@@ -1,6 +1,5 @@
 /* eslint-disable */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import searchBar from "../components/SearchBar";
 type SearchParams = {
     selected_region: string,
     user_input: string,
@@ -28,9 +27,6 @@ export const leagueSlice = createSlice({
         setSearchParams: (state, action: PayloadAction<SearchParams>) => {
             state.search_params.selected_region = action.payload.selected_region;
             state.search_params.user_input = action.payload.user_input;
-            console.log("from leagueSlice");
-            console.log(state.search_params.user_input);
-            console.log(state.search_params.selected_region);
         }
     },
 });

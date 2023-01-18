@@ -1,4 +1,4 @@
-export type Summoner = {
+export type SummonerType = {
     accountId: string,
     profileIconId: number,
     revisionDate: string,

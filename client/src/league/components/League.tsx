@@ -11,7 +11,6 @@ import Matches from './Matches';
 
 
 const League = (): JSX.Element => {
-    const has_submitted = useSelector((state: RootState) => state.league.has_submitted);
     const search_params = useSelector((state: RootState) => state.league.search_params);
     const fadeIn = useTransition(null, {
       from: { opacity: 0 },

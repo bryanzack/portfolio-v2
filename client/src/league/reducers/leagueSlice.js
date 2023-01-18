@@ -21,9 +21,6 @@ exports.leagueSlice = (0, toolkit_1.createSlice)({
         setSearchParams: function (state, action) {
             state.search_params.selected_region = action.payload.selected_region;
             state.search_params.user_input = action.payload.user_input;
-            console.log("from leagueSlice");
-            console.log(state.search_params.user_input);
-            console.log(state.search_params.selected_region);
         }
     }
 });

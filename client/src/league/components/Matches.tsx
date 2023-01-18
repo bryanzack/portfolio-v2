@@ -1,43 +1,46 @@
 const React = require('react');
 import './Matches.css';
 
+import { SummonerType } from "../helpers/summoner";
 import type { RootState } from '../../store';
-import type { SummonerQueryArgs } from "../../store/api";
 import { FC, useEffect } from 'react';
 import { useSelector } from "react-redux";
 import { api, useGetSummonerDataQuery } from '../../store/api';
 
-type TestType = {
+type SummonerRequestArgs = {
     region: string,
     name: string,
 }
 
-interface TestProps {
-    test: TestType,
-}
-const Test: FC<TestType> = ({ region, name}): JSX.Element => {
-    console.log(`from test: ${region}, ${name}`);
+const Test = (props: { summoner: SummonerType} ): JSX.Element => {
+    console.log(props.summoner);
     return (
-        <>
-            <span>{name} {region}</span>
-        </>
+        <div className={"data"}>
+            <span>id: {props.summoner.id}</span>
+            <span>accountId: {props.summoner.accountId}</span>
+            <span>puuid: {props.summoner.puuid}</span>
+            <span>name: {props.summoner.name}</span>
+            <span>profileIconId: {props.summoner.profileIconId}</span>
+            <span>revisionDate: {props.summoner.revisionDate}</span>
+            <span>summonerLevel: {props.summoner.summonerLevel}</span>
+        </div>
     );
 }
-const Matches: FC<TestType> = ({region, name}): JSX.Element => {
-    console.log(region, name);
+const Matches: FC<SummonerRequestArgs> = ({region, name}): JSX.Element => {
     const {
         data: summoner,
+        error,
         isFetching,
         isLoading,
     } = useGetSummonerDataQuery({region: region, name: name});
     if (isLoading) return <div>Loading...</div>
     if (isFetching) return <div>Fetching...</div>
-    if (!summoner) return <div>Missing summoner!</div>
+    if (!summoner || !summoner.id) return <div>Summoner not found...</div>
+    if (error) return <div>Error...</div>
     return (
         <>
             <div className="matches">
-                <span>MATCHES</span>
-                <Test name={summoner.name} region={summoner.id} />
+                <Test summoner={summoner} />
             </div>
         </>
     )
