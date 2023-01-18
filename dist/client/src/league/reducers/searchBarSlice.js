@@ -18,10 +18,12 @@ exports.searchBarSlice = (0, toolkit_1.createSlice)({
     reducers: {
         updateUserInput: (state, action) => {
             state.user_input = action.payload;
+            //console.log("updated input");
         },
         updateSelectedRegion: (state, action) => {
             if (state.regions.includes(action.payload)) {
                 state.selected_region = action.payload.toLowerCase();
+                //console.log("updated region");
             }
             else {
                 console.log(`Error: ${action.payload} is not a valid region`);

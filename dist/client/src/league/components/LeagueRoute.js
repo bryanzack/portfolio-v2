@@ -5,20 +5,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = require('react');
 require("./LeagueRoute.css");
+const react_router_1 = require("react-router");
 const web_1 = require("@react-spring/web");
-const react_redux_1 = require("react-redux");
 const SearchBar_1 = __importDefault(require("./SearchBar"));
 const Matches_1 = __importDefault(require("./Matches"));
-const League = () => {
-    const has_submitted = (0, react_redux_1.useSelector)((state) => state.league.has_submitted);
+const LeagueRoute = () => {
+    let { region, name } = (0, react_router_1.useParams)();
+    //const search_params = useSelector((state: RootState) => state.league.search_params);
     const fadeIn = (0, web_1.useTransition)(null, {
         from: { opacity: 0 },
         enter: { opacity: 1 },
         leave: { opacity: 0 },
     });
     return fadeIn((style) => (<web_1.animated.div style={style} className="league">
-            <SearchBar_1.default />
-           {has_submitted && <Matches_1.default />}
-       </web_1.animated.div>));
+            <div className="league-container">
+                <SearchBar_1.default />
+                <Matches_1.default args={{ region: region, name: name }}/>
+            </div>
+        </web_1.animated.div>));
 };
-exports.default = League;
+exports.default = LeagueRoute;
+oute;

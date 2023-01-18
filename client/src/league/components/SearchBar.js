@@ -2,6 +2,7 @@
 exports.__esModule = true;
 var React = require('react');
 require("./SearchBar.css");
+var react_router_dom_1 = require("react-router-dom");
 var react_1 = require("react");
 var react_redux_1 = require("react-redux");
 var searchBarSlice_1 = require("../reducers/searchBarSlice");
@@ -13,6 +14,7 @@ var SearchBar = function () {
     var user_input = (0, react_redux_1.useSelector)(function (state) { return state.searchbar.user_input; });
     var _a = (0, react_1.useState)(false), region_menu = _a[0], setRegionMenu = _a[1];
     var dispatch = (0, react_redux_1.useDispatch)();
+    var navigate = (0, react_router_dom_1.useNavigate)();
     var handleRegionClick = function (item) {
         dispatch((0, searchBarSlice_1.updateSelectedRegion)(item));
         setRegionMenu(false);
@@ -28,6 +30,7 @@ var SearchBar = function () {
     var handleSubmit = function () {
         if (user_input) {
             setRegionMenu(false);
+            navigate("/league/".concat(selected_region, "/").concat(user_input));
             dispatch((0, leagueSlice_1.setSearchParams)({ selected_region: selected_region, user_input: user_input }));
         }
     };

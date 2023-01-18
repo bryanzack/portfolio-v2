@@ -1,19 +1,23 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.setSubmitted = exports.leagueSlice = void 0;
+exports.setSearchParams = exports.leagueSlice = void 0;
 /* eslint-disable */
 const toolkit_1 = require("@reduxjs/toolkit");
 const initialState = {
-    has_submitted: false,
+    search_params: {
+        selected_region: "",
+        user_input: "",
+    }
 };
 exports.leagueSlice = (0, toolkit_1.createSlice)({
     name: 'league',
     initialState,
     reducers: {
-        setSubmitted: (state, action) => {
-            state.has_submitted = action.payload;
-        },
+        setSearchParams: (state, action) => {
+            state.search_params.selected_region = action.payload.selected_region;
+            state.search_params.user_input = action.payload.user_input;
+        }
     },
 });
-exports.setSubmitted = exports.leagueSlice.actions.setSubmitted;
+exports.setSearchParams = exports.leagueSlice.actions.setSearchParams;
 exports.default = exports.leagueSlice.reducer;

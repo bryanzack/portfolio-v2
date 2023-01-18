@@ -2,8 +2,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import type { matchNamespace } from "../league/helpers/match";
 
 export type SummonerQueryArgs = {
-    name: string,
     region: string,
+    name: string,
 }
 export const api = createApi({
     reducerPath: 'api',

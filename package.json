@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.ts",
+    "start": "node index.js",
+    "dev": "nodemon --watch index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -26,7 +27,8 @@
     "react-router-dom": "^6.6.1",
     "react-spring": "^9.6.1",
     "react-svg": "^15.1.17",
-    "react-transition-group": "^4.4.5"
+    "react-transition-group": "^4.4.5",
+    "unix-timestamp": "^1.0.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.15"

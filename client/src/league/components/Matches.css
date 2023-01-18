@@ -1,9 +1,35 @@
-.data {
-    z-index: -1;
-    position: relative;
+.matches {
+    border: 1px solid red;
+    width: 650px;
+    height: fit-content;
+    margin-bottom: 80px;
+}
+
+.match {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    height: 80px;
+    width: calc(100% - 10px);
+    margin: 5px;
+}
+
+.match-content {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 93%;
+}
+
+.metadata {
     display: flex;
     flex-direction: column;
-    justify-content: left;
-    text-align: left;
-    pointer-events: none;
+    border: 1px solid yellow;
+}
+
+.match-dropdown {
+    display: flex;
+    background: lightcoral;
+    width: 7%;
+    height: 100%;
 }

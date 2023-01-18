@@ -1,10 +1,13 @@
 .searchbar {
+    position: sticky;
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 30%;
-    height: 200px;
+    top: 0;
+    margin-bottom: 80px;
+    height: fit-content;
     width: 800px;
+    background: white;
 }
 
 .bar {

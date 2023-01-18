@@ -7,7 +7,12 @@ exports.api = (0, react_1.createApi)({
     baseQuery: (0, react_1.fetchBaseQuery)({ baseUrl: '/api' }),
     endpoints: (builder) => ({
         getSummonerData: builder.query({
-            query: ({ name, region }) => `/users/${region}/${name}`,
+            query: (arg) => {
+                const { region, name } = arg;
+                return {
+                    url: `users/${region}/${name}`,
+                };
+            }
         }),
     }),
 });

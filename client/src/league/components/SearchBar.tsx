@@ -3,6 +3,7 @@ import './SearchBar.css';
 
 import type { RootState } from "../../store";
 import type { SummonerQueryArgs } from '../../store/api';
+import { redirect, useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUserInput, updateSelectedRegion } from "../reducers/searchBarSlice";
@@ -15,6 +16,7 @@ const SearchBar = (): JSX.Element => {
     const user_input = useSelector((state: RootState) => state.searchbar.user_input);
     const [region_menu, setRegionMenu] = useState(false);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const handleRegionClick = (item: string) => {
         dispatch(updateSelectedRegion(item));
         setRegionMenu(false);
@@ -31,6 +33,7 @@ const SearchBar = (): JSX.Element => {
     const handleSubmit = () => {
         if (user_input) {
             setRegionMenu(false);
+            navigate(`/league/${selected_region}/${user_input}`);
             dispatch(setSearchParams({selected_region, user_input}));
         }
     }

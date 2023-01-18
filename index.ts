@@ -20,6 +20,7 @@ app.get('/api/users/:region/:name', (req: Request, res: Response) => {
         .then(summoner_response => summoner_response.json()
         .then((json) => {
             if (json.puuid) {
+                let puuid = json.puuid;
                 let routing_value = translateRegion(req.params.region);
                 let matchListURL = `https://${routing_value}.api.riotgames.com/lol/match/v5/matches/by-puuid/${json.puuid}/ids?start=0&count=20&api_key=${process.env.API_KEY}`;
                 fetch(matchListURL)
@@ -30,10 +31,12 @@ app.get('/api/users/:region/:name', (req: Request, res: Response) => {
                             let matchURL = `https://${routing_value}.api.riotgames.com/lol/match/v5/matches/${id}?api_key=${process.env.API_KEY}`;
                             urls.push(matchURL);
                         })
+                        // TODO `apply for production api key for increased rate limits
                         let smallurls: string[] = urls.slice(Math.ceil(urls.length/2))
                         //console.log(urls);
                         Promise.all(smallurls.map((url: string) => fetch(url)))
                             .then(responses => {
+                                console.log(puuid);
                                 Promise.all(responses.map(r => r.json()))
                                     .then(results => res.json(results));
                             });
