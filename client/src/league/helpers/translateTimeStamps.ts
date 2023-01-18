@@ -1,13 +1,12 @@
-export const handleTimeSince = (gameEndTimestamp: number, todayTimestamp: number) => {
-    let secondsElapsed = Math.round((todayTimestamp - gameEndTimestamp) / 1000); // seconds since gameEndTimestamp
-    let minutesElapsed = secondsElapsed/60;
+export const handleTimeSince = (seconds_elapsed: number) => {
+    let minutesElapsed = seconds_elapsed/60;
     let hoursElapsed = minutesElapsed/60;
     let daysElapsed = hoursElapsed/24;
     let weeksElapsed = daysElapsed/7;
     let monthsElapsed = weeksElapsed/4.3;
     let yearsElapsed = monthsElapsed/12;
     let times: {[key: string]: number} = {
-        "second": secondsElapsed,
+        "second": seconds_elapsed,
         "minute": minutesElapsed,
         "hour": hoursElapsed,
         "day": daysElapsed,
@@ -25,8 +24,7 @@ export const handleTimeSince = (gameEndTimestamp: number, todayTimestamp: number
     if (Math.round(elapsed[1]) != 1) {
         elapsed[0] = elapsed[0] + "s";
     }
-    let timeSince = Math.round(elapsed[1]) + ` ${elapsed[0]} ago`;
-    return timeSince;
+    return Math.round(elapsed[1]) + ` ${elapsed[0]} ago`;
 }
 
 export const handleTimeLength = (gameDuration: number) => {

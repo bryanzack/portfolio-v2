@@ -1,6 +1,7 @@
 import fetch from 'node-fetch';
 import { Express, Request, Response } from 'express';
 import translateRegion from "./client/src/league/helpers/translateRegion";
+import { matchNamespace } from "./client/src/league/helpers/match";
 const express = require("express");
 const path = require('path');
 const dotenv = require('dotenv');
@@ -30,19 +31,51 @@ app.get('/api/users/:region/:name', (req: Request, res: Response) => {
                         json.map((id: string) => {
                             let matchURL = `https://${routing_value}.api.riotgames.com/lol/match/v5/matches/${id}?api_key=${process.env.API_KEY}`;
                             urls.push(matchURL);
-                        })
-                        // TODO `apply for production api key for increased rate limits
-                        let smallurls: string[] = urls.slice(Math.ceil(urls.length/2))
-                        //console.log(urls);
-                        Promise.all(smallurls.map((url: string) => fetch(url)))
+                        });
+                        // if the user has 11+ matches, trim list to 10
+                        // if use has <=10 matches, request all that is available
+                        if (urls.length === 0) {
+                            let match_response: matchNamespace.MatchListResponse = {
+                                user_puuid: "",
+                                response: {
+                                    message: "No matches found",
+                                    status_code: 404,
+                                },
+                                match_list: [],
+                            }
+                            res.json(match_response);
+                        }
+                        if (urls.length > 10)
+                           urls = urls.slice(0, 10);
+                        Promise.all(urls.map((url: string) => fetch(url)))
                             .then(responses => {
                                 console.log(puuid);
                                 Promise.all(responses.map(r => r.json()))
-                                    .then(results => res.json(results));
+                                    .then(results => {
+                                        console.log(results);
+                                        let match_response: matchNamespace.MatchListResponse = {
+                                            user_puuid: puuid,
+                                            response: {
+                                                message: summoner_response.statusText,
+                                                status_code: summoner_response.status,
+                                            },
+                                            match_list: results,
+                                        }
+                                        res.send(match_response);
+                                    });
                             });
                     }));
             } else {
-                res.json(null);
+                console.log(json);
+                let match_response: matchNamespace.MatchListResponse = {
+                    user_puuid: "",
+                    response: {
+                        message: json.message,
+                        status_code: json.code,
+                    },
+                    match_list: [],
+                }
+                res.json(match_response);
             }
         })
         .catch(err => res.json(err)));

@@ -1,16 +1,15 @@
 "use strict";
 exports.__esModule = true;
 exports.handleTimeLength = exports.handleTimeSince = void 0;
-var handleTimeSince = function (gameEndTimestamp, todayTimestamp) {
-    var secondsElapsed = Math.round((todayTimestamp - gameEndTimestamp) / 1000); // seconds since gameEndTimestamp
-    var minutesElapsed = secondsElapsed / 60;
+var handleTimeSince = function (seconds_elapsed) {
+    var minutesElapsed = seconds_elapsed / 60;
     var hoursElapsed = minutesElapsed / 60;
     var daysElapsed = hoursElapsed / 24;
     var weeksElapsed = daysElapsed / 7;
     var monthsElapsed = weeksElapsed / 4.3;
     var yearsElapsed = monthsElapsed / 12;
     var times = {
-        "second": secondsElapsed,
+        "second": seconds_elapsed,
         "minute": minutesElapsed,
         "hour": hoursElapsed,
         "day": daysElapsed,
@@ -28,8 +27,7 @@ var handleTimeSince = function (gameEndTimestamp, todayTimestamp) {
     if (Math.round(elapsed[1]) != 1) {
         elapsed[0] = elapsed[0] + "s";
     }
-    var timeSince = Math.round(elapsed[1]) + " ".concat(elapsed[0], " ago");
-    return timeSince;
+    return Math.round(elapsed[1]) + " ".concat(elapsed[0], " ago");
 };
 exports.handleTimeSince = handleTimeSince;
 var handleTimeLength = function (gameDuration) {

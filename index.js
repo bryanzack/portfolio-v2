@@ -19,6 +19,7 @@ app.get('/api/users/:region/:name', function (req, res) {
         .then(function (summoner_response) { return summoner_response.json()
         .then(function (json) {
         if (json.puuid) {
+            var puuid_1 = json.puuid;
             var routing_value_1 = (0, translateRegion_1["default"])(req.params.region);
             var matchListURL = "https://".concat(routing_value_1, ".api.riotgames.com/lol/match/v5/matches/by-puuid/").concat(json.puuid, "/ids?start=0&count=20&api_key=").concat(process.env.API_KEY);
             (0, node_fetch_1["default"])(matchListURL)
@@ -29,17 +30,51 @@ app.get('/api/users/:region/:name', function (req, res) {
                     var matchURL = "https://".concat(routing_value_1, ".api.riotgames.com/lol/match/v5/matches/").concat(id, "?api_key=").concat(process.env.API_KEY);
                     urls.push(matchURL);
                 });
-                var smallurls = urls.slice(Math.ceil(urls.length / 2));
-                //console.log(urls);
-                Promise.all(smallurls.map(function (url) { return (0, node_fetch_1["default"])(url); }))
+                // if the user has 11+ matches, trim list to 10
+                // if use has <=10 matches, request all that is available
+                if (urls.length === 0) {
+                    var match_response_1 = {
+                        user_puuid: "",
+                        response: {
+                            message: "No matches found",
+                            status_code: 404
+                        },
+                        match_list: []
+                    };
+                    res.json(match_response_1);
+                }
+                if (urls.length > 10)
+                    urls = urls.slice(0, 10);
+                Promise.all(urls.map(function (url) { return (0, node_fetch_1["default"])(url); }))
                     .then(function (responses) {
+                    console.log(puuid_1);
                     Promise.all(responses.map(function (r) { return r.json(); }))
-                        .then(function (results) { return res.json(results); });
+                        .then(function (results) {
+                        console.log(results);
+                        var match_response = {
+                            user_puuid: puuid_1,
+                            response: {
+                                message: summoner_response.statusText,
+                                status_code: summoner_response.status
+                            },
+                            match_list: results
+                        };
+                        res.send(match_response);
+                    });
                 });
             }); });
         }
         else {
-            res.json(null);
+            console.log(json);
+            var match_response = {
+                user_puuid: "",
+                response: {
+                    message: json.message,
+                    status_code: json.code
+                },
+                match_list: []
+            };
+            res.json(match_response);
         }
     })["catch"](function (err) { return res.json(err); }); });
 });

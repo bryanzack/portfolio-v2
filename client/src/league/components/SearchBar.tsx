@@ -65,7 +65,8 @@ const SearchBar = (): JSX.Element => {
                           value={user_input}
                           onClick={() => setRegionMenu(false)}
                           onInput={handleInputChange}
-                          type={"text"} />
+                          type={"text"}
+                          onKeyUp={(event) => { if (event.code === "Enter") handleSubmit()}}/>
                    <button className="submit-button" onClick={() => handleSubmit()}>
                        Search
                    </button>

@@ -6,18 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="fbb5762a-091d-48cc-80b0-d66138f2a830" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/league/components/League.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/league/components/League.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/league/components/Matches.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/league/components/Matches.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/league/components/SearchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/league/components/SearchBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/league/reducers/leagueSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/league/reducers/leagueSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/league/reducers/searchBarSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/league/reducers/searchBarSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/store/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/store/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +113,8 @@
       <workItem from="1673919548832" duration="16226000" />
       <workItem from="1673993037656" duration="26629000" />
       <workItem from="1674054557584" duration="2503000" />
-      <workItem from="1674059467746" duration="11918000" />
+      <workItem from="1674059467746" duration="12036000" />
+      <workItem from="1674073724206" duration="5722000" />
     </task>
     <servers />
   </component>
@@ -149,7 +140,6 @@
         <option value="$PROJECT_DIR$/client/src/league/helpers/translateRegion.js" />
         <option value="$PROJECT_DIR$/client/src/league/helpers/match.js" />
         <option value="$PROJECT_DIR$/client/src/league/components/LeagueHome.js" />
-        <option value="$PROJECT_DIR$/client/src/league/helpers/handleTimestamps.js" />
       </list>
     </option>
   </component>

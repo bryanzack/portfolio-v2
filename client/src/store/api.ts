@@ -5,11 +5,12 @@ export type SummonerQueryArgs = {
     region: string,
     name: string,
 }
+
 export const api = createApi({
     reducerPath: 'api',
     baseQuery: fetchBaseQuery({ baseUrl: '/api' }),
     endpoints: (builder) => ({
-        getSummonerData: builder.query<matchNamespace.MatchList, { region: string, name: string }>({
+        getSummonerData: builder.query<matchNamespace.MatchListResponse, { region: string, name: string }>({
             query: (arg) => {
                 const { region, name } = arg;
                 return {

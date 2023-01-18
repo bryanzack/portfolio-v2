@@ -1,4 +1,13 @@
 export declare module matchNamespace {
+
+    interface MatchListResponse {
+        user_puuid: string,
+        response: {
+            message: string,
+            status_code: number,
+        },
+        match_list: Match[],
+    }
     export interface MatchList {
         [x: string]: any;
         match_list: Match[],
