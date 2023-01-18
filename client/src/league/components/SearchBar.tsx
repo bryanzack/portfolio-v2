@@ -6,7 +6,7 @@ import type { SummonerQueryArgs } from '../../store/api';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUserInput, updateSelectedRegion } from "../reducers/searchBarSlice";
-import { setSubmitted, setSearchParams } from '../reducers/leagueSlice';
+import { setSearchParams } from '../reducers/leagueSlice';
 import Regions from '../helpers/regions';
 
 const SearchBar = (): JSX.Element => {
@@ -32,7 +32,6 @@ const SearchBar = (): JSX.Element => {
         if (user_input) {
             setRegionMenu(false);
             dispatch(setSearchParams({selected_region, user_input}));
-            //dispatch(setSubmitted(true));
         }
     }
     return (

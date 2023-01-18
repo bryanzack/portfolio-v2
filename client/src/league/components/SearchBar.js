@@ -29,7 +29,6 @@ var SearchBar = function () {
         if (user_input) {
             setRegionMenu(false);
             dispatch((0, leagueSlice_1.setSearchParams)({ selected_region: selected_region, user_input: user_input }));
-            //dispatch(setSubmitted(true));
         }
     };
     return (React.createElement(React.Fragment, null,

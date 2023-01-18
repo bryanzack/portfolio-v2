@@ -15,36 +15,34 @@ type SummonerRequestArgs = {
     name: string,
 }
 
-const Test = (props: { match_list: matchNamespace.MatchList} ): JSX.Element => {
-    console.log(props.match_list);
-    props.match_list.map((item: matchNamespace.Match) => {
-        console.log(item);
-    });
+const Match = (props: { match: matchNamespace.Match} ): JSX.Element => {
+    console.log(props.match);
     return (
         <>
-            {props.match_list.map((match: matchNamespace.Match) => (
-                <div className={"matches"}>
-                    <span>{match.info.gameId}</span>
-                </div>
-            ))}
+            <div className={"match"}>
+                <span>{props.match.info.gameId}</span>
+            </div>
         </>
     );
 }
+// TODO `remove useless FC and pass in one object as prop
 const Matches: FC<SummonerRequestArgs> = ({region, name}): JSX.Element => {
     const {
         data: match_list,
-        error,
         isFetching,
         isLoading,
+        isError,
     } = useGetSummonerDataQuery({region: region, name: name});
     if (isLoading) return <div>Loading...</div>
     if (isFetching) return <div>Fetching...</div>
-    if (!match_list) return <div>No matches found...</div>
-    if (error) return <div>Error...</div>
+    if (!match_list || match_list.length === 0) return <div>No matches found...</div>
+    if (isError) return <div>Error...</div>
     return (
         <>
             <div className="matches">
-                <Test match_list={match_list} />
+                {match_list.map((item: matchNamespace.Match) => (
+                    <Match match={item} />
+                ))}
             </div>
         </>
     )

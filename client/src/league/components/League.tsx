@@ -5,7 +5,6 @@ import type { RootState } from "../../store";
 import { useEffect } from 'react';
 import { animated, useTransition } from '@react-spring/web';
 import { useSelector } from 'react-redux';
-import { setSubmitted } from '../reducers/leagueSlice';
 import SearchBar from './SearchBar';
 import Matches from './Matches';
 

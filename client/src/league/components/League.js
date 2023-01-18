@@ -7,7 +7,6 @@ var react_redux_1 = require("react-redux");
 var SearchBar_1 = require("./SearchBar");
 var Matches_1 = require("./Matches");
 var League = function () {
-    var has_submitted = (0, react_redux_1.useSelector)(function (state) { return state.league.has_submitted; });
     var search_params = (0, react_redux_1.useSelector)(function (state) { return state.league.search_params; });
     var fadeIn = (0, web_1.useTransition)(null, {
         from: { opacity: 0 },
