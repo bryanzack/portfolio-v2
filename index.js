@@ -36,7 +36,7 @@ app.get('/api/users/:region/:name', function (req, res) {
                     var match_response_1 = {
                         user_puuid: "",
                         response: {
-                            message: "No matches found",
+                            message: "Data not found - summoner has zero matches played",
                             status_code: 404
                         },
                         match_list: []
@@ -69,8 +69,8 @@ app.get('/api/users/:region/:name', function (req, res) {
             var match_response = {
                 user_puuid: "",
                 response: {
-                    message: json.message,
-                    status_code: json.code
+                    message: json.status.message,
+                    status_code: json.status.status_code
                 },
                 match_list: []
             };

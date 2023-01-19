@@ -15,6 +15,7 @@ export declare module matchNamespace {
     export interface Match {
         metadata: Metadata;
         info: Info;
+        user_win: boolean,
     }
 
     export interface Info {

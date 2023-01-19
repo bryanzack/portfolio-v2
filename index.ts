@@ -38,21 +38,19 @@ app.get('/api/users/:region/:name', (req: Request, res: Response) => {
                             let match_response: matchNamespace.MatchListResponse = {
                                 user_puuid: "",
                                 response: {
-                                    message: "No matches found",
+                                    message: "Data not found - summoner has zero matches played",
                                     status_code: 404,
                                 },
                                 match_list: [],
                             }
                             res.json(match_response);
                         }
-                        if (urls.length > 10)
-                           urls = urls.slice(0, 10);
+                        if (urls.length > 10) urls = urls.slice(0, 10);
                         Promise.all(urls.map((url: string) => fetch(url)))
                             .then(responses => {
                                 console.log(puuid);
                                 Promise.all(responses.map(r => r.json()))
                                     .then(results => {
-                                        console.log(results);
                                         let match_response: matchNamespace.MatchListResponse = {
                                             user_puuid: puuid,
                                             response: {
@@ -70,8 +68,8 @@ app.get('/api/users/:region/:name', (req: Request, res: Response) => {
                 let match_response: matchNamespace.MatchListResponse = {
                     user_puuid: "",
                     response: {
-                        message: json.message,
-                        status_code: json.code,
+                        message: json.status.message,
+                        status_code: json.status.status_code,
                     },
                     match_list: [],
                 }
