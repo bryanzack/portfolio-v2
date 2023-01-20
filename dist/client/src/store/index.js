@@ -5,15 +5,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.store = void 0;
 const toolkit_1 = require("@reduxjs/toolkit");
-const deckSlice_1 = __importDefault(require("../blackjack/reducers/deckSlice"));
-const cardSlice_1 = __importDefault(require("../blackjack/reducers/cardSlice"));
-const discardSlice_1 = __importDefault(require("../blackjack/reducers/discardSlice"));
-const playerSlice_1 = __importDefault(require("../blackjack/reducers/playerSlice"));
-const dealerSlice_1 = __importDefault(require("../blackjack/reducers/dealerSlice"));
-const gameSlice_1 = __importDefault(require("../blackjack/reducers/gameSlice"));
-const navSlice_1 = __importDefault(require("../landing/reducers/navSlice"));
-const searchBarSlice_1 = __importDefault(require("../league/reducers/searchBarSlice"));
-const leagueSlice_1 = __importDefault(require("../league/reducers/leagueSlice"));
+const deckSlice_1 = __importDefault(require("../pages/blackjack/reducers/deckSlice"));
+const cardSlice_1 = __importDefault(require("../pages/blackjack/reducers/cardSlice"));
+const discardSlice_1 = __importDefault(require("../pages/blackjack/reducers/discardSlice"));
+const playerSlice_1 = __importDefault(require("../pages/blackjack/reducers/playerSlice"));
+const dealerSlice_1 = __importDefault(require("../pages/blackjack/reducers/dealerSlice"));
+const gameSlice_1 = __importDefault(require("../pages/blackjack/reducers/gameSlice"));
+const navSlice_1 = __importDefault(require("../pages/landing/reducers/navSlice"));
+const searchBarSlice_1 = __importDefault(require("../pages/league/reducers/searchBarSlice"));
+const leagueSlice_1 = __importDefault(require("../pages/league/reducers/leagueSlice"));
 const api_1 = require("./api");
 exports.store = (0, toolkit_1.configureStore)({
     reducer: {

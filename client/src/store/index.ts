@@ -1,13 +1,13 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import deckReducer from '../blackjack/reducers/deckSlice';
-import cardReducer from '../blackjack/reducers/cardSlice';
-import discardReducer from '../blackjack/reducers/discardSlice';
-import playerReducer from '../blackjack/reducers/playerSlice';
-import dealerReducer from '../blackjack/reducers/dealerSlice';
-import gameReducer from '../blackjack/reducers/gameSlice';
-import navReducer from '../landing/reducers/navSlice';
-import searchBarReducer from '../league/reducers/searchBarSlice';
-import leagueReducer from '../league/reducers/leagueSlice';
+import deckReducer from '../pages/blackjack/reducers/deckSlice';
+import cardReducer from '../pages/blackjack/reducers/cardSlice';
+import discardReducer from '../pages/blackjack/reducers/discardSlice';
+import playerReducer from '../pages/blackjack/reducers/playerSlice';
+import dealerReducer from '../pages/blackjack/reducers/dealerSlice';
+import gameReducer from '../pages/blackjack/reducers/gameSlice';
+import navReducer from '../pages/landing/reducers/navSlice';
+import searchBarReducer from '../pages/league/reducers/searchBarSlice';
+import leagueReducer from '../pages/league/reducers/leagueSlice';
 import { api } from './api';
 import { ToolkitStore } from "@reduxjs/toolkit/dist/configureStore";
 

@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.matches {
+    border: 1px solid red;
+    width: 650px;
+    height: fit-content;
+    margin-bottom: 80px;
+}
+
+.match-win {
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    flex-direction: row;
+    height: 96px;
+    width: calc(100% - 16px);
+    margin: 5px;
+    background-color: #ECF2FF;
+    border-left: 6px solid #5383E8;
+    border-radius: 4px;
+}
+
+.match-lose {
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    flex-direction: row;
+    height: 96px;
+    width: calc(100% - 16px);
+    margin: 5px;
+    background-color: #FFF1F3;
+    border-left: 6px solid #E84057;
+    border-radius: 4px;
+}
+
+.match-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    height: 96px;
+    width: 93%;
+    padding: 0px 8px 0px 12px;
+}
+
+.metadata {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 108px;
+    color: #9E9EB1;
+    line-height: 16px;
+    font-size: 13px;
+}
+
+.game-mode-win {
+    font-weight: bold;
+    font-size: 12px;
+    color: #4171D6;
+}
+.game-mode-lose {
+    font-weight: bold;
+    font-size: 12px;
+    color: #E84057;
+}
+
+.line-bar-win {
+    width: 48px;
+    height: 1px;
+    margin: 8px 0px 4px;
+    border-bottom: 2px solid #D5E3FF;
+}
+.line-bar-lose {
+    width: 48px;
+    height: 1px;
+    margin: 8px 0px 4px;
+    border-bottom: 2px solid #FFD8D9;
+}
+
+.match-dropdown {
+    display: flex;
+    background: lightcoral;
+    width: 7%;
+    height: 100%;
+}
+
+.loadout {
+    display: flex;
+    flex-direction: row;
+
+}
+.info {
+
+}
+.info-top {
+    display: flex;
+    flex-direction: row;
+}
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.champ-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.champ-level {
+    width: 20px;
+    height: 20px;
+    right: 0px;
+    bottom: 0px;
+    position: absolute;
+    background: rgb(32, 45, 55);
+    font-size: 11px;
+    color: white;
+    border-radius: 50%;
+}
+
+
+.spells {
+    margin-left: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.spell {
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+}
+
+#first-spell {
+    margin-bottom: 2px;
+}
+.info-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:8px;
+}
+.item {
+    width: 25px;
+    height: 25px;
+    border-radius: 4px;
+    margin-right: 2px;
+
+}
+.item-empty-win {
+    width: 25px;
+    height: 25px;
+    border-radius: 4px;
+    background: #B3CDFF;
+    margin-right: 2px;
+}
+.item-empty-lose {
+    width: 25px;
+    height: 25px;
+    border-radius: 4px;
+    background: #FFBAC3;
+    margin-right: 2px;
+}

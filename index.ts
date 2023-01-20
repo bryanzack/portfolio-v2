@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 import { Express, Request, Response } from 'express';
-import translateRegion from "./client/src/league/helpers/translateRegion";
-import { matchNamespace } from "./client/src/league/helpers/match";
+import translateRegion from "./client/src/pages/league/helpers/translateRegion.js";
+import { matchNamespace } from "./client/src/pages/league/helpers/match.js";
 const express = require("express");
 const path = require('path');
 const dotenv = require('dotenv');

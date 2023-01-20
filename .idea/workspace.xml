@@ -5,7 +5,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fbb5762a-091d-48cc-80b0-d66138f2a830" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/dist/client/src/pages/league/components/Matches.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/client/src/pages/league/helpers/summoner.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/client/src/pages/league/helpers/translateTimeStamps.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/Blackjack.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/components/Blackjack.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/ButtonNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/components/ButtonNav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/components/Card.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/Dealer.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/components/Dealer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/Deck.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/components/Deck.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/Discard.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/components/Discard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/Home.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/components/Player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/Popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/components/Popup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/helpers/cards.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/helpers/cards.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/helpers/processCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/helpers/processCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/reducers/cardSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/reducers/cardSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/reducers/dealerSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/reducers/dealerSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/reducers/deckSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/reducers/deckSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/reducers/discardSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/reducers/discardSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/reducers/gameSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/reducers/gameSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/reducers/playerSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/reducers/playerSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/components/CursorAnimation.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/landing/components/CursorAnimation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/components/Landing.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/landing/components/Landing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/components/Magnification.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/landing/components/Magnification.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/components/Names.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/landing/components/Names.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/components/Nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/landing/components/Nav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/components/NavItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/landing/components/NavItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/components/Page.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/landing/components/Page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/helpers/handleNavHover.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/landing/helpers/handleNavHover.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/reducers/navSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/landing/reducers/navSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/league/components/League.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/league/components/LeagueHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/league/components/LeagueHome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/league/components/LeagueRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/league/components/LeagueRoute.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/league/components/Matches.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/league/components/SearchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/league/components/SearchBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/league/helpers/match.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/league/helpers/match.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/league/helpers/regions.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/league/helpers/regions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/league/helpers/summoner.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/league/helpers/parseSummonerData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/league/helpers/translateRegion.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/league/helpers/translateRegion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/league/reducers/leagueSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/league/reducers/leagueSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/league/reducers/searchBarSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/league/reducers/searchBarSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
     </list>
@@ -38,30 +81,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/bryan/react-practice/portfolio-site-v2&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;Z:\\WebStorm 2022.3.1\\projects\\client\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "Z:/WebStorm 2022.3.1/projects/client/public/images/leaguestuff",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "settings.typescriptcompiler",
+    "ts.external.directory.path": "Z:\\WebStorm 2022.3.1\\projects\\client\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="Z:\WebStorm 2022.3.1\projects\client\public\images\leaguestuff" />
+      <recent name="Z:\WebStorm 2022.3.1\projects\client\src\images\leaguestuff" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="Z:\WebStorm 2022.3.1\projects\client\public" />
+      <recent name="Z:\WebStorm 2022.3.1\projects\client\src\pages\" />
+      <recent name="Z:\WebStorm 2022.3.1\projects\client\src\pages" />
       <recent name="Z:\WebStorm 2022.3.1\projects\client\src\store" />
       <recent name="C:\Users\bryan\Desktop\new-portfolio\client\src\blackjack\helpers\" />
-      <recent name="C:\Users\bryan\Desktop\new-portfolio\client\src\blackjack\reducers\" />
-      <recent name="C:\Users\bryan\Desktop\new-portfolio\client\src\blackjack" />
-      <recent name="C:\Users\bryan\Desktop\new-portfolio\client\src\blackjack\" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -115,7 +162,8 @@
       <workItem from="1674054557584" duration="2503000" />
       <workItem from="1674059467746" duration="12036000" />
       <workItem from="1674073724206" duration="5955000" />
-      <workItem from="1674084905497" duration="18139000" />
+      <workItem from="1674084905497" duration="18294000" />
+      <workItem from="1674148454710" duration="28731000" />
     </task>
     <servers />
   </component>
@@ -141,6 +189,8 @@
         <option value="$PROJECT_DIR$/client/src/league/helpers/translateRegion.js" />
         <option value="$PROJECT_DIR$/client/src/league/helpers/match.js" />
         <option value="$PROJECT_DIR$/client/src/league/components/LeagueHome.js" />
+        <option value="$PROJECT_DIR$/client/src/league/helpers/parseSummonerData.js" />
+        <option value="$PROJECT_DIR$/client/src/pages/league/helpers/translateSpell.js" />
       </list>
     </option>
   </component>
@@ -163,7 +213,7 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/client/src/landing/components/NavItem.tsx</url>
+          <url>file://$PROJECT_DIR$/client/src/pages/landing/components/NavItem.tsx</url>
           <line>3</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>

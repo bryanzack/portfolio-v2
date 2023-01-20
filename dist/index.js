@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const node_fetch_1 = __importDefault(require("node-fetch"));
-const translateRegion_1 = __importDefault(require("./client/src/league/helpers/translateRegion"));
+const translateRegion_1 = __importDefault(require("./client/src/pages/league/helpers/translateRegion"));
 const express = require("express");
 const path = require('path');
 const dotenv = require('dotenv');
@@ -33,19 +33,50 @@ app.get('/api/users/:region/:name', (req, res) => {
                     let matchURL = `https://${routing_value}.api.riotgames.com/lol/match/v5/matches/${id}?api_key=${process.env.API_KEY}`;
                     urls.push(matchURL);
                 });
-                // TODO `apply for production api key for increased rate limits
-                let smallurls = urls.slice(Math.ceil(urls.length / 2));
-                //console.log(urls);
-                Promise.all(smallurls.map((url) => (0, node_fetch_1.default)(url)))
+                // if the user has 11+ matches, trim list to 10
+                // if use has <=10 matches, request all that is available
+                if (urls.length === 0) {
+                    let match_response = {
+                        user_puuid: "",
+                        response: {
+                            message: "Data not found - summoner has zero matches played",
+                            status_code: 404,
+                        },
+                        match_list: [],
+                    };
+                    res.json(match_response);
+                }
+                if (urls.length > 10)
+                    urls = urls.slice(0, 10);
+                Promise.all(urls.map((url) => (0, node_fetch_1.default)(url)))
                     .then(responses => {
                     console.log(puuid);
                     Promise.all(responses.map(r => r.json()))
-                        .then(results => res.json(results));
+                        .then(results => {
+                        let match_response = {
+                            user_puuid: puuid,
+                            response: {
+                                message: summoner_response.statusText,
+                                status_code: summoner_response.status,
+                            },
+                            match_list: results,
+                        };
+                        res.send(match_response);
+                    });
                 });
             }));
         }
         else {
-            res.json(null);
+            console.log(json);
+            let match_response = {
+                user_puuid: "",
+                response: {
+                    message: json.status.message,
+                    status_code: json.status.status_code,
+                },
+                match_list: [],
+            };
+            res.json(match_response);
         }
     })
         .catch(err => res.json(err)));

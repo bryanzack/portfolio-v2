@@ -1,7 +1,7 @@
 "use strict";
 exports.__esModule = true;
 var node_fetch_1 = require("node-fetch");
-var translateRegion_1 = require("./client/src/league/helpers/translateRegion");
+var translateRegion_js_1 = require("./client/src/pages/league/helpers/translateRegion.js");
 var express = require("express");
 var path = require('path');
 var dotenv = require('dotenv');
@@ -20,7 +20,7 @@ app.get('/api/users/:region/:name', function (req, res) {
         .then(function (json) {
         if (json.puuid) {
             var puuid_1 = json.puuid;
-            var routing_value_1 = (0, translateRegion_1["default"])(req.params.region);
+            var routing_value_1 = (0, translateRegion_js_1["default"])(req.params.region);
             var matchListURL = "https://".concat(routing_value_1, ".api.riotgames.com/lol/match/v5/matches/by-puuid/").concat(json.puuid, "/ids?start=0&count=20&api_key=").concat(process.env.API_KEY);
             (0, node_fetch_1["default"])(matchListURL)
                 .then(function (match_response) { return match_response.json()
@@ -50,7 +50,6 @@ app.get('/api/users/:region/:name', function (req, res) {
                     console.log(puuid_1);
                     Promise.all(responses.map(function (r) { return r.json(); }))
                         .then(function (results) {
-                        console.log(results);
                         var match_response = {
                             user_puuid: puuid_1,
                             response: {

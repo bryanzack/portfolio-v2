@@ -1,10 +1,10 @@
 const React = require('react');
 import './App.css';
 
-import Blackjack from './blackjack/components/Blackjack';
-import Landing from './landing/components/Landing';
-import LeagueHome from './league/components/LeagueHome';
-import LeagueRoute from './league/components/LeagueRoute';
+import Blackjack from './pages/blackjack/components/Blackjack';
+import Landing from './pages/landing/components/Landing';
+import LeagueHome from './pages/league/components/LeagueHome';
+import LeagueRoute from './pages/league/components/LeagueRoute';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
 const App = (): JSX.Element => {

@@ -2,10 +2,10 @@
 exports.__esModule = true;
 var React = require('react');
 require("./App.css");
-var Blackjack_1 = require("./blackjack/components/Blackjack");
-var Landing_1 = require("./landing/components/Landing");
-var LeagueHome_1 = require("./league/components/LeagueHome");
-var LeagueRoute_1 = require("./league/components/LeagueRoute");
+var Blackjack_1 = require("./pages/blackjack/components/Blackjack");
+var Landing_1 = require("./pages/landing/components/Landing");
+var LeagueHome_1 = require("./pages/league/components/LeagueHome");
+var LeagueRoute_1 = require("./pages/league/components/LeagueRoute");
 var react_router_dom_1 = require("react-router-dom");
 var App = function () {
     return (React.createElement("div", { className: "app" },
