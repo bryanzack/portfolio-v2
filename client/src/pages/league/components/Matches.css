@@ -140,22 +140,22 @@
     margin-top:8px;
 }
 .item {
-    width: 25px;
-    height: 25px;
+    width: 22px;
+    height: 22px;
     border-radius: 4px;
     margin-right: 2px;
 
 }
 .item-empty-win {
-    width: 25px;
-    height: 25px;
+    width: 22px;
+    height: 22px;
     border-radius: 4px;
     background: #B3CDFF;
     margin-right: 2px;
 }
 .item-empty-lose {
-    width: 25px;
-    height: 25px;
+    width: 22px;
+    height: 22px;
     border-radius: 4px;
     background: #FFBAC3;
     margin-right: 2px;

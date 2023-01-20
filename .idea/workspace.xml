@@ -5,52 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fbb5762a-091d-48cc-80b0-d66138f2a830" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/dist/client/src/pages/league/components/Matches.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/client/src/pages/league/helpers/summoner.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/client/src/pages/league/helpers/translateTimeStamps.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/Blackjack.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/components/Blackjack.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/ButtonNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/components/ButtonNav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/components/Card.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/Dealer.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/components/Dealer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/Deck.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/components/Deck.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/Discard.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/components/Discard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/Home.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/components/Player.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/components/Popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/components/Popup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/helpers/cards.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/helpers/cards.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/helpers/processCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/helpers/processCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/reducers/cardSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/reducers/cardSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/reducers/dealerSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/reducers/dealerSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/reducers/deckSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/reducers/deckSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/reducers/discardSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/reducers/discardSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/reducers/gameSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/reducers/gameSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/blackjack/reducers/playerSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/reducers/playerSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/components/CursorAnimation.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/landing/components/CursorAnimation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/components/Landing.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/landing/components/Landing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/components/Magnification.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/landing/components/Magnification.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/components/Names.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/landing/components/Names.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/components/Nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/landing/components/Nav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/components/NavItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/landing/components/NavItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/components/Page.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/landing/components/Page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/helpers/handleNavHover.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/landing/helpers/handleNavHover.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/landing/reducers/navSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/landing/reducers/navSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/league/components/League.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/league/components/LeagueHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/league/components/LeagueHome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/league/components/LeagueRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/league/components/LeagueRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/league/components/Matches.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/league/components/SearchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/league/components/SearchBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/league/helpers/match.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/league/helpers/match.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/league/helpers/regions.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/league/helpers/regions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/league/helpers/summoner.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/league/helpers/parseSummonerData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/league/helpers/translateRegion.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/league/helpers/translateRegion.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/league/reducers/leagueSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/league/reducers/leagueSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/league/reducers/searchBarSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/league/reducers/searchBarSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +118,7 @@
       <workItem from="1674059467746" duration="12036000" />
       <workItem from="1674073724206" duration="5955000" />
       <workItem from="1674084905497" duration="18294000" />
-      <workItem from="1674148454710" duration="28731000" />
+      <workItem from="1674148454710" duration="29524000" />
     </task>
     <servers />
   </component>
