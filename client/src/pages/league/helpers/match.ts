@@ -8,10 +8,6 @@ export declare module matchNamespace {
         },
         match_list: Match[],
     }
-    export interface MatchList {
-        [x: string]: any;
-        match_list: Match[],
-    }
     export interface Match {
         metadata: Metadata;
         info: Info;

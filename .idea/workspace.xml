@@ -59,11 +59,11 @@
       <recent name="Z:\WebStorm 2022.3.1\projects\client\src\images\leaguestuff" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="Z:\WebStorm 2022.3.1\projects\client\public" />
-      <recent name="Z:\WebStorm 2022.3.1\projects\client\src\pages\" />
-      <recent name="Z:\WebStorm 2022.3.1\projects\client\src\pages" />
-      <recent name="Z:\WebStorm 2022.3.1\projects\client\src\store" />
-      <recent name="C:\Users\bryan\Desktop\new-portfolio\client\src\blackjack\helpers\" />
+      <recent name="Z:\WebStorm 2022.3.1\projects\client\src\pages\league\static\" />
+      <recent name="Z:\WebStorm 2022.3.1\projects\client\src\league\static\" />
+      <recent name="Z:\WebStorm 2022.3.1\projects\client\src\pages\league\static" />
+      <recent name="Z:\WebStorm 2022.3.1\projects\client\src\pages\blackjack\static\" />
+      <recent name="Z:\WebStorm 2022.3.1\projects\client\public\files" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -118,7 +118,7 @@
       <workItem from="1674059467746" duration="12036000" />
       <workItem from="1674073724206" duration="5955000" />
       <workItem from="1674084905497" duration="18294000" />
-      <workItem from="1674148454710" duration="29524000" />
+      <workItem from="1674148454710" duration="47536000" />
     </task>
     <servers />
   </component>
@@ -146,6 +146,9 @@
         <option value="$PROJECT_DIR$/client/src/league/components/LeagueHome.js" />
         <option value="$PROJECT_DIR$/client/src/league/helpers/parseSummonerData.js" />
         <option value="$PROJECT_DIR$/client/src/pages/league/helpers/translateSpell.js" />
+        <option value="$PROJECT_DIR$/client/src/pages/league/helpers/translateRunes.js" />
+        <option value="$PROJECT_DIR$/client/src/pages/league/helpers/translateChampName.js" />
+        <option value="$PROJECT_DIR$/client/src/pages/league/helpers/translateMultiKill.js" />
       </list>
     </option>
   </component>

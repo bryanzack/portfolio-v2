@@ -32,6 +32,7 @@ const SearchBar = (): JSX.Element => {
     }
     const handleSubmit = () => {
         if (user_input) {
+            console.log(selected_region + " " + user_input);
             setRegionMenu(false);
             navigate(`/league/${selected_region}/${user_input}`);
             dispatch(setSearchParams({selected_region, user_input}));

@@ -2,15 +2,13 @@ const React = require('react');
 import './Deck.css';
 
 import type { RootState } from '../../../store';
-import { FC, ReactElement, useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
-import { addToDeck, removeFromDeck, shuffle } from '../reducers/deckSlice';
-import { addToPlayer } from '../reducers/playerSlice';
-import { removeFromDiscard } from "../reducers/discardSlice";
+import { shuffle } from '../reducers/deckSlice';
 
 import Card from './Card.js';
 
-const Deck: FC = (props): ReactElement => {
+const Deck = (): JSX.Element => {
     const deckCards = useSelector((state: RootState) => state.deck.cards);
     const debug_mode = useSelector((state: RootState) => state.game.debug);
     const dispatch = useDispatch();

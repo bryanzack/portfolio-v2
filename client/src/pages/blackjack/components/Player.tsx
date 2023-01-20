@@ -2,11 +2,10 @@ const React = require('react');
 import './Player.css';
 
 import type { RootState } from '../../../store';
-import {FC, ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import Card from './Card.js';
 
-const Player: FC = (): ReactElement => {
+const Player = (): JSX.Element => {
     const playerCards = useSelector((state: RootState) => state.player.cards);
     const playerScore = useSelector((state: RootState) => state.player.score);
     const debug_mode = useSelector((state: RootState) => state.game.debug);

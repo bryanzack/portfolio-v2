@@ -135,7 +135,7 @@
 }
 .info-bottom {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     margin-top:8px;
 }
@@ -144,7 +144,12 @@
     height: 22px;
     border-radius: 4px;
     margin-right: 2px;
-
+}
+.last-item {
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    margin-right: 2px;
 }
 .item-empty-win {
     width: 22px;
@@ -159,4 +164,91 @@
     border-radius: 4px;
     background: #FFBAC3;
     margin-right: 2px;
+}
+
+.runes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2px;
+}
+#first-rune {
+    margin-bottom: 2px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+}
+
+.kda-win, .kda-lose {
+    z-index: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 107px;
+    padding-right: 12px;
+    margin-right: 8px;
+    margin-left: 8px;
+}
+.kda-win::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 1px;
+    height: 100%;
+    background-color: #D5E3FF;
+}
+.kda-lose::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 1px;
+    height: 100%;
+    background-color: #FFD8D9;
+}
+
+.k-d-a {
+    line-height: 22px;
+    font-size: 15px;
+    color: #9AA4AF;
+}
+.k-d-a > span {
+    font-weight: bold;
+}
+.deaths {
+    color: #D31A45;
+}
+.kills, .assists {
+    color: #202D37;
+}
+.ratio {
+    line-height: 16px;
+    color: #758592;
+    font-size: 12px;
+}
+
+.multi-kill {
+    height: 18px;
+    line-height: 18px;
+    padding: 0px 8px;
+    margin-left: 4px;
+    border-radius: 9px;
+    background-color: rgb(232, 64, 87);
+    color: white;
+    font-size: 12px
+}
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 140px;
+    color: #758592;
+    font-size: 11px;
+}
+.kp {
+    font-size: 11px;
+    color: #D31A45;
 }
