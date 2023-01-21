@@ -6,6 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="fbb5762a-091d-48cc-80b0-d66138f2a830" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/pages/blackjack/components/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/components/Card.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/pages/blackjack/components/Deck.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/components/Deck.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/pages/league/components/LeagueRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/league/components/LeagueRoute.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/pages/league/components/Matches.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/league/components/Matches.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/client/src/pages/league/components/SearchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/league/components/SearchBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,23 +44,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "Z:/WebStorm 2022.3.1/projects/client/public/images/leaguestuff",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.typescriptcompiler",
-    "ts.external.directory.path": "Z:\\WebStorm 2022.3.1\\projects\\client\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;Z:/WebStorm 2022.3.1/projects/client/public/images/leaguestuff&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.typescriptcompiler&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\bryan\\react-practice\\portfolio-site-v2\\client\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="Z:\WebStorm 2022.3.1\projects\client\public\images\leaguestuff" />
@@ -119,6 +127,8 @@
       <workItem from="1674073724206" duration="5955000" />
       <workItem from="1674084905497" duration="18294000" />
       <workItem from="1674148454710" duration="47536000" />
+      <workItem from="1674262653167" duration="1358000" />
+      <workItem from="1674276103884" duration="3794000" />
     </task>
     <servers />
   </component>

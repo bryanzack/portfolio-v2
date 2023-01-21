@@ -17,6 +17,6 @@ var App = function () {
             //TODO `figure out way to pass query params to rtk query while still preserving caching behavior
             ,
                 "//TODO `figure out way to pass query params to rtk query while still preserving caching behavior",
-                React.createElement(react_router_dom_1.Route, { path: '/league/:region/:id', element: React.createElement(LeagueRoute_1["default"], null) })))));
+                React.createElement(react_router_dom_1.Route, { path: '/league/:region/:name', element: React.createElement(LeagueRoute_1["default"], null) })))));
 };
 exports["default"] = App;

@@ -24,6 +24,7 @@ app.get('/api/users/:region/:name', (req: Request, res: Response) => {
                 let puuid = json.puuid;
                 let routing_value = translateRegion(req.params.region);
                 let matchListURL = `https://${routing_value}.api.riotgames.com/lol/match/v5/matches/by-puuid/${json.puuid}/ids?start=0&count=20&api_key=${process.env.API_KEY}`;
+                console.log(matchListURL);
                 fetch(matchListURL)
                     .then(match_response => match_response.json()
                     .then(json => {
@@ -34,7 +35,8 @@ app.get('/api/users/:region/:name', (req: Request, res: Response) => {
                         });
                         // if the user has 11+ matches, trim list to 10
                         // if use has <=10 matches, request all that is available
-                        if (urls.length === 0) {
+                        if (urls.length === 0 || !urls) {
+                            console.log("urls.length is zero");
                             let match_response: matchNamespace.MatchListResponse = {
                                 user_puuid: "",
                                 response: {
@@ -44,6 +46,7 @@ app.get('/api/users/:region/:name', (req: Request, res: Response) => {
                                 match_list: [],
                             }
                             res.json(match_response);
+                            return;
                         }
                         if (urls.length > 10) urls = urls.slice(0, 10);
                         Promise.all(urls.map((url: string) => fetch(url)))

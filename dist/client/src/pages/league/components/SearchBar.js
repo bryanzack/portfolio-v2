@@ -9,7 +9,6 @@ const react_router_dom_1 = require("react-router-dom");
 const react_1 = require("react");
 const react_redux_1 = require("react-redux");
 const searchBarSlice_1 = require("../reducers/searchBarSlice");
-const leagueSlice_1 = require("../reducers/leagueSlice");
 const regions_1 = __importDefault(require("../helpers/regions"));
 const SearchBar = () => {
     const regions = (0, react_redux_1.useSelector)((state) => state.searchbar.regions);
@@ -32,9 +31,10 @@ const SearchBar = () => {
     };
     const handleSubmit = () => {
         if (user_input) {
+            console.log(selected_region + " " + user_input);
             setRegionMenu(false);
             navigate(`/league/${selected_region}/${user_input}`);
-            dispatch((0, leagueSlice_1.setSearchParams)({ selected_region, user_input }));
+            //dispatch(setSearchParams({selected_region, user_input}));
         }
     };
     return (<>

@@ -88,36 +88,36 @@ var Match = function (props) {
                                 else
                                     return React.createElement("div", { className: props.win ? "item-empty-win" : "item-empty-lose" });
                             }),
-                            React.createElement("img", { className: "last-item", src: require("../static/images/leaguestuff/item/".concat(items[6], ".png")), alt: "item" }),
+                            (items[6] !== 0)
+                                ? React.createElement("img", { className: "last-item", src: require("../static/images/leaguestuff/item/".concat(items[6], ".png")), alt: "item" })
+                                : React.createElement("div", { className: props.win ? "item-empty-win" : "item-empty-lose" }),
                             (multi_kill > 1) ? React.createElement("div", { className: "multi-kill" }, (0, translateMultiKill_1.translateMultiKill)(multi_kill)) : ""))),
                 React.createElement("div", { className: "players" },
                     React.createElement("div", { className: "team1" }),
                     React.createElement("div", { className: "team2" }))),
             React.createElement("div", { className: "match-dropdown" }))));
 };
-// TODO `remove useless FC and pass in one object (getSummoner arguments) as prop
 var Matches = function (props) {
+    console.log("from leagueroute: ".concat(props.args.region, ", ").concat(props.args.name));
     var _a = (0, api_1.useGetSummonerDataQuery)({ region: props.args.region, name: props.args.name }), match_response = _a.data, isFetching = _a.isFetching, isLoading = _a.isLoading, isError = _a.isError;
-    console.log("match response:");
     console.log(match_response);
     if (isLoading)
         return React.createElement("div", null, "Loading...");
     if (isFetching)
         return React.createElement("div", null, "Fetching...");
-    if ((match_response === null || match_response === void 0 ? void 0 : match_response.response.status_code) === 404)
+    if ((match_response === null || match_response === void 0 ? void 0 : match_response.response.status_code) === 404
+        || (match_response === null || match_response === void 0 ? void 0 : match_response.match_list) === null)
         return React.createElement("div", null,
             " 404 ",
             match_response.response.message);
     if (isError)
         return React.createElement("div", null, "Error...");
     var win = undefined;
-    var champ_name = "init";
     return (React.createElement(React.Fragment, null,
         React.createElement("div", { className: "matches" }, match_response.match_list.map(function (item) {
             item.info.participants.map(function (participant) {
                 if (participant.puuid === (match_response === null || match_response === void 0 ? void 0 : match_response.user_puuid)) {
                     win = participant.win;
-                    champ_name = participant.championName;
                 }
             });
             return React.createElement(Match, { match: item, win: win, puuid: match_response.user_puuid });

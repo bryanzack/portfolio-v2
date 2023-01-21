@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const node_fetch_1 = __importDefault(require("node-fetch"));
-const translateRegion_1 = __importDefault(require("./client/src/pages/league/helpers/translateRegion"));
+const translateRegion_js_1 = __importDefault(require("./client/src/pages/league/helpers/translateRegion.js"));
 const express = require("express");
 const path = require('path');
 const dotenv = require('dotenv');
@@ -23,7 +23,7 @@ app.get('/api/users/:region/:name', (req, res) => {
         .then((json) => {
         if (json.puuid) {
             let puuid = json.puuid;
-            let routing_value = (0, translateRegion_1.default)(req.params.region);
+            let routing_value = (0, translateRegion_js_1.default)(req.params.region);
             let matchListURL = `https://${routing_value}.api.riotgames.com/lol/match/v5/matches/by-puuid/${json.puuid}/ids?start=0&count=20&api_key=${process.env.API_KEY}`;
             (0, node_fetch_1.default)(matchListURL)
                 .then(match_response => match_response.json()

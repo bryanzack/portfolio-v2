@@ -6,7 +6,6 @@ var react_router_dom_1 = require("react-router-dom");
 var react_1 = require("react");
 var react_redux_1 = require("react-redux");
 var searchBarSlice_1 = require("../reducers/searchBarSlice");
-var leagueSlice_1 = require("../reducers/leagueSlice");
 var regions_1 = require("../helpers/regions");
 var SearchBar = function () {
     var regions = (0, react_redux_1.useSelector)(function (state) { return state.searchbar.regions; });
@@ -29,9 +28,10 @@ var SearchBar = function () {
     };
     var handleSubmit = function () {
         if (user_input) {
+            console.log(selected_region + " " + user_input);
             setRegionMenu(false);
             navigate("/league/".concat(selected_region, "/").concat(user_input));
-            dispatch((0, leagueSlice_1.setSearchParams)({ selected_region: selected_region, user_input: user_input }));
+            //dispatch(setSearchParams({selected_region, user_input}));
         }
     };
     return (React.createElement(React.Fragment, null,

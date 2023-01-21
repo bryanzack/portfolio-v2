@@ -14,6 +14,7 @@ import Matches from './Matches';
 
 const LeagueRoute = (): JSX.Element => {
     const search_params = useSelector((state: RootState) => state.league.search_params);
+    const { region, name } = useParams();
     const fadeIn = useTransition(null, {
         from: {opacity: 0},
         enter: {opacity: 1},
@@ -23,7 +24,7 @@ const LeagueRoute = (): JSX.Element => {
         <animated.div style={style} className="league">
             <div className="league-container">
                 <SearchBar/>
-                <Matches args={{region: search_params.selected_region, name: search_params.user_input}}/>
+                {(region && name) && <Matches args={{region: region, name: name}} />}
             </div>
         </animated.div>
     ));

@@ -97,7 +97,9 @@ const Match = (props: { match: matchNamespace.Match, win: boolean, puuid: string
                                         if (item !== 0) return <img className={"item"} src={require(`../static/images/leaguestuff/item/${item}.png`)} alt={"item"}/>
                                         else return <div className={props.win ? "item-empty-win" : "item-empty-lose"} />
                                     })}
-                                <img className={"last-item"} src={require(`../static/images/leaguestuff/item/${items[6]}.png`)} alt={"item"} />
+                                {(items[6] !== 0)
+                                    ? <img className={"last-item"} src={require(`../static/images/leaguestuff/item/${items[6]}.png`)} alt={"item"} />
+                                    : <div className={props.win ? "item-empty-win" : "item-empty-lose"} /> }
                                 {(multi_kill > 1) ? <div className={"multi-kill"}>{translateMultiKill(multi_kill)}</div> : ""}
                             </div>
                         </div>
@@ -118,23 +120,22 @@ const Match = (props: { match: matchNamespace.Match, win: boolean, puuid: string
         </>
     );
 }
-// TODO `remove useless FC and pass in one object (getSummoner arguments) as prop
+
 const Matches = (props: {args: { region: string, name: string }}): JSX.Element => {
+    console.log(`from leagueroute: ${props.args.region}, ${props.args.name}`);
     const {
         data: match_response,
         isFetching,
         isLoading,
         isError,
     } = useGetSummonerDataQuery({region: props.args.region, name: props.args.name});
-    console.log("match response:" );
     console.log(match_response);
-
     if (isLoading) return <div>Loading...</div>
     if (isFetching) return <div>Fetching...</div>
-    if (match_response?.response.status_code === 404) return <div> 404 {match_response.response.message}</div>
+    if (match_response?.response.status_code === 404
+        || match_response?.match_list === null) return <div> 404 {match_response.response.message}</div>
     if (isError) return <div>Error...</div>
     let win: boolean|undefined = undefined;
-    let champ_name = "init";
     return (
         <>
             <div className="matches">
@@ -142,7 +143,6 @@ const Matches = (props: {args: { region: string, name: string }}): JSX.Element =
                     item.info.participants.map((participant) => {
                         if (participant.puuid === match_response?.user_puuid) {
                             win = participant.win;
-                            champ_name = participant.championName;
                         }
                     })
                     return <Match match={item} win={win!} puuid={match_response!.user_puuid}/>

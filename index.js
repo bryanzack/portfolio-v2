@@ -22,6 +22,7 @@ app.get('/api/users/:region/:name', function (req, res) {
             var puuid_1 = json.puuid;
             var routing_value_1 = (0, translateRegion_js_1["default"])(req.params.region);
             var matchListURL = "https://".concat(routing_value_1, ".api.riotgames.com/lol/match/v5/matches/by-puuid/").concat(json.puuid, "/ids?start=0&count=20&api_key=").concat(process.env.API_KEY);
+            console.log(matchListURL);
             (0, node_fetch_1["default"])(matchListURL)
                 .then(function (match_response) { return match_response.json()
                 .then(function (json) {
@@ -32,7 +33,8 @@ app.get('/api/users/:region/:name', function (req, res) {
                 });
                 // if the user has 11+ matches, trim list to 10
                 // if use has <=10 matches, request all that is available
-                if (urls.length === 0) {
+                if (urls.length === 0 || !urls) {
+                    console.log("urls.length is zero");
                     var match_response_1 = {
                         user_puuid: "",
                         response: {
@@ -42,6 +44,7 @@ app.get('/api/users/:region/:name', function (req, res) {
                         match_list: []
                     };
                     res.json(match_response_1);
+                    return;
                 }
                 if (urls.length > 10)
                     urls = urls.slice(0, 10);
