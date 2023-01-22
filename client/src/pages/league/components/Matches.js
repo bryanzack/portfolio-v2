@@ -8,6 +8,7 @@ var translateSpell_1 = require("../helpers/translateSpell");
 var translateRunes_1 = require("../helpers/translateRunes");
 var translateChampName_1 = require("../helpers/translateChampName");
 var translateMultiKill_1 = require("../helpers/translateMultiKill");
+var universal_cookie_1 = require("universal-cookie");
 var Match = function (props) {
     // shortcuts
     var user_index = props.match.metadata.participants.indexOf(props.puuid); // user participant object index
@@ -98,7 +99,7 @@ var Match = function (props) {
             React.createElement("div", { className: "match-dropdown" }))));
 };
 var Matches = function (props) {
-    console.log("from leagueroute: ".concat(props.args.region, ", ").concat(props.args.name));
+    var cookies = new universal_cookie_1["default"]();
     var _a = (0, api_1.useGetSummonerDataQuery)({ region: props.args.region, name: props.args.name }), match_response = _a.data, isFetching = _a.isFetching, isLoading = _a.isLoading, isError = _a.isError;
     console.log(match_response);
     if (isLoading)
@@ -113,6 +114,20 @@ var Matches = function (props) {
     if (isError)
         return React.createElement("div", null, "Error...");
     var win = undefined;
+    console.log("hist: ");
+    if (cookies.get('hist') === undefined) {
+        console.log("empty cookies, add");
+        cookies.set('hist', { region: "region", name: "name" });
+    }
+    else {
+        if (cookies.get('hist').includes({ region: "region", name: "name" })) {
+            console.log("ALREADY EXISTS");
+        }
+        else {
+            console.log("not empty, add");
+            cookies.set('hist', { region: "region", name: "name" });
+        }
+    }
     return (React.createElement(React.Fragment, null,
         React.createElement("div", { className: "matches" }, match_response.match_list.map(function (item) {
             item.info.participants.map(function (participant) {

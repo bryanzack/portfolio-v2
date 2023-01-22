@@ -10,7 +10,7 @@ import { translateSpell } from '../helpers/translateSpell';
 import { translatePrimary, translateSecondary } from "../helpers/translateRunes";
 import { translateChampName } from '../helpers/translateChampName';
 import { translateMultiKill } from "../helpers/translateMultiKill";
-
+import Cookies from 'universal-cookie';
 const Match = (props: { match: matchNamespace.Match, win: boolean, puuid: string }): JSX.Element => {
     // shortcuts
     const user_index = props.match.metadata.participants.indexOf(props.puuid); // user participant object index
@@ -122,7 +122,7 @@ const Match = (props: { match: matchNamespace.Match, win: boolean, puuid: string
 }
 
 const Matches = (props: {args: { region: string, name: string }}): JSX.Element => {
-    console.log(`from leagueroute: ${props.args.region}, ${props.args.name}`);
+    const cookies = new Cookies();
     const {
         data: match_response,
         isFetching,
@@ -136,6 +136,19 @@ const Matches = (props: {args: { region: string, name: string }}): JSX.Element =
         || match_response?.match_list === null) return <div> 404 {match_response.response.message}</div>
     if (isError) return <div>Error...</div>
     let win: boolean|undefined = undefined;
+    console.log("hist: ");
+    if (cookies.get('hist') === undefined) {
+        console.log("empty cookies, add");
+        cookies.set('hist', {region: "region", name: "name"});
+    } else {
+        if (cookies.get('hist').includes({region: "region", name: "name"})) {
+            console.log("ALREADY EXISTS");
+        } else {
+            console.log("not empty, add");
+            cookies.set('hist', {region: "region", name: "name"});
+        }
+    }
+
     return (
         <>
             <div className="matches">

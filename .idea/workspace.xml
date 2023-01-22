@@ -6,14 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="fbb5762a-091d-48cc-80b0-d66138f2a830" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/pages/blackjack/components/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/components/Card.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/pages/blackjack/components/Deck.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/blackjack/components/Deck.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/pages/league/components/LeagueRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/league/components/LeagueRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/pages/league/components/Matches.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/league/components/Matches.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/client/src/pages/league/components/SearchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/client/src/pages/league/components/SearchBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +123,7 @@
       <workItem from="1674084905497" duration="18294000" />
       <workItem from="1674148454710" duration="47536000" />
       <workItem from="1674262653167" duration="1358000" />
-      <workItem from="1674276103884" duration="3794000" />
+      <workItem from="1674276103884" duration="16748000" />
     </task>
     <servers />
   </component>
@@ -159,6 +154,7 @@
         <option value="$PROJECT_DIR$/client/src/pages/league/helpers/translateRunes.js" />
         <option value="$PROJECT_DIR$/client/src/pages/league/helpers/translateChampName.js" />
         <option value="$PROJECT_DIR$/client/src/pages/league/helpers/translateMultiKill.js" />
+        <option value="$PROJECT_DIR$/client/src/App.test.js" />
       </list>
     </option>
   </component>

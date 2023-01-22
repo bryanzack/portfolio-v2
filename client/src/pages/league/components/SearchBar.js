@@ -31,7 +31,7 @@ var SearchBar = function () {
             console.log(selected_region + " " + user_input);
             setRegionMenu(false);
             navigate("/league/".concat(selected_region, "/").concat(user_input));
-            //dispatch(setSearchParams({selected_region, user_input}));
+            document.activeElement.blur();
         }
     };
     return (React.createElement(React.Fragment, null,
