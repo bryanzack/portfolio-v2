@@ -1,4 +1,13 @@
 "use strict";
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 exports.__esModule = true;
 var React = require('react');
 require("./Matches.css");
@@ -64,7 +73,8 @@ var Match = function (props) {
                                 React.createElement("img", { className: "spell", src: require("../static/images/leaguestuff/spell/".concat((0, translateSpell_1.translateSpell)(summoner_2), ".png")), alt: "" })),
                             React.createElement("div", { className: "runes" },
                                 React.createElement("img", { className: "rune", id: "first-rune", src: (0, translateRunes_1.translateSecondary)(perk_secondary), alt: "rune", width: 22, height: 22 }),
-                                React.createElement("img", { className: "rune", src: (0, translateRunes_1.translatePrimary)(perk_primary), alt: "rune", width: 22, height: 22 })),
+                                React.createElement("img", { className: "rune", src: (0, translateRunes_1.translatePrimary)(perk_primary), alt: "rune", width: 22, height: 22 }),
+                                "                                "),
                             React.createElement("div", { className: props.win ? "kda-win" : "kda-lose" },
                                 React.createElement("div", { className: "k-d-a" },
                                     React.createElement("span", { className: "kills" }, kills),
@@ -114,20 +124,29 @@ var Matches = function (props) {
     if (isError)
         return React.createElement("div", null, "Error...");
     var win = undefined;
-    console.log("hist: ");
-    if (cookies.get('hist') === undefined) {
-        console.log("empty cookies, add");
-        cookies.set('hist', { region: "region", name: "name" });
+    var json = cookies.get('hist');
+    // TODO `put cookie handling in helper function
+    if (json !== undefined && json.length !== 0) {
+        console.log('results found');
+        var doesCookieExist = false;
+        for (var entry in json) {
+            if (json[entry].name === props.args.name)
+                doesCookieExist = true;
+            else
+                console.log("cookie exists");
+        }
+        if (!doesCookieExist) {
+            if (json.length < 10)
+                cookies.set('hist', __spreadArray([{ name: props.args.name, region: props.args.region }], json, true));
+            else
+                cookies.set('hist', __spreadArray([{ name: props.args.name, region: props.args.region }], json.slice(0, 9), true));
+        }
     }
     else {
-        if (cookies.get('hist').includes({ region: "region", name: "name" })) {
-            console.log("ALREADY EXISTS");
-        }
-        else {
-            console.log("not empty, add");
-            cookies.set('hist', { region: "region", name: "name" });
-        }
+        console.log("empty cookies, adding entry");
+        cookies.set('hist', [{ name: props.args.name, region: props.args.region }]);
     }
+    console.log(json);
     return (React.createElement(React.Fragment, null,
         React.createElement("div", { className: "matches" }, match_response.match_list.map(function (item) {
             item.info.participants.map(function (participant) {
@@ -135,7 +154,11 @@ var Matches = function (props) {
                     win = participant.win;
                 }
             });
-            return React.createElement(Match, { match: item, win: win, puuid: match_response.user_puuid });
+            // no one cares about tutorial games + they are inconsistent with data of other game types
+            if (item.info.gameMode !== 'TUTORIAL_MODULE_1'
+                && item.info.gameMode !== 'TUTORIAL_MODULE_2'
+                && item.info.gameMode !== 'TUTORIAL_MODULE_3')
+                return React.createElement(Match, { match: item, win: win, puuid: match_response.user_puuid });
         })),
         React.createElement("button", { className: "load-more" }, "Load more...")));
 };

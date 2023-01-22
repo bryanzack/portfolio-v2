@@ -1,5 +1,3 @@
-import {mul} from "three/examples/jsm/nodes/shadernode/ShaderNodeBaseElements";
-
 const React = require('react');
 import './Matches.css';
 
@@ -73,8 +71,7 @@ const Match = (props: { match: matchNamespace.Match, win: boolean, puuid: string
                                 </div>
                                 <div className="runes">
                                     <img className={"rune"} id={"first-rune"} src={translateSecondary(perk_secondary)} alt={"rune"} width={22} height={22}/>
-                                    <img className={"rune"} src={translatePrimary(perk_primary)} alt={"rune"} width={22} height={22}/>
-                                </div>
+                                    <img className={"rune"} src={translatePrimary(perk_primary)} alt={"rune"} width={22} height={22}/>                                </div>
                                 <div className={props.win ? "kda-win" : "kda-lose"}>
                                     <div className="k-d-a">
                                         <span className={"kills"}>{kills}</span>
@@ -130,17 +127,33 @@ const Matches = (props: {args: { region: string, name: string }}): JSX.Element =
         isError,
     } = useGetSummonerDataQuery({region: props.args.region, name: props.args.name});
     console.log(match_response);
+
     if (isLoading) return <div>Loading...</div>
     if (isFetching) return <div>Fetching...</div>
     if (match_response?.response.status_code === 404
-        || match_response?.match_list === null) return <div> 404 {match_response.response.message}</div>
+        || match_response?.match_list === null)
+        return <div> 404 {match_response.response.message}</div>
     if (isError) return <div>Error...</div>
+
     let win: boolean|undefined = undefined;
     let json = cookies.get('hist');
+    // TODO `put cookie handling in helper function
     if (json !== undefined && json.length !== 0) {
-        console.log('results found')
+        console.log('results found');
         let doesCookieExist = false;
-
+        for (let entry in json) {
+            if (json[entry].name === props.args.name) doesCookieExist = true;
+            else console.log("cookie exists");
+        }
+        if (!doesCookieExist) {
+            if (json.length < 10)
+                cookies.set('hist', [{name: props.args.name, region: props.args.region}, ...json]);
+            else
+                cookies.set('hist', [{name: props.args.name, region: props.args.region}, ...json.slice(0, 9)]);
+        }
+    } else {
+        console.log("empty cookies, adding entry");
+        cookies.set('hist', [{name: props.args.name, region: props.args.region}]);
     }
     console.log(json);
 
@@ -153,7 +166,11 @@ const Matches = (props: {args: { region: string, name: string }}): JSX.Element =
                             win = participant.win;
                         }
                     })
-                    return <Match match={item} win={win!} puuid={match_response!.user_puuid}/>
+                    // no one cares about tutorial games + they are inconsistent with data of other game types
+                    if (item.info.gameMode !== 'TUTORIAL_MODULE_1'
+                    && item.info.gameMode !== 'TUTORIAL_MODULE_2'
+                    && item.info.gameMode !== 'TUTORIAL_MODULE_3')
+                        return <Match match={item} win={win!} puuid={match_response!.user_puuid}/>
                 })}
             </div>
             <button className={"load-more"}>Load more...</button>
