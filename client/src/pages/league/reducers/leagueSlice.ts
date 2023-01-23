@@ -6,13 +6,15 @@ type SearchParams = {
 }
 interface LeagueState {
     search_params: SearchParams,
+    show_history: boolean,
 }
 
 const initialState: LeagueState = {
     search_params: {
         selected_region: "",
         user_input: "",
-    }
+    },
+    show_history: false,
 }
 
 export const leagueSlice = createSlice({
@@ -22,9 +24,12 @@ export const leagueSlice = createSlice({
         setSearchParams: (state, action: PayloadAction<SearchParams>) => {
             state.search_params.selected_region = action.payload.selected_region;
             state.search_params.user_input = action.payload.user_input;
+        },
+        setShowHistory: (state, action: PayloadAction<boolean>) => {
+            state.show_history = action.payload;
         }
     },
 });
 
-export const { setSearchParams } = leagueSlice.actions;
+export const { setShowHistory, setSearchParams } = leagueSlice.actions;
 export default leagueSlice.reducer;

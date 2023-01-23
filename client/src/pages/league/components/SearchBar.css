@@ -85,3 +85,44 @@
     width: 80px;
     height: 40px;
 }
+
+.search-history {
+    display: flex;
+    flex-direction: column;
+    top: calc(100% + 10px);
+    border: 2px solid black;
+    width: 500px;
+    height: fit-content;
+    position: absolute;
+    background: white;
+}
+.history-entry {
+    margin-left: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    height: 35px;
+    cursor: pointer;
+}
+.history-region {
+    display: inline-block;
+    padding: 2px 4px;
+    line-height: 14px;
+    letter-spacing: normal;
+    font-weight: bold;
+    font-size: 11px;
+    border-radius: 2px;
+    background-color: rgb(83, 131, 232);
+    color: rgb(255, 255, 255);
+    margin-right: 17px;
+}
+.history-name {
+    font-size: 14px;
+    line-height: 1.43;
+    color: #44515C;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 400px;
+}

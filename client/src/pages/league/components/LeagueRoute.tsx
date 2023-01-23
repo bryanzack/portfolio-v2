@@ -1,18 +1,18 @@
 const React = require('react');
 import './LeagueRoute.css';
 
-import type { SummonerQueryArgs } from "../../../store/api";
 import type { RootState } from "../../../store";
 import { useParams } from "react-router";
 import { useEffect } from 'react';
 import { animated, useTransition } from '@react-spring/web';
 import { useDispatch, useSelector } from 'react-redux';
-import { setSearchParams } from "../reducers/leagueSlice";
+import { setShowHistory } from "../reducers/leagueSlice";
 import SearchBar from './SearchBar';
 import Matches from './Matches';
 
 
 const LeagueRoute = (): JSX.Element => {
+    const dispatch = useDispatch();
     const search_params = useSelector((state: RootState) => state.league.search_params);
     const { region, name } = useParams();
     const fadeIn = useTransition(null, {
@@ -21,7 +21,7 @@ const LeagueRoute = (): JSX.Element => {
         leave: {opacity: 0},
     });
     return fadeIn((style) => (
-        <animated.div style={style} className="league">
+        <animated.div style={style} className="league" onFocus={() => dispatch(setShowHistory(false))}>
             <div className="league-container">
                 <SearchBar/>
                 {(region && name) && <Matches args={{region: region, name: name}} />}
