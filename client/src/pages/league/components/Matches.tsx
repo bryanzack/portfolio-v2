@@ -135,6 +135,7 @@ const Matches = (props: {args: { region: string, name: string }}): JSX.Element =
         return <div> 404 {match_response.response.message}</div>
     if (isError) return <div>Error...</div>
 
+
     let win: boolean|undefined = undefined;
     let json = cookies.get('hist');
     // TODO `put cookie handling in helper function

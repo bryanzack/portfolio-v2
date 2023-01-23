@@ -105,6 +105,11 @@
     height: 35px;
     cursor: pointer;
 }
+.history-clickable {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .history-region {
     display: inline-block;
     padding: 2px 4px;

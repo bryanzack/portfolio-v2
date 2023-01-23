@@ -28,14 +28,24 @@ var SearchBar = function () {
     };
     var handleInputFocus = function () {
         setRegionMenu(false);
+        //dispatch(setShowHistory(false));
     };
     var handleSubmit = function () {
         setRegionMenu(false);
+        dispatch((0, leagueSlice_1.setShowHistory)(false));
         if (user_input) {
             console.log(selected_region + " " + user_input);
             navigate("/league/".concat(selected_region, "/").concat(user_input));
             document.activeElement.blur();
         }
+    };
+    var handleRemoveCookie = function (region, name) {
+        var remove = { name: name, region: region };
+        var new_cookies = cookies.get('hist').filter(function (thing) {
+            console.log(thing);
+            return (thing !== remove);
+        });
+        console.log(new_cookies);
     };
     return (React.createElement(React.Fragment, null,
         React.createElement("div", { className: "searchbar" },
@@ -52,13 +62,14 @@ var SearchBar = function () {
                     :
                         React.createElement("div", { className: "region-button", onClick: function () { return setRegionMenu(true); } },
                             React.createElement("p", null, regions_1["default"][selected_region].abbreviation)),
-                React.createElement("input", { className: "username-input", value: user_input, onClick: handleInputFocus, onInput: handleInputChange, onFocus: function () { return dispatch((0, leagueSlice_1.setShowHistory)(true)); }, type: "text", onKeyUp: function (event) { if (event.code === "Enter")
+                React.createElement("input", { className: "username-input", value: user_input, onInput: handleInputChange, onFocus: function () { return dispatch((0, leagueSlice_1.setShowHistory)(true)); }, type: "text", onKeyUp: function (event) { if (event.code === "Enter")
                         handleSubmit(); } }),
                 React.createElement("button", { className: "submit-button", onClick: function () { return handleSubmit(); } }, "Search"),
                 show_history &&
-                    React.createElement("div", { className: "search-history" }, cookies.get('hist').map(function (cookie, index) { return (React.createElement("div", { className: "history-entry", onClick: function () { return navigate("/league/".concat(cookie.region, "/").concat(cookie.name)); } },
-                        React.createElement("div", { className: "history-region" }, regions_1["default"][cookie.region].abbreviation),
-                        React.createElement("div", { className: "history-name" }, cookie.name),
-                        React.createElement("button", { className: "history-remove" }, "x"))); }))))));
+                    React.createElement("div", { className: "search-history", onMouseLeave: function () { return dispatch((0, leagueSlice_1.setShowHistory)(false)); } }, cookies.get('hist').map(function (cookie, index) { return (React.createElement("div", { className: "history-entry" },
+                        React.createElement("div", { className: "history-clickable", onClick: function () { navigate("/league/".concat(cookie.region, "/").concat(cookie.name)); dispatch((0, leagueSlice_1.setShowHistory)(false)); } },
+                            React.createElement("div", { className: "history-region" }, regions_1["default"][cookie.region].abbreviation),
+                            React.createElement("div", { className: "history-name" }, cookie.name)),
+                        React.createElement("button", { className: "history-remove", onClick: function () { return handleRemoveCookie(cookie.region, cookie.name); } }, "x"))); }))))));
 };
 exports["default"] = SearchBar;

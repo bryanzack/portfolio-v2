@@ -29,14 +29,24 @@ const SearchBar = (): JSX.Element => {
     }
     const handleInputFocus = () => {
         setRegionMenu(false);
+        //dispatch(setShowHistory(false));
     }
     const handleSubmit = () => {
         setRegionMenu(false);
+        dispatch(setShowHistory(false));
         if (user_input) {
             console.log(selected_region + " " + user_input);
             navigate(`/league/${selected_region}/${user_input}`);
             (document.activeElement as HTMLElement).blur();
         }
+    }
+    const handleRemoveCookie = (region: string, name: string) => {
+        let remove = {name: name, region: region};
+        let new_cookies = cookies.get('hist').filter((thing: any) => {
+            console.log(thing);
+            return (thing !== remove);
+        });
+        console.log(new_cookies);
     }
     return (
        <>
@@ -62,7 +72,6 @@ const SearchBar = (): JSX.Element => {
                    }
                    <input className="username-input"
                           value={user_input}
-                          onClick={handleInputFocus}
                           onInput={handleInputChange}
                           onFocus={() => dispatch(setShowHistory(true))}
                           type={"text"}
@@ -71,16 +80,18 @@ const SearchBar = (): JSX.Element => {
                        Search
                    </button>
                    {show_history &&
-                       <div className={"search-history"}>
+                       <div className={"search-history"} onMouseLeave={() => dispatch(setShowHistory(false))}>
                            {cookies.get('hist').map((cookie: any, index: number) => (
-                                <div className={"history-entry"} onClick={() => navigate(`/league/${cookie.region}/${cookie.name}`)}>
-                                    <div className={"history-region"}>
-                                        {Regions[cookie.region].abbreviation}
+                                <div className={"history-entry"}>
+                                    <div className="history-clickable" onClick={() => {navigate(`/league/${cookie.region}/${cookie.name}`); dispatch(setShowHistory(false))}}>
+                                        <div className={"history-region"}>
+                                            {Regions[cookie.region].abbreviation}
+                                        </div>
+                                        <div className={"history-name"}>
+                                            {cookie.name}
+                                        </div>
                                     </div>
-                                    <div className={"history-name"}>
-                                        {cookie.name}
-                                    </div>
-                                    <button className={"history-remove"}>
+                                    <button className={"history-remove"} onClick={() => handleRemoveCookie(cookie.region, cookie.name)}>
                                         x
                                     </button>
                                 </div>
