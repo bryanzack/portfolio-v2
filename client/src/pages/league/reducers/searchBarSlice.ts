@@ -1,10 +1,16 @@
 /* eslint-disable */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+type HistoryEntry = {
+    region: string,
+    name: string,
+}
+
 interface SearchBarState {
     regions: string[],
     selected_region: string,
     user_input: string,
+    cookies?: HistoryEntry[],
 }
 
 const initialState: SearchBarState = {
@@ -32,8 +38,11 @@ export const searchBarSlice = createSlice({
                 console.log(`Error: ${action.payload} is not a valid region`);
             }
         },
+        setHistoryCookies: (state, action: PayloadAction<HistoryEntry[]>) => {
+            state.cookies = action.payload;
+        },
     },
 });
 
-export const { updateUserInput, updateSelectedRegion } = searchBarSlice.actions;
+export const { setHistoryCookies, updateUserInput, updateSelectedRegion } = searchBarSlice.actions;
 export default searchBarSlice.reducer;

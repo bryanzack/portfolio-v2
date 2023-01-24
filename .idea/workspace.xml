@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fbb5762a-091d-48cc-80b0-d66138f2a830" name="Changes" comment="" />
+    <list default="true" id="fbb5762a-091d-48cc-80b0-d66138f2a830" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -127,29 +129,12 @@
     <option name="exactExcludedFiles">
       <list>
         <option value="$PROJECT_DIR$/index.js" />
-        <option value="$PROJECT_DIR$/client/src/landing/helpers/handleNavHover.js" />
-        <option value="$PROJECT_DIR$/client/src/landing/reducers/navSlice.js" />
-        <option value="$PROJECT_DIR$/client/src/store/hooks.js" />
-        <option value="$PROJECT_DIR$/client/src/landing/components/Landing.js" />
-        <option value="$PROJECT_DIR$/client/src/landing/components/Names.js" />
-        <option value="$PROJECT_DIR$/client/src/landing/components/Nav.js" />
-        <option value="$PROJECT_DIR$/client/src/landing/components/NavItem.js" />
-        <option value="$PROJECT_DIR$/client/src/landing/components/CursorAnimation.js" />
-        <option value="$PROJECT_DIR$/client/src/landing/components/Magnification.js" />
-        <option value="$PROJECT_DIR$/client/src/league/components/SearchBar.js" />
-        <option value="$PROJECT_DIR$/client/src/league/reducers/searchBarSlice.js" />
-        <option value="$PROJECT_DIR$/client/src/league/helpers/summoner.js" />
-        <option value="$PROJECT_DIR$/client/src/league/reducers/leagueSlice.js" />
-        <option value="$PROJECT_DIR$/client/src/league/components/Matches.js" />
-        <option value="$PROJECT_DIR$/client/src/league/helpers/translateRegion.js" />
-        <option value="$PROJECT_DIR$/client/src/league/helpers/match.js" />
-        <option value="$PROJECT_DIR$/client/src/league/components/LeagueHome.js" />
-        <option value="$PROJECT_DIR$/client/src/league/helpers/parseSummonerData.js" />
-        <option value="$PROJECT_DIR$/client/src/pages/league/helpers/translateSpell.js" />
-        <option value="$PROJECT_DIR$/client/src/pages/league/helpers/translateRunes.js" />
         <option value="$PROJECT_DIR$/client/src/pages/league/helpers/translateChampName.js" />
-        <option value="$PROJECT_DIR$/client/src/pages/league/helpers/translateMultiKill.js" />
+        <option value="$PROJECT_DIR$/client/src/store/hooks.js" />
+        <option value="$PROJECT_DIR$/client/src/pages/league/helpers/translateSpell.js" />
         <option value="$PROJECT_DIR$/client/src/App.test.js" />
+        <option value="$PROJECT_DIR$/client/src/pages/league/helpers/translateMultiKill.js" />
+        <option value="$PROJECT_DIR$/client/src/pages/league/helpers/translateRunes.js" />
       </list>
     </option>
   </component>

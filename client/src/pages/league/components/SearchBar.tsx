@@ -4,21 +4,25 @@ import './SearchBar.css';
 import type { RootState } from "../../../store";
 import Cookies from 'universal-cookie';
 import { useNavigate } from "react-router-dom";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateUserInput, updateSelectedRegion } from "../reducers/searchBarSlice";
+import {updateUserInput, updateSelectedRegion, setHistoryCookies} from "../reducers/searchBarSlice";
 import { setShowHistory } from "../reducers/leagueSlice";
 import Regions from '../helpers/regions';
 
 const SearchBar = (): JSX.Element => {
-    const cookies = new Cookies();
+    const cookies = new Cookies;
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const [cookie, setCookie] = useState(cookies.get('hist'));
     const regions = useSelector((state: RootState) => state.searchbar.regions);
     const selected_region = useSelector((state: RootState) => state.searchbar.selected_region);
     const user_input = useSelector((state: RootState) => state.searchbar.user_input);
     const [region_menu, setRegionMenu] = useState(false);
     const show_history = useSelector((state: RootState) => state.league.show_history);
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+    useEffect(() => {
+        console.log(cookies.get('hist'));
+    }, []);
     const handleRegionClick = (item: string) => {
         dispatch(updateSelectedRegion(item));
         setRegionMenu(false);
@@ -27,26 +31,32 @@ const SearchBar = (): JSX.Element => {
         dispatch(updateUserInput(event.target.value));
         console.log(event.target.value);
     }
-    const handleInputFocus = () => {
-        setRegionMenu(false);
-        //dispatch(setShowHistory(false));
-    }
-    const handleSubmit = () => {
+    const handleSubmit = (region: string, name: string) => {
         setRegionMenu(false);
         dispatch(setShowHistory(false));
+        type CookieEntry = {
+            name: string,
+            region: string,
+        }
         if (user_input) {
-            console.log(selected_region + " " + user_input);
-            navigate(`/league/${selected_region}/${user_input}`);
+            console.log(region + " " + name);
+            // `TODO: add typing to avoid any types
+            navigate(`/league/${region}/${name}`);
+            if (cookie !== undefined) {
+                setCookie([{region: region, name: name}, ...cookie.filter((item: CookieEntry) => item.name !== name)]);
+                cookies.set('hist', [{
+                    region: region,
+                    name: name
+                }, ...cookie.filter((item: CookieEntry) => item.name !== name)]);
+            } else {
+                setCookie([{region: region, name: name}]);
+                cookies.set('hist', [{
+                    region: region,
+                    name: name
+                }]);
+            }
             (document.activeElement as HTMLElement).blur();
         }
-    }
-    const handleRemoveCookie = (region: string, name: string) => {
-        let remove = {name: name, region: region};
-        let new_cookies = cookies.get('hist').filter((thing: any) => {
-            console.log(thing);
-            return (thing !== remove);
-        });
-        console.log(new_cookies);
     }
     return (
        <>
@@ -75,15 +85,15 @@ const SearchBar = (): JSX.Element => {
                           onInput={handleInputChange}
                           onFocus={() => dispatch(setShowHistory(true))}
                           type={"text"}
-                          onKeyUp={(event) => { if (event.code === "Enter") handleSubmit()}}/>
-                   <button className="submit-button" onClick={() => handleSubmit()}>
+                          onKeyUp={(event) => { if (event.code === "Enter") handleSubmit(selected_region, user_input)}}/>
+                   <button className="submit-button" onClick={() => handleSubmit(selected_region, user_input)}>
                        Search
                    </button>
-                   {show_history &&
+                   {(show_history && cookies.get('hist') !== undefined) &&
                        <div className={"search-history"} onMouseLeave={() => dispatch(setShowHistory(false))}>
-                           {cookies.get('hist').map((cookie: any, index: number) => (
+                           {cookie.map((cookie: any, index: number) => (
                                 <div className={"history-entry"}>
-                                    <div className="history-clickable" onClick={() => {navigate(`/league/${cookie.region}/${cookie.name}`); dispatch(setShowHistory(false))}}>
+                                    <div className="history-clickable" onClick={() => {handleSubmit(cookie.region, cookie.name)}}>
                                         <div className={"history-region"}>
                                             {Regions[cookie.region].abbreviation}
                                         </div>
@@ -91,7 +101,7 @@ const SearchBar = (): JSX.Element => {
                                             {cookie.name}
                                         </div>
                                     </div>
-                                    <button className={"history-remove"} onClick={() => handleRemoveCookie(cookie.region, cookie.name)}>
+                                    <button className={"history-remove"}>
                                         x
                                     </button>
                                 </div>

@@ -1,7 +1,7 @@
 "use strict";
 var _a;
 exports.__esModule = true;
-exports.updateSelectedRegion = exports.updateUserInput = exports.searchBarSlice = void 0;
+exports.updateSelectedRegion = exports.updateUserInput = exports.setHistoryCookies = exports.searchBarSlice = void 0;
 /* eslint-disable */
 var toolkit_1 = require("@reduxjs/toolkit");
 var initialState = {
@@ -28,8 +28,11 @@ exports.searchBarSlice = (0, toolkit_1.createSlice)({
             else {
                 console.log("Error: ".concat(action.payload, " is not a valid region"));
             }
+        },
+        setHistoryCookies: function (state, action) {
+            state.cookies = action.payload;
         }
     }
 });
-exports.updateUserInput = (_a = exports.searchBarSlice.actions, _a.updateUserInput), exports.updateSelectedRegion = _a.updateSelectedRegion;
+exports.setHistoryCookies = (_a = exports.searchBarSlice.actions, _a.setHistoryCookies), exports.updateUserInput = _a.updateUserInput, exports.updateSelectedRegion = _a.updateSelectedRegion;
 exports["default"] = exports.searchBarSlice.reducer;

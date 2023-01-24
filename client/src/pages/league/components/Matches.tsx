@@ -139,6 +139,7 @@ const Matches = (props: {args: { region: string, name: string }}): JSX.Element =
     let win: boolean|undefined = undefined;
     let json = cookies.get('hist');
     // TODO `put cookie handling in helper function
+
     if (json !== undefined && json.length !== 0) {
         console.log('results found');
         let doesCookieExist = false;
@@ -156,6 +157,8 @@ const Matches = (props: {args: { region: string, name: string }}): JSX.Element =
         console.log("empty cookies, adding entry");
         cookies.set('hist', [{name: props.args.name, region: props.args.region}]);
     }
+
+
     console.log(json);
 
     return (
