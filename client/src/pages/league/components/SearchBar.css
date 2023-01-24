@@ -111,7 +111,9 @@
     align-items: center;
 }
 .history-region {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 2px 4px;
     line-height: 14px;
     letter-spacing: normal;
@@ -121,6 +123,7 @@
     background-color: rgb(83, 131, 232);
     color: rgb(255, 255, 255);
     margin-right: 17px;
+    width: 35px;
 }
 .history-name {
     font-size: 14px;

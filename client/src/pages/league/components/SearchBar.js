@@ -47,7 +47,7 @@ var SearchBar = function () {
             // `TODO: add typing to avoid any types
             navigate("/league/".concat(region, "/").concat(name));
             if (cookie !== undefined) {
-                setCookie(__spreadArray([{ region: region, name: name }], cookie.filter(function (item) { return item.name !== name; }), true));
+                setCookie(__spreadArray([{ region: region, name: name }], cookie.filter(function (item) { return item.name !== name; }).slice(0, 4), true));
                 cookies.set('hist', __spreadArray([{
                         region: region,
                         name: name

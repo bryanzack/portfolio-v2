@@ -38,12 +38,13 @@ const SearchBar = (): JSX.Element => {
             name: string,
             region: string,
         }
+
         if (user_input) {
             console.log(region + " " + name);
             // `TODO: add typing to avoid any types
             navigate(`/league/${region}/${name}`);
             if (cookie !== undefined) {
-                setCookie([{region: region, name: name}, ...cookie.filter((item: CookieEntry) => item.name !== name)]);
+                setCookie([{region: region, name: name}, ...cookie.filter((item: CookieEntry) => item.name !== name).slice(0,4)]);
                 cookies.set('hist', [{
                     region: region,
                     name: name

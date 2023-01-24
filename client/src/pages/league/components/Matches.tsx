@@ -148,10 +148,10 @@ const Matches = (props: {args: { region: string, name: string }}): JSX.Element =
             else console.log("cookie exists");
         }
         if (!doesCookieExist) {
-            if (json.length < 10)
+            if (json.length < 5)
                 cookies.set('hist', [{name: props.args.name, region: props.args.region}, ...json]);
             else
-                cookies.set('hist', [{name: props.args.name, region: props.args.region}, ...json.slice(0, 9)]);
+                cookies.set('hist', [{name: props.args.name, region: props.args.region}, ...json.slice(0, 4)]);
         }
     } else {
         console.log("empty cookies, adding entry");
@@ -170,7 +170,7 @@ const Matches = (props: {args: { region: string, name: string }}): JSX.Element =
                             win = participant.win;
                         }
                     })
-                    // no one cares about tutorial games + they are inconsistent with data of other game types
+                    // no one cares about tutorial games + they are inconsistent with data of other game types (no rune data)
                     if (item.info.gameMode !== 'TUTORIAL_MODULE_1'
                     && item.info.gameMode !== 'TUTORIAL_MODULE_2'
                     && item.info.gameMode !== 'TUTORIAL_MODULE_3')
