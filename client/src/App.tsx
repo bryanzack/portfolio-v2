@@ -16,7 +16,6 @@ const App = (): JSX.Element => {
                   <Route path='/' element={<Landing />} />
                   <Route path='/blackjack' element={<Blackjack />} />
                   <Route path='/league' element={<LeagueHome />} />
-                  //TODO `figure out way to pass query params to rtk query while still preserving caching behavior
                   <Route path={'/league/:region/:name'} element={<LeagueRoute />}/>
               </Routes>
           </BrowserRouter>

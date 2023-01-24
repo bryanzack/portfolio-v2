@@ -57,7 +57,8 @@ const SearchBar = (): JSX.Element => {
         }
     }
     const handleRemoveCookie = (region: string, name: string) => {
-
+        dispatch(setShowHistory(true));
+        console.log(`remove cookie: ${region} : ${name}`);
     }
     return (
        <>
@@ -85,16 +86,17 @@ const SearchBar = (): JSX.Element => {
                           value={user_input}
                           onInput={handleInputChange}
                           onFocus={() => dispatch(setShowHistory(true))}
+                          onBlur={() => dispatch(setShowHistory(false))}
                           type={"text"}
                           onKeyUp={(event) => { if (event.code === "Enter") handleSubmit(selected_region, user_input, 'user')}}/>
                    <button className="submit-button" onClick={() => handleSubmit(selected_region, user_input, 'user')}>
                        Search
                    </button>
                    {(show_history && cookies.get('hist') !== undefined) &&
-                       <div className={"search-history"} onMouseLeave={() => dispatch(setShowHistory(false))}>
+                       <div className={"search-history"}>
                            {cookie.map((cookie: any, index: number) => (
                                 <div className={"history-entry"}>
-                                    <div className="history-clickable" onClick={() => {handleSubmit(cookie.region, cookie.name, 'history')}}>
+                                    <div className="history-clickable" onMouseDown={() => {handleSubmit(cookie.region, cookie.name, 'history')}}>
                                         <div className={"history-region"}>
                                             {Regions[cookie.region].abbreviation}
                                         </div>
@@ -102,7 +104,7 @@ const SearchBar = (): JSX.Element => {
                                             {cookie.name}
                                         </div>
                                     </div>
-                                    <button className={"history-remove"} onClick={() => handleRemoveCookie(user_input, selected_region)}>
+                                    <button className={"history-remove"} onMouseDown={() => handleRemoveCookie(user_input, selected_region)}>
                                         x
                                     </button>
                                 </div>
