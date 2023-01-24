@@ -36,13 +36,14 @@ var SearchBar = function () {
         dispatch((0, searchBarSlice_1.updateUserInput)(event.target.value));
         console.log(event.target.value);
     };
-    var handleSubmit = function (region, name) {
+    // TODO `differentiate between history click submit & user input submit
+    var handleSubmit = function (region, name, method) {
         setRegionMenu(false);
         dispatch((0, leagueSlice_1.setShowHistory)(false));
-        if (user_input) {
+        if ((user_input && method === 'user') || method === 'history') {
             console.log(region + " " + name);
-            // `TODO: add typing to avoid any types
             navigate("/league/".concat(region, "/").concat(name));
+            // `TODO: add typing to avoid any types
             if (cookie !== undefined) {
                 setCookie(__spreadArray([{ region: region, name: name }], cookie.filter(function (item) { return item.name !== name; }).slice(0, 4), true));
                 cookies.set('hist', __spreadArray([{
@@ -78,11 +79,11 @@ var SearchBar = function () {
                         React.createElement("div", { className: "region-button", onClick: function () { return setRegionMenu(true); } },
                             React.createElement("p", null, regions_1["default"][selected_region].abbreviation)),
                 React.createElement("input", { className: "username-input", value: user_input, onInput: handleInputChange, onFocus: function () { return dispatch((0, leagueSlice_1.setShowHistory)(true)); }, type: "text", onKeyUp: function (event) { if (event.code === "Enter")
-                        handleSubmit(selected_region, user_input); } }),
-                React.createElement("button", { className: "submit-button", onClick: function () { return handleSubmit(selected_region, user_input); } }, "Search"),
+                        handleSubmit(selected_region, user_input, 'user'); } }),
+                React.createElement("button", { className: "submit-button", onClick: function () { return handleSubmit(selected_region, user_input, 'user'); } }, "Search"),
                 (show_history && cookies.get('hist') !== undefined) &&
                     React.createElement("div", { className: "search-history", onMouseLeave: function () { return dispatch((0, leagueSlice_1.setShowHistory)(false)); } }, cookie.map(function (cookie, index) { return (React.createElement("div", { className: "history-entry" },
-                        React.createElement("div", { className: "history-clickable", onClick: function () { handleSubmit(cookie.region, cookie.name); } },
+                        React.createElement("div", { className: "history-clickable", onClick: function () { handleSubmit(cookie.region, cookie.name, 'history'); } },
                             React.createElement("div", { className: "history-region" }, regions_1["default"][cookie.region].abbreviation),
                             React.createElement("div", { className: "history-name" }, cookie.name)),
                         React.createElement("button", { className: "history-remove", onClick: function () { return handleRemoveCookie(user_input, selected_region); } }, "x"))); }))))));

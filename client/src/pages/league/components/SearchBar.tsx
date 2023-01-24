@@ -28,17 +28,18 @@ const SearchBar = (): JSX.Element => {
         dispatch(updateUserInput(event.target.value));
         console.log(event.target.value);
     }
-    const handleSubmit = (region: string, name: string) => {
+    // TODO `differentiate between history click submit & user input submit
+    const handleSubmit = (region: string, name: string, method: string) => {
         setRegionMenu(false);
         dispatch(setShowHistory(false));
         type CookieEntry = {
             name: string,
             region: string,
         }
-        if (user_input) {
+        if ((user_input && method === 'user') || method === 'history') {
             console.log(region + " " + name);
-            // `TODO: add typing to avoid any types
             navigate(`/league/${region}/${name}`);
+            // `TODO: add typing to avoid any types
             if (cookie !== undefined) {
                 setCookie([{region: region, name: name}, ...cookie.filter((item: CookieEntry) => item.name !== name).slice(0,4)]);
                 cookies.set('hist', [{
@@ -85,16 +86,15 @@ const SearchBar = (): JSX.Element => {
                           onInput={handleInputChange}
                           onFocus={() => dispatch(setShowHistory(true))}
                           type={"text"}
-                          onKeyUp={(event) => { if (event.code === "Enter") handleSubmit(selected_region, user_input)}}/>
-                   <button className="submit-button" onClick={() => handleSubmit(selected_region, user_input)}>
+                          onKeyUp={(event) => { if (event.code === "Enter") handleSubmit(selected_region, user_input, 'user')}}/>
+                   <button className="submit-button" onClick={() => handleSubmit(selected_region, user_input, 'user')}>
                        Search
                    </button>
-                   // TODO ` cookie onClick does not work when at /league
                    {(show_history && cookies.get('hist') !== undefined) &&
                        <div className={"search-history"} onMouseLeave={() => dispatch(setShowHistory(false))}>
                            {cookie.map((cookie: any, index: number) => (
                                 <div className={"history-entry"}>
-                                    <div className="history-clickable" onClick={() => {handleSubmit(cookie.region, cookie.name)}}>
+                                    <div className="history-clickable" onClick={() => {handleSubmit(cookie.region, cookie.name, 'history')}}>
                                         <div className={"history-region"}>
                                             {Regions[cookie.region].abbreviation}
                                         </div>
