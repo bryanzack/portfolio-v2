@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 .matches {
-    border: 1px solid red;
     width: 650px;
     height: fit-content;
     margin-bottom: 80px;
 }
-
+.match-win:hover, .match-lose:hover {
+    opacity: 100%;
+}
 .match-win {
+    opacity: 75%;
     font-family: "Roboto", sans-serif;
     display: flex;
     flex-direction: row;
@@ -20,6 +22,7 @@
 }
 
 .match-lose {
+    opacity: 75%;
     font-family: "Roboto", sans-serif;
     display: flex;
     flex-direction: row;
