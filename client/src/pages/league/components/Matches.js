@@ -137,16 +137,15 @@ var Matches = function (props) {
         }
         if (!doesCookieExist) {
             if (json.length < 5)
-                cookies.set('hist', __spreadArray([{ name: props.args.name, region: props.args.region }], json, true));
+                cookies.set('hist', __spreadArray([{ name: props.args.name, region: props.args.region }], json, true), { path: '/' });
             else
-                cookies.set('hist', __spreadArray([{ name: props.args.name, region: props.args.region }], json.slice(0, 4), true));
+                cookies.set('hist', __spreadArray([{ name: props.args.name, region: props.args.region }], json.slice(0, 4), true), { path: '/' });
         }
     }
     else {
         console.log("empty cookies, adding entry");
-        cookies.set('hist', [{ name: props.args.name, region: props.args.region }]);
+        cookies.set('hist', [{ name: props.args.name, region: props.args.region }], { path: '/' });
     }
-    console.log(json);
     return (React.createElement(React.Fragment, null,
         React.createElement("div", { className: "matches" }, match_response.match_list.map(function (item) {
             item.info.participants.map(function (participant) {

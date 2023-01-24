@@ -1,11 +1,10 @@
 const React = require('react');
 import './LeagueRoute.css';
 
-import type { RootState } from "../../../store";
 import { updateUserInput } from "../reducers/searchBarSlice";
 import { useParams } from "react-router";
 import { animated, useTransition } from '@react-spring/web';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import SearchBar from './SearchBar';
 import Matches from './Matches';

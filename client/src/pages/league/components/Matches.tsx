@@ -149,17 +149,14 @@ const Matches = (props: {args: { region: string, name: string }}): JSX.Element =
         }
         if (!doesCookieExist) {
             if (json.length < 5)
-                cookies.set('hist', [{name: props.args.name, region: props.args.region}, ...json]);
+                cookies.set('hist', [{name: props.args.name, region: props.args.region}, ...json], {path: '/'});
             else
-                cookies.set('hist', [{name: props.args.name, region: props.args.region}, ...json.slice(0, 4)]);
+                cookies.set('hist', [{name: props.args.name, region: props.args.region}, ...json.slice(0, 4)], { path: '/'});
         }
     } else {
         console.log("empty cookies, adding entry");
-        cookies.set('hist', [{name: props.args.name, region: props.args.region}]);
+        cookies.set('hist', [{name: props.args.name, region: props.args.region}], { path: '/'});
     }
-
-
-    console.log(json);
 
     return (
         <>

@@ -20,9 +20,6 @@ const SearchBar = (): JSX.Element => {
     const user_input = useSelector((state: RootState) => state.searchbar.user_input);
     const [region_menu, setRegionMenu] = useState(false);
     const show_history = useSelector((state: RootState) => state.league.show_history);
-    useEffect(() => {
-        console.log(cookies.get('hist'));
-    }, []);
     const handleRegionClick = (item: string) => {
         dispatch(updateSelectedRegion(item));
         setRegionMenu(false);
@@ -38,7 +35,6 @@ const SearchBar = (): JSX.Element => {
             name: string,
             region: string,
         }
-
         if (user_input) {
             console.log(region + " " + name);
             // `TODO: add typing to avoid any types
@@ -48,16 +44,19 @@ const SearchBar = (): JSX.Element => {
                 cookies.set('hist', [{
                     region: region,
                     name: name
-                }, ...cookie.filter((item: CookieEntry) => item.name !== name)]);
+                }, ...cookie.filter((item: CookieEntry) => item.name !== name)], { path: '/'});
             } else {
                 setCookie([{region: region, name: name}]);
                 cookies.set('hist', [{
                     region: region,
                     name: name
-                }]);
+                }], { path: '/'});
             }
             (document.activeElement as HTMLElement).blur();
         }
+    }
+    const handleRemoveCookie = (region: string, name: string) => {
+
     }
     return (
        <>
@@ -90,6 +89,7 @@ const SearchBar = (): JSX.Element => {
                    <button className="submit-button" onClick={() => handleSubmit(selected_region, user_input)}>
                        Search
                    </button>
+                   // TODO ` cookie onClick does not work when at /league
                    {(show_history && cookies.get('hist') !== undefined) &&
                        <div className={"search-history"} onMouseLeave={() => dispatch(setShowHistory(false))}>
                            {cookie.map((cookie: any, index: number) => (
@@ -102,7 +102,7 @@ const SearchBar = (): JSX.Element => {
                                             {cookie.name}
                                         </div>
                                     </div>
-                                    <button className={"history-remove"}>
+                                    <button className={"history-remove"} onClick={() => handleRemoveCookie(user_input, selected_region)}>
                                         x
                                     </button>
                                 </div>
