@@ -3,6 +3,7 @@ import './LeagueHome.css';
 
 import { animated, useTransition } from '@react-spring/web';
 import SearchBar from './SearchBar';
+import HelpTab from './HelpTab';
 
 const LeagueHome = (): JSX.Element => {
     const fadeIn = useTransition(null, {
@@ -12,6 +13,7 @@ const LeagueHome = (): JSX.Element => {
     });
    return fadeIn((style) => (
        <animated.div style={style} className={"league-home"}>
+           <HelpTab />
            <div className="league-container">
                <SearchBar />
            </div>

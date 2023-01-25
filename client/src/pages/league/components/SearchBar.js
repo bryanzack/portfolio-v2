@@ -50,7 +50,7 @@ var SearchBar = function () {
                 cookies.set('hist', __spreadArray([{
                         region: region,
                         name: name
-                    }], cookie.filter(function (item) { return item.name !== name; }), true), { path: '/' });
+                    }], cookie.filter(function (item) { return (item.name !== name); }), true), { path: '/' });
             }
             else {
                 setCookie([{ region: region, name: name }]);

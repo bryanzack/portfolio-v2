@@ -1,0 +1,23 @@
+.help-tab {
+    position: absolute;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 20vw;
+}
+.help-content {
+    width: 90%;
+    height: 100%;
+    background: red;
+}
+.help-button-container {
+    //background: blue;
+    width: 10%;
+}
+
+.help-button {
+    height: 4%;
+    width: 100%;
+    background: blue;
+}

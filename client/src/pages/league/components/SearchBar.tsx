@@ -47,7 +47,7 @@ const SearchBar = (): JSX.Element => {
                 cookies.set('hist', [{
                     region: region,
                     name: name
-                }, ...cookie.filter((item: CookieEntry) => item.name !== name)], { path: '/'});
+                }, ...cookie.filter((item: CookieEntry) => (item.name !== name))], { path: '/'});
             } else {
                 setCookie([{region: region, name: name}]);
                 cookies.set('hist', [{
