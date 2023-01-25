@@ -61,6 +61,14 @@ const SearchBar = (): JSX.Element => {
     const handleRemoveCookie = (region: string, name: string) => {
         dispatch(setShowHistory(true));
         console.log(`remove cookie: ${region} : ${name}`);
+        console.log(cookie);
+        type CookieEntry = {
+            region: string,
+            name: string,
+        }
+        //setCookie([cookies.get('hist').filter((entry: CookieEntry) => entry.name !== name)]);
+        setCookie([...cookie.filter((entry: CookieEntry) => entry.name !== name)]);
+        cookies.set('hist', cookie.filter((entry: CookieEntry) => entry.name !== name), {path: '/'});
     }
     const history_style = useSpring( {
         from: {
@@ -116,7 +124,7 @@ const SearchBar = (): JSX.Element => {
                    <button className="submit-button" onClick={() => handleSubmit(selected_region, user_input, 'user')}>
                        Search
                    </button>
-                   {(show_history && cookies.get('hist') !== undefined) &&
+                   {(show_history && cookies.get('hist') !== undefined && cookie.length > 0) &&
                        <animated.div style={history_style} className={"search-history"}>
                            {cookie.map((cookie: any, index: number) => (
                                 <div className={"history-entry"}>
@@ -128,7 +136,7 @@ const SearchBar = (): JSX.Element => {
                                             {cookie.name}
                                         </div>
                                     </div>
-                                    <button className={"history-remove"} onMouseDown={() => handleRemoveCookie(user_input, selected_region)}>
+                                    <button className={"history-remove"} onMouseDown={() => handleRemoveCookie(cookie.region, cookie.name)}>
                                         x
                                     </button>
                                 </div>

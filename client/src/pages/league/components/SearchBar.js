@@ -65,6 +65,10 @@ var SearchBar = function () {
     var handleRemoveCookie = function (region, name) {
         dispatch((0, leagueSlice_1.setShowHistory)(true));
         console.log("remove cookie: ".concat(region, " : ").concat(name));
+        console.log(cookie);
+        //setCookie([cookies.get('hist').filter((entry: CookieEntry) => entry.name !== name)]);
+        setCookie(__spreadArray([], cookie.filter(function (entry) { return entry.name !== name; }), true));
+        cookies.set('hist', cookie.filter(function (entry) { return entry.name !== name; }), { path: '/' });
     };
     var history_style = (0, web_1.useSpring)({
         from: {
@@ -106,11 +110,11 @@ var SearchBar = function () {
                 React.createElement("input", { className: "username-input", value: user_input, onInput: handleInputChange, onFocus: function () { dispatch((0, leagueSlice_1.setShowHistory)(true)); setRegionMenu(false); }, onBlur: function () { return dispatch((0, leagueSlice_1.setShowHistory)(false)); }, type: "text", onKeyUp: function (event) { if (event.code === "Enter")
                         handleSubmit(selected_region, user_input, 'user'); } }),
                 React.createElement("button", { className: "submit-button", onClick: function () { return handleSubmit(selected_region, user_input, 'user'); } }, "Search"),
-                (show_history && cookies.get('hist') !== undefined) &&
+                (show_history && cookies.get('hist') !== undefined && cookie.length > 0) &&
                     React.createElement(web_1.animated.div, { style: history_style, className: "search-history" }, cookie.map(function (cookie, index) { return (React.createElement("div", { className: "history-entry" },
                         React.createElement("div", { className: "history-clickable", onMouseDown: function () { handleSubmit(cookie.region, cookie.name, 'history'); } },
                             React.createElement("div", { className: "history-region" }, regions_1["default"][cookie.region].abbreviation),
                             React.createElement("div", { className: "history-name" }, cookie.name)),
-                        React.createElement("button", { className: "history-remove", onMouseDown: function () { return handleRemoveCookie(user_input, selected_region); } }, "x"))); }))))));
+                        React.createElement("button", { className: "history-remove", onMouseDown: function () { return handleRemoveCookie(cookie.region, cookie.name); } }, "x"))); }))))));
 };
 exports["default"] = SearchBar;

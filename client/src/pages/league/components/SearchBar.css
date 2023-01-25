@@ -100,7 +100,7 @@
     border-radius: 10px;
 }
 .history-entry {
-    margin-left: 5px;
+    margin-left: 10px;
     display: flex;
     flex-direction: row;
     justify-content: left;
