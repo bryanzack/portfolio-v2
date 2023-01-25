@@ -25,8 +25,8 @@ const HelpTab = (): JSX.Element => {
                     <ul>
                         <li>Given a region/username combination, several requests are made to the official <a className="api-link" href={'https://developer.riotgames.com/apis'} target={"_blank"}>Riot API.</a> First,
                             a request containing the given region/username is sent to a <a className={"api-link"} href={"https://developer.riotgames.com/apis#summoner-v4"} target={"_blank"}>summoners/v4</a> endpoint to get the users puuid. Next, the now retrieved puuid is used to make a request
-                        to the match/v5 endpoint, which returns a list of match ids. Finally, a request is made for each match id to <a className={"api-link"} href={"https://developer.riotgames.com/apis#match-v5"} target={"_blank"}>match/v5</a> again. This time an object containing
-                        all the game data is returned to the server, send to the user, and rendered.</li>
+                        to the <a className={"api-link"} href={"https://developer.riotgames.com/apis#match-v5"} target={"_blank"}>match/v5</a> endpoint, which returns a list of match ids. Finally, a request is made for each match id to <a className={"api-link"} href={"https://developer.riotgames.com/apis#match-v5"} target={"_blank"}>match/v5</a> again. This time an object containing
+                        all the game data is returned to the server, sent to the user, and rendered.</li>
                     </ul>
                     <h1>Why did I make this</h1>
                     <ul>
