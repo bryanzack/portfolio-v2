@@ -7,16 +7,31 @@ var web_1 = require("@react-spring/web");
 var HelpTab = function () {
     var _a = (0, react_1.useState)(true), show_help = _a[0], setShowHelp = _a[1];
     /// -18vw
-    var styles = (0, web_1.useSpring)({
-        from: { left: show_help ? '-18vw' : '0vw' },
-        to: { left: show_help ? '0vw' : '-18vw' }
+    var help_tab = (0, web_1.useSpring)({
+        from: {
+            left: show_help ? '-18vw' : '0vw'
+        },
+        to: {
+            left: show_help ? '0vw' : '-18vw'
+        }
     });
-    return (React.createElement(web_1.animated.div, { style: styles, className: "help-tab" },
+    var text_style = (0, web_1.useSpring)({
+        from: {
+            opacity: show_help ? 0 : 1
+        },
+        to: {
+            opacity: show_help ? 1 : 0
+        }
+    });
+    return (React.createElement(web_1.animated.div, { style: help_tab, className: "help-tab", onClick: function () { return setShowHelp(!show_help); } },
         React.createElement("div", { className: "help-content" },
-            React.createElement("div", { className: "help-content-inner" },
+            React.createElement(web_1.animated.div, { style: text_style, className: "help-content-inner" },
                 React.createElement("h1", null, "What does this do"),
                 React.createElement("ul", null,
-                    React.createElement("li", null, "This page allows you to see the last 10 games of any League of Legends user.")),
+                    React.createElement("li", null,
+                        "This page allows you to see the last 10 games of any ",
+                        React.createElement("a", { className: "api-link", target: "_blank", href: "https://en.wikipedia.org/wiki/League_of_Legends" }, "League of Legends"),
+                        " player.")),
                 React.createElement("h1", null, "How does it work"),
                 React.createElement("ul", null,
                     React.createElement("li", null,
@@ -36,8 +51,6 @@ var HelpTab = function () {
                 React.createElement("ul", null,
                     React.createElement("li", null, "Redux Toolkit Query (RTK Query)"),
                     React.createElement("li", null, "Redux Toolkit"),
-                    React.createElement("li", null, "React")))),
-        React.createElement("div", { className: "help-button-container" },
-            React.createElement("div", { className: "help-button", onClick: function () { return setShowHelp(!show_help); } }))));
+                    React.createElement("li", null, "React"))))));
 };
 exports["default"] = HelpTab;

@@ -7,19 +7,30 @@ import { useSpring, useTransition, animated, config } from '@react-spring/web';
 const HelpTab = (): JSX.Element => {
     const [show_help, setShowHelp] = useState(true);
     /// -18vw
-    const styles = useSpring({
-        from: {left: show_help ? '-18vw' : '0vw'},
-        to: {left: show_help ? '0vw' : '-18vw'},
-        //left: show_help ? '0vw' : "-18vw",
+    const help_tab = useSpring({
+        from: {
+            left: show_help ? '-18vw' : '0vw',
+        },
+        to: {
+            left: show_help ? '0vw' : '-18vw',
+        },
     });
+    const text_style = useSpring({
+        from: {
+            opacity: show_help ? 0 : 1,
+        },
+        to: {
+            opacity: show_help ? 1 : 0,
+        }
+    })
     return (
-        <animated.div style={styles} className={"help-tab"}>
+        <animated.div style={help_tab} className={"help-tab"} onClick={() => setShowHelp(!show_help)}>
             <div className="help-content">
-                <div className="help-content-inner">
+                <animated.div style={text_style} className="help-content-inner">
 
                     <h1>What does this do</h1>
                     <ul>
-                        <li>This page allows you to see the last 10 games of any League of Legends user.</li>
+                        <li>This page allows you to see the last 10 games of any <a className="api-link" target={"_blank"} href={"https://en.wikipedia.org/wiki/League_of_Legends"}>League of Legends</a> player.</li>
                     </ul>
                     <h1>How does it work</h1>
                     <ul>
@@ -38,12 +49,7 @@ const HelpTab = (): JSX.Element => {
                         <li>Redux Toolkit</li>
                         <li>React</li>
                     </ul>
-                </div>
-            </div>
-            <div className="help-button-container">
-                <div className={"help-button"} onClick={() => setShowHelp(!show_help)}>
-
-                </div>
+                </animated.div>
             </div>
         </animated.div>
     );
