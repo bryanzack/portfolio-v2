@@ -97,6 +97,7 @@
     height: fit-content;
     position: absolute;
     background: white;
+    border-radius: 10px;
 }
 .history-entry {
     margin-left: 5px;

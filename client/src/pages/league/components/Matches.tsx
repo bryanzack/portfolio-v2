@@ -128,12 +128,12 @@ const Matches = (props: {args: { region: string, name: string }}): JSX.Element =
     } = useGetSummonerDataQuery({region: props.args.region, name: props.args.name});
     console.log(match_response);
 
-    if (isLoading) return <div>Loading...</div>
-    if (isFetching) return <div>Fetching...</div>
+    if (isLoading) return <div className={"state-indicator"}><h1>Loading...</h1></div>
+    if (isFetching) return <div className={"state-indicator"}><h1>Fetching...</h1></div>
     if (match_response?.response.status_code === 404
         || match_response?.match_list === null)
         return <div> 404 {match_response.response.message}</div>
-    if (isError) return <div>Error...</div>
+    if (isError) return <div><h1>Error...</h1></div>
 
 
     let win: boolean|undefined = undefined;

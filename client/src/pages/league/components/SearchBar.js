@@ -17,6 +17,7 @@ var react_1 = require("react");
 var react_redux_1 = require("react-redux");
 var searchBarSlice_1 = require("../reducers/searchBarSlice");
 var leagueSlice_1 = require("../reducers/leagueSlice");
+var web_1 = require("@react-spring/web");
 var regions_1 = require("../helpers/regions");
 var SearchBar = function () {
     var cookies = new universal_cookie_1["default"];
@@ -65,12 +66,34 @@ var SearchBar = function () {
         dispatch((0, leagueSlice_1.setShowHistory)(true));
         console.log("remove cookie: ".concat(region, " : ").concat(name));
     };
+    var history_style = (0, web_1.useSpring)({
+        from: {
+            opacity: show_history ? 0 : 1
+        },
+        to: {
+            opacity: show_history ? 1 : 0
+        },
+        config: {
+            duration: 100
+        }
+    });
+    var region_style = (0, web_1.useSpring)({
+        from: {
+            opacity: region_menu ? 0 : 1
+        },
+        to: {
+            opacity: region_menu ? 1 : 0
+        },
+        config: {
+            duration: 100
+        }
+    });
     return (React.createElement(React.Fragment, null,
         React.createElement("div", { className: "searchbar" },
             React.createElement("div", { className: "bar" },
                 region_menu
                     ?
-                        React.createElement("div", { className: "region-menu" },
+                        React.createElement(web_1.animated.div, { style: region_style, className: "region-menu" },
                             React.createElement("div", { className: "regions" },
                                 React.createElement("span", { onClick: function () { return setRegionMenu(false); } }, regions_1["default"][selected_region].abbreviation),
                                 regions.map(function (item, index) {
@@ -80,11 +103,11 @@ var SearchBar = function () {
                     :
                         React.createElement("div", { className: "region-button", onClick: function () { return setRegionMenu(true); } },
                             React.createElement("p", null, regions_1["default"][selected_region].abbreviation)),
-                React.createElement("input", { className: "username-input", value: user_input, onInput: handleInputChange, onFocus: function () { return dispatch((0, leagueSlice_1.setShowHistory)(true)); }, onBlur: function () { return dispatch((0, leagueSlice_1.setShowHistory)(false)); }, type: "text", onKeyUp: function (event) { if (event.code === "Enter")
+                React.createElement("input", { className: "username-input", value: user_input, onInput: handleInputChange, onFocus: function () { dispatch((0, leagueSlice_1.setShowHistory)(true)); setRegionMenu(false); }, onBlur: function () { return dispatch((0, leagueSlice_1.setShowHistory)(false)); }, type: "text", onKeyUp: function (event) { if (event.code === "Enter")
                         handleSubmit(selected_region, user_input, 'user'); } }),
                 React.createElement("button", { className: "submit-button", onClick: function () { return handleSubmit(selected_region, user_input, 'user'); } }, "Search"),
                 (show_history && cookies.get('hist') !== undefined) &&
-                    React.createElement("div", { className: "search-history" }, cookie.map(function (cookie, index) { return (React.createElement("div", { className: "history-entry" },
+                    React.createElement(web_1.animated.div, { style: history_style, className: "search-history" }, cookie.map(function (cookie, index) { return (React.createElement("div", { className: "history-entry" },
                         React.createElement("div", { className: "history-clickable", onMouseDown: function () { handleSubmit(cookie.region, cookie.name, 'history'); } },
                             React.createElement("div", { className: "history-region" }, regions_1["default"][cookie.region].abbreviation),
                             React.createElement("div", { className: "history-name" }, cookie.name)),

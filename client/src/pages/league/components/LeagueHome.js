@@ -10,9 +10,8 @@ var LeagueHome = function () {
         enter: { opacity: 1 },
         leave: { opacity: 0 }
     });
-    return fadeIn(function (style) { return (React.createElement(web_1.animated.div, { style: style, className: "league" },
+    return fadeIn(function (style) { return (React.createElement(web_1.animated.div, { style: style, className: "league-home" },
         React.createElement("div", { className: "league-container" },
-            React.createElement(SearchBar_1["default"], null),
-            React.createElement("h1", null, "HOME!")))); });
+            React.createElement(SearchBar_1["default"], null)))); });
 };
 exports["default"] = LeagueHome;

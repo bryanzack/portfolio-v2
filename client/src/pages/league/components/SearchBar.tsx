@@ -3,11 +3,13 @@ import './SearchBar.css';
 
 import type { RootState } from "../../../store";
 import Cookies from 'universal-cookie';
+import useMeasure from "react-use-measure";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {updateUserInput, updateSelectedRegion, setHistoryCookies} from "../reducers/searchBarSlice";
+import { updateUserInput, updateSelectedRegion, setHistoryCookies } from "../reducers/searchBarSlice";
 import { setShowHistory } from "../reducers/leagueSlice";
+import { animated, useSpring, useTransition } from '@react-spring/web';
 import Regions from '../helpers/regions';
 
 const SearchBar = (): JSX.Element => {
@@ -60,13 +62,35 @@ const SearchBar = (): JSX.Element => {
         dispatch(setShowHistory(true));
         console.log(`remove cookie: ${region} : ${name}`);
     }
+    const history_style = useSpring( {
+        from: {
+            opacity: show_history ? 0 : 1,
+        },
+        to: {
+            opacity: show_history ? 1 : 0,
+        },
+        config: {
+            duration: 100,
+        }
+    });
+    const region_style = useSpring({
+        from: {
+            opacity: region_menu ? 0 : 1,
+        },
+        to: {
+            opacity: region_menu ? 1 : 0,
+        },
+        config: {
+            duration: 100,
+        }
+    })
     return (
        <>
            <div className="searchbar">
                <div className="bar">
                    {region_menu
                        ?
-                           <div className="region-menu">
+                           <animated.div style={region_style} className="region-menu">
                                <div className="regions">
                                <span onClick={() => setRegionMenu(false)}>{Regions[selected_region].abbreviation}</span>
                                    {regions.map((item: string, index: number) => {
@@ -76,7 +100,7 @@ const SearchBar = (): JSX.Element => {
                                                {Regions[item].abbreviation}</span>
                                    })}
                                </div>
-                           </div>
+                           </animated.div>
                        :
                            <div className="region-button" onClick={() => setRegionMenu(true)}>
                                <p>{Regions[selected_region].abbreviation}</p>
@@ -85,7 +109,7 @@ const SearchBar = (): JSX.Element => {
                    <input className="username-input"
                           value={user_input}
                           onInput={handleInputChange}
-                          onFocus={() => dispatch(setShowHistory(true))}
+                          onFocus={() => {dispatch(setShowHistory(true)); setRegionMenu(false);}}
                           onBlur={() => dispatch(setShowHistory(false))}
                           type={"text"}
                           onKeyUp={(event) => { if (event.code === "Enter") handleSubmit(selected_region, user_input, 'user')}}/>
@@ -93,7 +117,7 @@ const SearchBar = (): JSX.Element => {
                        Search
                    </button>
                    {(show_history && cookies.get('hist') !== undefined) &&
-                       <div className={"search-history"}>
+                       <animated.div style={history_style} className={"search-history"}>
                            {cookie.map((cookie: any, index: number) => (
                                 <div className={"history-entry"}>
                                     <div className="history-clickable" onMouseDown={() => {handleSubmit(cookie.region, cookie.name, 'history')}}>
@@ -109,7 +133,7 @@ const SearchBar = (): JSX.Element => {
                                     </button>
                                 </div>
                                ))}
-                       </div>
+                       </animated.div>
                    }
                 </div>
            </div>

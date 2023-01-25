@@ -11,10 +11,9 @@ const LeagueHome = (): JSX.Element => {
         leave: {opacity: 0},
     });
    return fadeIn((style) => (
-       <animated.div style={style} className={"league"}>
+       <animated.div style={style} className={"league-home"}>
            <div className="league-container">
                <SearchBar />
-               <h1>HOME!</h1>
            </div>
        </animated.div>
    ));

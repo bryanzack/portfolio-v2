@@ -113,16 +113,19 @@ var Matches = function (props) {
     var _a = (0, api_1.useGetSummonerDataQuery)({ region: props.args.region, name: props.args.name }), match_response = _a.data, isFetching = _a.isFetching, isLoading = _a.isLoading, isError = _a.isError;
     console.log(match_response);
     if (isLoading)
-        return React.createElement("div", null, "Loading...");
+        return React.createElement("div", { className: "state-indicator" },
+            React.createElement("h1", null, "Loading..."));
     if (isFetching)
-        return React.createElement("div", null, "Fetching...");
+        return React.createElement("div", { className: "state-indicator" },
+            React.createElement("h1", null, "Fetching..."));
     if ((match_response === null || match_response === void 0 ? void 0 : match_response.response.status_code) === 404
         || (match_response === null || match_response === void 0 ? void 0 : match_response.match_list) === null)
         return React.createElement("div", null,
             " 404 ",
             match_response.response.message);
     if (isError)
-        return React.createElement("div", null, "Error...");
+        return React.createElement("div", null,
+            React.createElement("h1", null, "Error..."));
     var win = undefined;
     var json = cookies.get('hist');
     // TODO `put cookie handling in helper function
