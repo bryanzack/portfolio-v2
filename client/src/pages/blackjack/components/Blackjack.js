@@ -10,6 +10,7 @@ var Player_js_1 = require("./Player.js");
 var Dealer_js_1 = require("./Dealer.js");
 var ButtonNav_js_1 = require("./ButtonNav.js");
 var Popup_js_1 = require("./Popup.js");
+var HelpTab_1 = require("./HelpTab");
 var Blackjack = function () {
     var winner = (0, react_redux_1.useSelector)(function (state) { return state.game.winner; });
     var fadeIn = (0, web_1.useTransition)(null, {
@@ -19,6 +20,7 @@ var Blackjack = function () {
     });
     return fadeIn(function (style) { return (React.createElement(React.Fragment, null,
         React.createElement(web_1.animated.div, { style: style, className: "blackjack" },
+            React.createElement(HelpTab_1["default"], null),
             React.createElement("div", { className: "popup" },
                 React.createElement(Popup_js_1["default"], { winner: winner })),
             React.createElement("div", { className: winner ? "blackjack-blur" : "blackjack" },

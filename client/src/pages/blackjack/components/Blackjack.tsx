@@ -12,6 +12,7 @@ import Player from './Player.js';
 import Dealer from './Dealer.js';
 import ButtonNav from './ButtonNav.js';
 import Popup from './Popup.js';
+import HelpTab from "./HelpTab";
 
 const Blackjack: FC = (): ReactElement => {
     const winner = useSelector((state: RootState) => state.game.winner);
@@ -24,6 +25,7 @@ const Blackjack: FC = (): ReactElement => {
     return fadeIn((style) => (
         <>
             <animated.div style={style} className="blackjack">
+                <HelpTab />
                 <div className="popup">
                     <Popup winner={winner}/>
                 </div>
