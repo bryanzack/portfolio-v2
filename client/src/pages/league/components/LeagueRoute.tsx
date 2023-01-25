@@ -5,9 +5,9 @@ import { updateUserInput } from "../reducers/searchBarSlice";
 import { useParams } from "react-router";
 import { animated, useTransition } from '@react-spring/web';
 import { useDispatch } from 'react-redux';
-
 import SearchBar from './SearchBar';
 import Matches from './Matches';
+import HelpTab from "./HelpTab";
 
 
 const LeagueRoute = (): JSX.Element => {
@@ -21,6 +21,7 @@ const LeagueRoute = (): JSX.Element => {
     });
     return fadeIn((style) => (
         <animated.div style={style} className="league">
+            <HelpTab />
             <div className="league-container">
                 <SearchBar/>
                 {(region && name) && <Matches args={{region: region, name: name}} />}
