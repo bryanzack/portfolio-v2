@@ -20,9 +20,9 @@ var Blackjack = function () {
     });
     return fadeIn(function (style) { return (React.createElement(React.Fragment, null,
         React.createElement(web_1.animated.div, { style: style, className: "blackjack" },
-            React.createElement(HelpTab_1["default"], null),
             React.createElement("div", { className: "popup" },
                 React.createElement(Popup_js_1["default"], { winner: winner })),
+            React.createElement(HelpTab_1["default"], null),
             React.createElement("div", { className: winner ? "blackjack-blur" : "blackjack" },
                 React.createElement("div", { className: "top" },
                     React.createElement("div", { className: "top-container" },

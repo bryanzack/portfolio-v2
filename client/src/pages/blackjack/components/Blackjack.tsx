@@ -25,10 +25,10 @@ const Blackjack: FC = (): ReactElement => {
     return fadeIn((style) => (
         <>
             <animated.div style={style} className="blackjack">
-                <HelpTab />
                 <div className="popup">
                     <Popup winner={winner}/>
                 </div>
+                <HelpTab />
                 <div className={winner ? "blackjack-blur" : "blackjack"}>
                     <div className="top">
                         <div className="top-container">
