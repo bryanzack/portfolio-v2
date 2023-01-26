@@ -3,13 +3,11 @@ import './Landing.css';
 
 
 import { FC, ReactElement, useRef, useState } from 'react';
-import type { RootState } from '../../../store';
 import { animated, useTransition, useTrail } from '@react-spring/web';
-import Names from './Names.js';
 import Nav from './Nav.js';
 import Page from './Page';
 import CursorAnimation from './CursorAnimation';
-import Magnification from './Magnification';
+import BryanZack from "./BryanZack";
 
 const Landing: FC = (): ReactElement => {
     const fadeIn = useTransition(null, {
@@ -25,11 +23,7 @@ const Landing: FC = (): ReactElement => {
     return fadeIn((style) => (
         <>
             <animated.div style={style} className="landing">
-                <div className="sidewaystext">
-                        {arr.map((index: number) => {
-                            return <h1 key={index}>bryan zack</h1>
-                        })}
-                </div>
+                <BryanZack />
                 <Nav />
                 <Page />
                 <CursorAnimation />

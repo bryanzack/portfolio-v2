@@ -1,0 +1,38 @@
+.bryan-zack {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 10;
+    color: black;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 470px;
+    margin-right: 325px;
+}
+
+.resume {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 0px;
+    padding: 0px;
+    width: fit-content;
+    height: 50px;
+    color: black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.download-icon {
+    filter: invert(0%) sepia(2%) saturate(0%) hue-rotate(239deg) brightness(104%) contrast(100%);
+}
+
+.my-name {
+    cursor: pointer;
+}
+
+.resume-link {
+    text-decoration: none;
+}

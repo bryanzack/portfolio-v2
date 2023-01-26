@@ -38,7 +38,6 @@ const Page: FC = (): ReactElement => {
     const navigate = useNavigate();
     const active_tab = useSelector((state: RootState) => state.nav.active_tab);
     const [open, setOpen] = useState(false);
-    const [hover, setHover] = useState("");
     const about: string[] = ['PHOTOGRAPHY', 'PENNSTATE', 'WEBDEV', 'MUSIC'];
     const tech: string[] = ['TYPESCRIPT', 'REACTJS', 'REDUX', 'NODE'];
     const projects: string[] = ['DATADISPLAY', 'PORTFOLIO', 'CARDS', '...']

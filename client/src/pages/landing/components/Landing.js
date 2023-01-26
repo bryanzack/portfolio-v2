@@ -6,6 +6,7 @@ var web_1 = require("@react-spring/web");
 var Nav_js_1 = require("./Nav.js");
 var Page_1 = require("./Page");
 var CursorAnimation_1 = require("./CursorAnimation");
+var BryanZack_1 = require("./BryanZack");
 var Landing = function () {
     var fadeIn = (0, web_1.useTransition)(null, {
         from: { opacity: 0 },
@@ -18,9 +19,7 @@ var Landing = function () {
     }
     return fadeIn(function (style) { return (React.createElement(React.Fragment, null,
         React.createElement(web_1.animated.div, { style: style, className: "landing" },
-            React.createElement("div", { className: "sidewaystext" }, arr.map(function (index) {
-                return React.createElement("h1", { key: index }, "bryan zack");
-            })),
+            React.createElement(BryanZack_1["default"], null),
             React.createElement(Nav_js_1["default"], null),
             React.createElement(Page_1["default"], null),
             React.createElement(CursorAnimation_1["default"], null)))); });

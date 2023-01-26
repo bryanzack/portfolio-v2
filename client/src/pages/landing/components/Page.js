@@ -38,7 +38,6 @@ var Page = function () {
     var navigate = (0, react_router_dom_1.useNavigate)();
     var active_tab = (0, react_redux_1.useSelector)(function (state) { return state.nav.active_tab; });
     var _a = (0, react_1.useState)(false), open = _a[0], setOpen = _a[1];
-    var _b = (0, react_1.useState)(""), hover = _b[0], setHover = _b[1];
     var about = ['PHOTOGRAPHY', 'PENNSTATE', 'WEBDEV', 'MUSIC'];
     var tech = ['TYPESCRIPT', 'REACTJS', 'REDUX', 'NODE'];
     var projects = ['DATADISPLAY', 'PORTFOLIO', 'CARDS', '...'];

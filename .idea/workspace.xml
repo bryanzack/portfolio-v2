@@ -60,11 +60,11 @@
       <recent name="Z:\WebStorm 2022.3.1\projects\client\src\images\leaguestuff" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="Z:\WebStorm 2022.3.1\projects\client\src\pages\landing\static\images" />
       <recent name="Z:\WebStorm 2022.3.1\projects\client\src\pages\league\static\" />
       <recent name="Z:\WebStorm 2022.3.1\projects\client\src\league\static\" />
       <recent name="Z:\WebStorm 2022.3.1\projects\client\src\pages\league\static" />
       <recent name="Z:\WebStorm 2022.3.1\projects\client\src\pages\blackjack\static\" />
-      <recent name="Z:\WebStorm 2022.3.1\projects\client\public\files" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -125,7 +125,7 @@
       <workItem from="1674528920213" duration="6052000" />
       <workItem from="1674575618739" duration="1480000" />
       <workItem from="1674657817340" duration="19691000" />
-      <workItem from="1674695038721" duration="5253000" />
+      <workItem from="1674695038721" duration="9102000" />
     </task>
     <servers />
   </component>
@@ -143,6 +143,7 @@
         <option value="$PROJECT_DIR$/client/src/pages/league/components/HelpTab.js" />
         <option value="$PROJECT_DIR$/client/src/pages/league/components/Match.js" />
         <option value="$PROJECT_DIR$/client/src/pages/blackjack/components/HelpTab.js" />
+        <option value="$PROJECT_DIR$/client/src/pages/landing/components/BryanZack.js" />
       </list>
     </option>
   </component>
