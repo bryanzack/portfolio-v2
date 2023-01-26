@@ -255,3 +255,10 @@
     font-size: 11px;
     color: #D31A45;
 }
+
+.state-indicator > h1 {
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
+    mix-blend-mode: exclusion;
+    color: mintcream;
+}

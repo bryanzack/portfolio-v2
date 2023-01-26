@@ -20,9 +20,8 @@ const Matches = (props: {args: { region: string, name: string }}): JSX.Element =
     if (isFetching) return <div className={"state-indicator"}><h1>Fetching...</h1></div>
     if (match_response?.response.status_code === 404
         || match_response?.match_list === null)
-        return <div> 404 {match_response.response.message}</div>
-    if (isError) return <div><h1>Error...</h1></div>
-
+        return <div className={"state-indicator"}> <h1>404 {match_response.response.message}</h1></div>
+    if (isError) return <div className={"state-indicator"}><h1>Error...</h1></div>
 
     let win: boolean|undefined = undefined;
     let json = cookies.get('hist');

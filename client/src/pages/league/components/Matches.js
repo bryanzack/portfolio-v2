@@ -26,11 +26,13 @@ var Matches = function (props) {
             React.createElement("h1", null, "Fetching..."));
     if ((match_response === null || match_response === void 0 ? void 0 : match_response.response.status_code) === 404
         || (match_response === null || match_response === void 0 ? void 0 : match_response.match_list) === null)
-        return React.createElement("div", null,
-            " 404 ",
-            match_response.response.message);
+        return React.createElement("div", { className: "state-indicator" },
+            " ",
+            React.createElement("h1", null,
+                "404 ",
+                match_response.response.message));
     if (isError)
-        return React.createElement("div", null,
+        return React.createElement("div", { className: "state-indicator" },
             React.createElement("h1", null, "Error..."));
     var win = undefined;
     var json = cookies.get('hist');

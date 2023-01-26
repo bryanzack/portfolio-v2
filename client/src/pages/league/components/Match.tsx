@@ -1,5 +1,3 @@
-import {matchNamespace} from "../helpers/match";
-
 const React = require('react');
 import './Match.css';
 import { handleTimeLength, handleTimeSince } from "../helpers/translateTimeStamps";
@@ -7,6 +5,7 @@ import { translateChampName } from "../helpers/translateChampName";
 import { translateSpell } from "../helpers/translateSpell";
 import { translatePrimary, translateSecondary } from "../helpers/translateRunes";
 import { translateMultiKill } from "../helpers/translateMultiKill";
+import { matchNamespace } from "../helpers/match";
 
 const Match = (props: { match: matchNamespace.Match, win: boolean, puuid: string }): JSX.Element => {
     // shortcuts

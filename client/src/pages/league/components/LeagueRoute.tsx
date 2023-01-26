@@ -7,8 +7,7 @@ import { animated, useTransition } from '@react-spring/web';
 import { useDispatch } from 'react-redux';
 import SearchBar from './SearchBar';
 import Matches from './Matches';
-import HelpTab from "./HelpTab";
-
+import HelpTab from './HelpTab';
 
 const LeagueRoute = (): JSX.Element => {
     const dispatch = useDispatch();
